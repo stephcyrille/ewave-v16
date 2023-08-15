@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<odoo noupdate="1">
+<odoo>
     <record model="crm.stage" id="stage_lead6">
         <field name="name">Processing</field>
         <field name="sequence">3</field>
