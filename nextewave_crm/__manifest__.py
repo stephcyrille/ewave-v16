@@ -24,6 +24,9 @@ NEXTeWave module for enhance CRM operations
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+
+        'data/crm_stage_data.xml',
+
         'views/crm_lead.xml',
     ],
 }
