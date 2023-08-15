@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_nextewave_product_line,nextewave_crm.nextewave_product_line,model_nextewave_product_line,base.group_user,1,1,1,1
