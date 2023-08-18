@@ -1,0 +1,29 @@
+<odoo>
+  <data>
+    <!-- Override CRM Form view -->
+    <record id="nextewave_crm_purchase_form_view" model="ir.ui.view">
+      <field name="name">Pipe line</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+      <field name="arch" type="xml">
+        <!--    Customs Action    -->
+        <button name="action_set_won_rainbowman" position="before">
+          <button
+              string="create vendor quotation"
+              name="action_goto_purchase_order_form"
+              type="object"
+              class="oe_highlight"
+              attrs="
+                {'invisible':
+                    [('state',
+                        'in',
+                      ['draft', 'new' , 'qualified', 'not_qualified', 'quotation_created', 'vendor_selected', 'purchase_created',
+                      'lost', 'won', 'canceled', 'close']
+                    )]
+                }"
+          />
+        </button>
+      </field>
+  </record>
+  </data>
+</odoo>

@@ -122,3 +122,4 @@ class NextewaveCrmLead(models.Model):
                 raise ValidationError("You need to create qualified step that has sequence = 2")
             self.filtered(lambda o: o.state == 'qualified').write({'state': 'processing', 'stage_id': stage.id})
         return super(NextewaveCrmLead, self.with_context(mail_post_autofollow=True)).message_post(**kwargs)
+
