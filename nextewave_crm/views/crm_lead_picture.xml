@@ -1,0 +1,34 @@
+<odoo>
+  <data>
+    <!-- Override CRM Form view -->
+    <record id="nextewave_crm_lead_form_view" model="ir.ui.view">
+      <field name="name">Pipe line</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+      <field name="arch" type="xml">
+        <notebook position="after">
+            <group> 
+                <group> 
+                    <field name="product_pic1" />
+                </group> 
+                <group> 
+                    <field name="product_pic2" />
+                </group> 
+            </group> 
+            <group> 
+                <group> 
+                    <field name="product_pic3" />
+                </group> 
+                <group> 
+                    <field name="product_pic4" />
+                </group> 
+            </group> 
+        </notebook>
+      </field>
+  </record>
+
+   <!-- Override CRM Form view -->
+
+
+  </data>
+</odoo>
