@@ -4,7 +4,7 @@
     <record id="nextewave_purchase_crm_form_view" model="ir.ui.view">
       <field name="name">Pipe line</field>
       <field name="model">crm.lead</field>
-      <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+      <field name="inherit_id" ref="nextewave_crm.nextewave_crm_lead_form_view"/>
       <field name="arch" type="xml">
         <!--    Customs Action    -->
         <button name="action_set_won_rainbowman" position="before">
