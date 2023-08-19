@@ -1,13 +1,15 @@
-from datetime import timedelta
+# from datetime import timedelta
 import logging
+import base64
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
-from .mixing import ImageFromURLMixin
+import requests
+
 
 _logger = logging.getLogger(__name__)
 
 
-class NextewaveCrmLead(models.Model, ImageFromURLMixin):
+class NextewaveCrmLead(models.Model):
     _inherit = 'crm.lead'
     _description = 'NEXTeWave CRM Lead'
 
@@ -34,6 +36,21 @@ class NextewaveCrmLead(models.Model, ImageFromURLMixin):
     product_pic3 = fields.Binary(string="Picture 3", compute='_compute_image_3_url', readonly=False, store=True)
     product_pic4_url = fields.Char(string="Picture 4 URL", required=False)
     product_pic4 = fields.Binary(string="Picture 4", compute='_compute_image_4_url', readonly=False, store=True)
+
+    def get_image_from_url(self, url):
+      """
+      :return: Returns a base64 encoded string.
+      """
+      data = ""
+      try:
+          # Python 2
+          # data = requests.get(url.strip()).content.encode("base64").replace("\n", "")
+          # Python 3
+          data = base64.b64encode(requests.get(url.strip()).content).replace(b"\n", b"")
+      except Exception as e:
+          _logger.warning("Can't load the image from URL %s" % url)
+          logging.exception(e)
+      return data
 
     @api.depends("product_pic1_url")
     def _compute_image_1_url(self):
