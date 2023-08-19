@@ -19,7 +19,7 @@ NEXTeWave purchase module for enhance CRM operations
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['nextewave_crm', 'purchase'],
+    'depends': ['crm', 'nextewave_crm', 'purchase'],
 
     # always loaded
     'data': [
