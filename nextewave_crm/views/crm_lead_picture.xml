@@ -6,21 +6,23 @@
       <field name="model">crm.lead</field>
       <field name="inherit_id" ref="crm.crm_lead_view_form"/>
       <field name="arch" type="xml">
+        <br />
+        
         <notebook position="after">
             <group> 
                 <group> 
-                    <field name="product_pic1" />
+                    <field name="product_pic1" widget="image" />
                 </group> 
                 <group> 
-                    <field name="product_pic2" />
+                    <field name="product_pic2" widget="image" />
                 </group> 
             </group> 
             <group> 
                 <group> 
-                    <field name="product_pic3" />
+                    <field name="product_pic3" widget="image" />
                 </group> 
                 <group> 
-                    <field name="product_pic4" />
+                    <field name="product_pic4" widget="image" />
                 </group> 
             </group> 
         </notebook>
