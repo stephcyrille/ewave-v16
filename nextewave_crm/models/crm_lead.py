@@ -38,37 +38,34 @@ class NextewaveCrmLead(models.Model):
     product_pic4 = fields.Binary(string="Picture 4", compute='_compute_image_4_url', readonly=False, store=True)
 
     def get_image_from_url(self, url):
-      """
-      :return: Returns a base64 encoded string.
-      """
-      data = ""
-      try:
-          # Python 2
-          # data = requests.get(url.strip()).content.encode("base64").replace("\n", "")
-          # Python 3
-          data = base64.b64encode(requests.get(url.strip()).content).replace(b"\n", b"")
-      except Exception as e:
-          _logger.warning("Can't load the image from URL %s" % url)
-          logging.exception(e)
-      return data
+        """
+        :return: Returns a base64 encoded string.
+        """
+        data = ""
+        try:
+            data = base64.b64encode(requests.get(url.strip()).content).replace(b"\n", b"")
+        except Exception as e:
+            _logger.warning("Can't load the image from URL %s" % url)
+            logging.exception(e)
+        return data
 
     @api.depends("product_pic1_url")
     def _compute_image_1_url(self):
-       for record in self:
-           image = None
-           if record.product_pic1_url:
+        for record in self:
+            image = None
+            if record.product_pic1_url:
                image = self.get_image_from_url(record.product_pic1_url)
                self.check_access_rule(image)
-           record.update({"product_pic1": image, })
+            record.update({"product_pic1": image, })
 
     @api.depends("product_pic2_url")
     def _compute_image_2_url(self):
-       for record in self:
-           image = None
-           if record.product_pic2_url:
+        for record in self:
+            image = None
+            if record.product_pic2_url:
                image = self.get_image_from_url(record.product_pic2_url)
                self.check_access_rule(image)
-           record.update({"product_pic2": image, })
+               record.update({"product_pic2": image, })
 
     @api.depends("product_pic3_url")
     def _compute_image_3_url(self):
@@ -116,6 +113,8 @@ class NextewaveCrmLead(models.Model):
             raise ValidationError("Address Error: Please fill the city on extra information before to continue !")
         elif not self.country_id:
             raise ValidationError("Address Error: Please fill the country on extra information before to continue !")
+        elif not self.mobile:
+            raise ValidationError("Contact missing: Please fill the mobile phone number before to continue !")
         else:
             # Set stage_id and synchronize it with custom state. If stage doesn't exist, we will create it
             crm_stage_obj = self.env['crm.stage']
