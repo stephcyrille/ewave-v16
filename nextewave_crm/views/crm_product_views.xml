@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    <record model="ir.actions.act_window" id="action_product_product">
+      <field name="name">Articles</field>
+      <field name="res_model">product.product</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem
+        id="menu_product_product"
+        name="Products"
+        parent="crm.crm_menu_root"
+        sequence="4"
+        action="action_product_product"
+    />
+  </data>
+</odoo>

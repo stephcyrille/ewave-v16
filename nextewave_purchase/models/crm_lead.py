@@ -13,14 +13,18 @@ class NextewaveLeadCrmPurchase(models.Model):
     quotation_count = fields.Integer(string="Number of Quotations", default=0)
 
     def action_goto_purchase_order_form(self):
-        action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_rfq")
-        action['context'] = {
-            'search_default_draft': 1,
-            'search_default_partner_id': self.partner_id.id,
-            'default_partner_id': self.partner_id.id,
-            'default_partner_ref': self.name,
-            'default_opportunity_id': self.id
-        }
+        for rec in self:
+            if not len(rec.crm_product_ids) > 0:
+                raise ValidationError("Products details error: You must first add system product before to continue")
+            else:
+                action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_rfq")
+                action['context'] = {
+                    'search_default_draft': 1,
+                    'search_default_partner_id': rec.partner_id.id,
+                    'default_partner_id': rec.partner_id.id,
+                    'default_partner_ref': rec.name,
+                    'default_opportunity_id': rec.id
+                }
 
-        action['views'] = [(self.env.ref('purchase.purchase_order_form').id, 'form')]
-        return action
+                action['views'] = [(self.env.ref('purchase.purchase_order_form').id, 'form')]
+                return action
