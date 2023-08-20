@@ -23,7 +23,8 @@ class NextewaveLeadCrmPurchase(models.Model):
                     'search_default_partner_id': rec.partner_id.id,
                     'default_partner_id': rec.partner_id.id,
                     'default_partner_ref': rec.name,
-                    'default_opportunity_id': rec.id
+                    'default_opportunity_id': rec.id,
+                    'crm_products': [{'id': x.product_id.id, 'qty': x.product_qty} for x in rec.crm_product_ids]
                 }
 
                 action['views'] = [(self.env.ref('purchase.purchase_order_form').id, 'form')]

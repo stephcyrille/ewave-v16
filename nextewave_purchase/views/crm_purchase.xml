@@ -9,7 +9,7 @@
         <!--    Customs Action    -->
         <button name="action_set_won_rainbowman" position="before">
           <button
-              string="create vendor quotation"
+              string="create a vendor quotation"
               name="action_goto_purchase_order_form"
               type="object"
               class="oe_highlight"
