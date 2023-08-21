@@ -28,7 +28,7 @@
                 [('state',
                     'in',
                    ['draft', 'new', 'qualified', 'not_qualified', 'processing', 'customer_so_created',
-                    'waiting_client_validation', 'po_created', 'lost', 'canceled', 'close', 'won']
+                    'po_created', 'lost', 'canceled', 'close', 'won']
                 )]
             }
           </attribute>
@@ -71,8 +71,8 @@
           />
 
 <!--          <button-->
-<!--              string="create sale quotation"-->
-<!--              name="action_button_create_quotation"-->
+<!--              string=""-->
+<!--              name="action_customer_validate"-->
 <!--              type="object"-->
 <!--              class="oe_highlight"-->
 <!--              attrs="-->
@@ -134,15 +134,6 @@
               </tree>
             </field>
           </page>
-
-<!--          <page string="Vendor selection">-->
-<!--            <field name="crm_vendor_ids">-->
-<!--              <tree string="Vendors" editable="bottom">-->
-<!--                <field name="vendor"/>-->
-<!--                <field name="selected"/>-->
-<!--              </tree>-->
-<!--            </field>-->
-<!--          </page>-->
         </notebook>
       </field>
   </record>

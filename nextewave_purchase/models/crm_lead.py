@@ -45,7 +45,7 @@ class NextewaveLeadCrmPurchase(models.Model):
         }
 
         purchase_order = self.env['purchase.order'].sudo().search([('opportunity_id', '=', self.id)])
-        if purchase_order:
+        if len(purchase_order) == 1:
             action['views'] = [(self.env.ref('purchase.purchase_order_form').id, 'form')]
             action['res_id'] = purchase_order.id
         return action

@@ -184,3 +184,6 @@ class NextewaveCrmLead(models.Model):
             self.filtered(lambda o: o.state == 'qualified').write({'state': 'processing', 'stage_id': stage.id})
         return super(NextewaveCrmLead, self.with_context(mail_post_autofollow=True)).message_post(**kwargs)
 
+    def action_customer_validate(self):
+        return ''
+

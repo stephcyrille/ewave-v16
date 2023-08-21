@@ -17,14 +17,12 @@ class NextewaveCrmPurchase(models.Model):
     def create(self, vals):
         res = super(NextewaveCrmPurchase, self).create(vals)
         if res.opportunity_id:
-            # Check if we already have a vendor order
-            if res.opportunity_id.vendor_order_count == 0:
-                crm_stage_obj = self.env['crm.stage']
-                stage = crm_stage_obj.sudo().search([('sequence', '=', 5)])
-                res.opportunity_id.write({
-                    'vendor_order_count': 1,
-                    'state': 'po_created',
-                    'stage_id': stage.id
-                })
+            crm_stage_obj = self.env['crm.stage']
+            stage = crm_stage_obj.sudo().search([('sequence', '=', 5)])
+            res.opportunity_id.write({
+                'vendor_order_count': res.opportunity_id.vendor_order_count + 1,
+                'state': 'po_created',
+                'stage_id': stage.id
+            })
         return res
 
