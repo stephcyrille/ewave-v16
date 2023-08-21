@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <!-- Override CRM Form view -->
+    <record id="nextewave_purchase_sale_crm_lead_form_view" model="ir.ui.view">
+      <field name="name">crm.lead.opportunity.sale</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="sale_crm.crm_case_form_view_oppor"/>
+      <field name="arch" type="xml">
+        <xpath expr="//button[@name='action_sale_quotations_new']" position="attributes">
+          <attribute name="attrs">
+            {'invisible':
+                [('state',
+                    'in',
+                  ['draft', 'new' , 'qualified', 'not_qualified', 'processing', 'vendor_selected', 'purchase_created',
+                  'lost', 'won', 'canceled', 'close']
+                )]
+            }
+          </attribute>
+        </xpath>
+      </field>
+  </record>
+
+   <!-- Override CRM Form view -->
+
+
+  </data>
+</odoo>

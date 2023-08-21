@@ -50,3 +50,35 @@ class NextewaveLeadCrmPurchase(models.Model):
             action['res_id'] = purchase_order.id
         return action
 
+    def action_button_create_so(self):
+        self.ensure_one()
+        purchase_order = self.env['purchase.order'].sudo().search([('opportunity_id', '=', self.id)])
+        if purchase_order and purchase_order.state == "purchase":
+            action = self.env["ir.actions.actions"]._for_xml_id("sale_crm.sale_action_quotations_new")
+            action['context'] = self._prepare_opportunity_quotation_context()
+            action['context']['search_default_opportunity_id'] = self.id
+            return action
+        else:
+            raise ValidationError("Purchase Order Validation Error: You need to confirm your purchase order before")
+
+    def _prepare_opportunity_quotation_context(self):
+        """ Prepares the context for a new quotation (sale.order) by sharing the values of common fields """
+        self.ensure_one()
+        quotation_context = {
+            'default_opportunity_id': self.id,
+            'default_partner_id': self.partner_id.id,
+            'default_campaign_id': self.campaign_id.id,
+            'default_medium_id': self.medium_id.id,
+            'default_origin': self.name,
+            'default_source_id': self.source_id.id,
+            'default_company_id': self.company_id.id or self.env.company.id,
+            'default_tag_ids': [(6, 0, self.tag_ids.ids)],
+            'crm_products': [
+                {'id': x.product_id.id, 'name': x.product_id.name, 'qty': x.product_qty, 'price': x.price_unit}
+                for x in self.crm_product_ids]
+        }
+        if self.team_id:
+            quotation_context['default_team_id'] = self.team_id.id
+        if self.user_id:
+            quotation_context['default_user_id'] = self.user_id.id
+        return quotation_context

@@ -9,7 +9,7 @@
         <!--    Customs Action    -->
         <button name="action_set_won_rainbowman" position="before">
           <button
-              string="create a vendor quotation"
+              string="Create PO"
               name="action_goto_purchase_order_form"
               type="object"
               class="oe_highlight"
@@ -22,6 +22,21 @@
                     )]
                 }"
           />
+
+<!--          <button-->
+<!--              string="Create a customer SO"-->
+<!--              name="action_button_create_so"-->
+<!--              type="object"-->
+<!--              class="oe_highlight"-->
+<!--              attrs="-->
+<!--                {'invisible':-->
+<!--                    [('state',-->
+<!--                        'in',-->
+<!--                      ['draft', 'new' , 'qualified', 'not_qualified', 'processing', 'vendor_selected', 'purchase_created',-->
+<!--                      'lost', 'won', 'canceled', 'close']-->
+<!--                    )]-->
+<!--                }"-->
+<!--          />-->
         </button>
 
         <field name="tag_ids" position="after">
@@ -30,7 +45,7 @@
 
         <button name="action_schedule_meeting" position="before">
             <button class="oe_stat_button" type="object"
-                name="action_view_purchase_order" icon="fa-pencil-square-o" attrs="{'invisible': [('vendor_order_count', '=', 0)]}">
+                name="action_view_purchase_order" icon="fa-money" attrs="{'invisible': [('vendor_order_count', '=', 0)]}">
                 <field name="vendor_order_count" widget="statinfo" string="Vendor quotation"/>
             </button>
         </button>
