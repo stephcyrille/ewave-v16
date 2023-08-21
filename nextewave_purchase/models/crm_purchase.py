@@ -2,6 +2,7 @@ from datetime import timedelta
 import logging
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
+import uuid
 
 _logger = logging.getLogger(__name__)
 
@@ -26,7 +27,15 @@ class NextewaveCrmPurchase(models.Model):
         order_line = []
         if opportunity_id:
             for product in crm_products:
-                line = (0, 0, {'product_id': product['id'], 'product_qty': product['qty']})
+                data = {
+                    'name': product['name'],
+                    'product_qty': product['qty'],
+                    'product_id': product['id'],
+                    'price_unit': product['price'],
+                    'order_id': self.id,
+                    'date_planned': self.date_planned,
+                }
+                line = (0, 0, data)
                 order_line.append(line)
             res.update({
                 'order_line': order_line,
@@ -37,5 +46,14 @@ class NextewaveCrmPurchase(models.Model):
     def create(self, vals):
         res = super(NextewaveCrmPurchase, self).create(vals)
         if res.opportunity_id:
-            print("\n\n\n=++++++BAAAAAAMMMMMMMMMMM+++++\n\n")
+            # Check if we already have a vendor order
+            if res.opportunity_id.vendor_order_count == 0:
+                crm_stage_obj = self.env['crm.stage']
+                stage = crm_stage_obj.sudo().search([('sequence', '=', 4)])
+                res.opportunity_id.write({
+                    'vendor_order_count': 1,
+                    'state': 'quotation_created',
+                    'stage_id': stage.id
+                })
         return res
+

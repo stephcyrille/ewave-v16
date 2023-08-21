@@ -5,7 +5,7 @@
         <field name="sequence">3</field>
     </record>
     <record model="crm.stage" id="stage_lead7">
-        <field name="name">Quotation created</field>
+        <field name="name">Vendor Quotation created</field>
         <field name="sequence">4</field>
     </record>
     <record model="crm.stage" id="stage_lead8">
