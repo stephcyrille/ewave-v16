@@ -12,8 +12,8 @@
             {'invisible':
                 [('state',
                     'in',
-                   ['draft', 'new', 'qualified', 'not_qualified', 'processing', 'vendor_selected',
-                   'quotation_created', 'lost', 'canceled', 'close', 'won']
+                   ['draft', 'new', 'qualified', 'not_qualified', 'processing', 'customer_so_created',
+                   'po_created', 'lost', 'canceled', 'close', 'won']
                 )]
             }
           </attribute>
@@ -27,8 +27,8 @@
             {'invisible':
                 [('state',
                     'in',
-                   ['draft', 'new', 'qualified', 'not_qualified', 'processing', 'vendor_selected',
-                    'waiting_client_validation', 'quotation_created', 'lost', 'canceled', 'close', 'won']
+                   ['draft', 'new', 'qualified', 'not_qualified', 'processing', 'customer_so_created',
+                    'waiting_client_validation', 'po_created', 'lost', 'canceled', 'close', 'won']
                 )]
             }
           </attribute>
@@ -49,8 +49,8 @@
                {'invisible':
                     [('state',
                         'in',
-                      ['draft', 'qualified', 'processing', 'vendor_selected',
-                      'quotation_created', 'purchase_created', 'lost', 'won', 'canceled', 'close']
+                      ['draft', 'qualified', 'processing', 'customer_so_created',
+                      'po_created', 'order_paid', 'lost', 'won', 'canceled', 'close']
                     )]
                 }"
           />
@@ -63,8 +63,8 @@
                 {'invisible':
                     [('state',
                         'in',
-                       ['draft', 'new', 'not_qualified', 'processing', 'vendor_selected',
-                       'quotation_created', 'purchase_created', 'lost', 'won', 'canceled', 'close']
+                       ['draft', 'new', 'not_qualified', 'processing', 'customer_so_created',
+                       'po_created', 'order_paid', 'lost', 'won', 'canceled', 'close']
                     )]
                 }
             "
@@ -79,7 +79,7 @@
 <!--                {'invisible':-->
 <!--                    [('state',-->
 <!--                        'in',-->
-<!--                      ['draft', 'new' , 'qualified', 'not_qualified', 'quotation_created', 'vendor_selected', 'purchase_created',-->
+<!--                      ['draft', 'new' , 'qualified', 'not_qualified', 'po_created', 'customer_so_created', 'order_paid',-->
 <!--                      'lost', 'won', 'canceled', 'close']-->
 <!--                    )]-->
 <!--                }"-->
@@ -93,7 +93,7 @@
 <!--                {'invisible':-->
 <!--                    [('state',-->
 <!--                        'in',-->
-<!--                      ['draft', 'new' , 'qualified', 'processing', 'not_qualified', 'vendor_selected', 'purchase_created',-->
+<!--                      ['draft', 'new' , 'qualified', 'processing', 'not_qualified', 'customer_so_created', 'order_paid',-->
 <!--                      'lost', 'won', 'canceled', 'close']-->
 <!--                    )]-->
 <!--                }"-->
@@ -107,7 +107,7 @@
 <!--                {'invisible':-->
 <!--                    [('state',-->
 <!--                        'in',-->
-<!--                    ['draft', 'new', 'qualified', 'not_qualified', 'purchase_created', 'quotation_created',-->
+<!--                    ['draft', 'new', 'qualified', 'not_qualified', 'order_paid', 'po_created',-->
 <!--                    'lost', 'won', 'processing', 'canceled', 'close']-->
 <!--                    )]-->
 <!--                }"-->
@@ -118,7 +118,7 @@
           <field
             name="state"
             widget="statusbar"
-            statusbar_visible="new,qualified,processing,quotation_created,vendor_selected,purchase_created,won"
+            statusbar_visible="new,qualified,processing,po_created,customer_so_created,order_paid,won"
           />
         </field>
 

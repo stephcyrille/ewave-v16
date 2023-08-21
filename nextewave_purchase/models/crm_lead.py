@@ -29,7 +29,7 @@ class NextewaveLeadCrmPurchase(models.Model):
                     'default_partner_id': rec.vendor_id.id,
                     'default_partner_ref': rec.name,
                     'default_opportunity_id': rec.id,
-                    'crm_products': [{'id': x.product_id.id, 'name': x.product_id.name, 'qty': x.product_qty, 'price': x.price_unit} for x in rec.crm_product_ids]
+                    # 'crm_products': [{'id': x.product_id.id, 'name': x.product_id.name, 'qty': x.product_qty, 'price': x.price_unit} for x in rec.crm_product_ids]
                 }
 
                 action['views'] = [(self.env.ref('purchase.purchase_order_form').id, 'form')]
@@ -50,17 +50,6 @@ class NextewaveLeadCrmPurchase(models.Model):
             action['res_id'] = purchase_order.id
         return action
 
-    def action_button_create_so(self):
-        self.ensure_one()
-        purchase_order = self.env['purchase.order'].sudo().search([('opportunity_id', '=', self.id)])
-        if purchase_order and purchase_order.state == "purchase":
-            action = self.env["ir.actions.actions"]._for_xml_id("sale_crm.sale_action_quotations_new")
-            action['context'] = self._prepare_opportunity_quotation_context()
-            action['context']['search_default_opportunity_id'] = self.id
-            return action
-        else:
-            raise ValidationError("Purchase Order Validation Error: You need to confirm your purchase order before")
-
     def _prepare_opportunity_quotation_context(self):
         """ Prepares the context for a new quotation (sale.order) by sharing the values of common fields """
         self.ensure_one()
@@ -73,9 +62,13 @@ class NextewaveLeadCrmPurchase(models.Model):
             'default_source_id': self.source_id.id,
             'default_company_id': self.company_id.id or self.env.company.id,
             'default_tag_ids': [(6, 0, self.tag_ids.ids)],
-            'crm_products': [
-                {'id': x.product_id.id, 'name': x.product_id.name, 'qty': x.product_qty, 'price': x.price_unit}
-                for x in self.crm_product_ids]
+            # 'crm_products': [
+            #     {'id': x.product_id.product_tmpl_id.id,
+            #      'name': x.product_id.name, 'qty': x.product_qty,
+            #      'price': x.price_unit,
+            #      'uom': x.product_id.product_tmpl_id.uom_id.id,
+            #      }
+            #     for x in self.crm_product_ids]
         }
         if self.team_id:
             quotation_context['default_team_id'] = self.team_id.id

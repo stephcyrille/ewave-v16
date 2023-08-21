@@ -21,9 +21,9 @@ class NextewaveCrmLead(models.Model):
         ('qualified', 'Qualified'),
         ('not_qualified', 'Not Qualified'),
         ('processing', 'Processing'),
-        ('quotation_created', 'PO created'),
-        ('vendor_selected', 'SO created'),
-        ('purchase_created', 'Order confirmed'),
+        ('po_created', 'PO created'),
+        ('customer_so_created', 'SO created'),
+        ('order_paid', 'Order Paid'),
         ('lost', 'Lost'),
         ('canceled', 'Canceled'),
         ('won', 'Won')], required=True, default='new', readonly=True, tracking=True)

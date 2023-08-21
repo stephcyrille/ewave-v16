@@ -17,26 +17,11 @@
                 {'invisible':
                     [('state',
                         'in',
-                      ['draft', 'new' , 'qualified', 'not_qualified', 'quotation_created', 'vendor_selected', 'purchase_created',
+                      ['draft', 'new' , 'qualified', 'not_qualified', 'po_created', 'customer_so_created', 'order_paid',
                       'lost', 'won', 'canceled', 'close']
                     )]
                 }"
           />
-
-<!--          <button-->
-<!--              string="Create a customer SO"-->
-<!--              name="action_button_create_so"-->
-<!--              type="object"-->
-<!--              class="oe_highlight"-->
-<!--              attrs="-->
-<!--                {'invisible':-->
-<!--                    [('state',-->
-<!--                        'in',-->
-<!--                      ['draft', 'new' , 'qualified', 'not_qualified', 'processing', 'vendor_selected', 'purchase_created',-->
-<!--                      'lost', 'won', 'canceled', 'close']-->
-<!--                    )]-->
-<!--                }"-->
-<!--          />-->
         </button>
 
         <field name="tag_ids" position="after">
