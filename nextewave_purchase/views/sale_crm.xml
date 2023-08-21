@@ -17,6 +17,19 @@
             }
           </attribute>
         </xpath>
+
+        <xpath expr="//button[@name='action_view_sale_quotation']" position="attributes">
+          <attribute name="attrs">
+            {'invisible':
+                [('state',
+                    'in',
+                  ['draft', 'new' , 'qualified', 'not_qualified', 'processing',
+                  'lost', 'canceled', 'close']
+                )]
+            }
+          </attribute>
+        </xpath>
+
       </field>
   </record>
 
