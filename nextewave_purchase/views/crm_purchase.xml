@@ -24,6 +24,10 @@
           />
         </button>
 
+        <field name="tag_ids" position="after">
+          <field name="vendor_id" />
+        </field>
+
         <button name="action_schedule_meeting" position="before">
             <button class="oe_stat_button" type="object"
                 name="action_view_purchase_order" icon="fa-pencil-square-o" attrs="{'invisible': [('vendor_order_count', '=', 0)]}">
