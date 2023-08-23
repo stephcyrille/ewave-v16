@@ -31,7 +31,7 @@
         <button name="action_schedule_meeting" position="before">
             <button class="oe_stat_button" type="object"
                 name="action_view_purchase_order" icon="fa-credit-card" attrs="{'invisible': [('vendor_order_count', '=', 0)]}">
-                <field name="vendor_order_count" widget="statinfo" string="Vendor quotation"/>
+                <field name="vendor_order_count" widget="statinfo" string="Purchases quotation"/>
             </button>
         </button>
       </field>

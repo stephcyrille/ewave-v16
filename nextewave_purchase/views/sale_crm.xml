@@ -24,7 +24,7 @@
                 [('state',
                     'in',
                   ['draft', 'new' , 'qualified', 'not_qualified', 'processing',
-                  'lost', 'client_accepted', 'canceled', 'close']
+                  'lost', 'canceled', 'close']
                 )]
             }
           </attribute>
