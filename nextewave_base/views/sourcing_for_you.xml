@@ -23,4 +23,12 @@
             sequence="1"
     />
 
+    <!-- menu categories -->
+    <menuitem
+            name="Configurations"
+            id="configuration_menu"
+            parent="nextewave_root_menu"
+            sequence="18"
+    />
+
 </odoo>

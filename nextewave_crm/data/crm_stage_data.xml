@@ -16,8 +16,8 @@
         <field name="name">Client accepted</field>
         <field name="sequence">7</field>
     </record>
-    <record model="crm.stage" id="stage_lead11">
-        <field name="name">Order paid</field>
-        <field name="sequence">8</field>
-    </record>
+<!--    <record model="crm.stage" id="stage_lead11">-->
+<!--        <field name="name">Order paid</field>-->
+<!--        <field name="sequence">8</field>-->
+<!--    </record>-->
 </odoo>

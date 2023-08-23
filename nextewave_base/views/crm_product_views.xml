@@ -10,7 +10,7 @@
     <menuitem
         id="menu_product_product"
         name="Products"
-        parent="nextewave_root_menu"
+        parent="configuration_menu"
         sequence="3"
         action="action_product_product"
     />

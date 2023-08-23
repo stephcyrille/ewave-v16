@@ -1,7 +1,7 @@
 <odoo>
   <data>
     <!-- Override CRM Form view -->
-    <record id="nextewave_purchase_crm_form_view" model="ir.ui.view">
+    <record id="nextewave_payment_crm_form_view" model="ir.ui.view">
       <field name="name">Pipe line</field>
       <field name="model">crm.lead</field>
       <field name="inherit_id" ref="nextewave_crm.nextewave_crm_lead_form_view"/>
@@ -9,29 +9,25 @@
         <!--    Customs Action    -->
         <button name="action_set_won_rainbowman" position="before">
           <button
-              string="Create PO"
-              name="action_goto_purchase_order_form"
+              string="Add a payment"
+              name="action_goto_payment_form"
               type="object"
               class="oe_highlight"
               attrs="
                 {'invisible':
                     [('state',
                         'in',
-                      ['draft', 'new' , 'qualified', 'not_qualified', 'po_created', 'customer_so_created',
-                      'lost', 'won', 'canceled', 'client_accepted', 'close']
+                      ['draft', 'new' , 'qualified', 'not_qualified', 'po_created',
+                      'lost', 'won', 'canceled', 'close']
                     )]
                 }"
           />
         </button>
 
-        <field name="tag_ids" position="after">
-          <field name="vendor_id" />
-        </field>
-
         <button name="action_schedule_meeting" position="before">
             <button class="oe_stat_button" type="object"
-                name="action_view_purchase_order" icon="fa-credit-card" attrs="{'invisible': [('vendor_order_count', '=', 0)]}">
-                <field name="vendor_order_count" widget="statinfo" string="Vendor quotation"/>
+                name="action_view_payments" icon="fa-money" attrs="{'invisible': [('payments_count', '=', 0)]}">
+                <field name="payments_count" widget="statinfo" string="Payments"/>
             </button>
         </button>
       </field>

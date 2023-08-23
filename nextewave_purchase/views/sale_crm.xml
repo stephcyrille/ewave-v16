@@ -11,8 +11,8 @@
             {'invisible':
                 [('state',
                     'in',
-                  ['draft', 'new' , 'qualified', 'not_qualified', 'processing', 'customer_so_created',
-                    'order_paid', 'client_accepted', 'lost', 'won', 'canceled', 'close']
+                  ['draft', 'new' , 'qualified', 'not_qualified', 'processing', 'customer_so_created' ,
+                  'client_accepted', 'lost', 'won', 'canceled', 'close']
                 )]
             }
           </attribute>

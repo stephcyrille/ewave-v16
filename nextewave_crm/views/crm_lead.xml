@@ -13,7 +13,7 @@
                 [('state',
                     'in',
                    ['draft', 'new', 'qualified', 'not_qualified', 'processing', 'customer_so_created',
-                   'po_created', 'client_accepted', 'lost', 'canceled', 'close', 'won']
+                   'po_created', 'lost', 'canceled', 'close', 'won']
                 )]
             }
           </attribute>
@@ -22,7 +22,7 @@
           </attribute>
         </xpath>
 
-        <xpath expr="//button[@name='action_set_lost']" position="attributes">
+        <xpath expr="//button[@name='186']" position="attributes">
           <attribute name="attrs">
             {'invisible':
                 [('state',
@@ -50,7 +50,7 @@
                     [('state',
                         'in',
                       ['draft', 'qualified', 'processing', 'customer_so_created', 'client_accepted',
-                      'po_created', 'order_paid', 'lost', 'won', 'canceled', 'close']
+                      'po_created', 'lost', 'won', 'canceled', 'close']
                     )]
                 }"
           />
@@ -64,7 +64,7 @@
                     [('state',
                         'in',
                        ['draft', 'new', 'not_qualified', 'processing', 'customer_so_created', 'client_accepted',
-                       'po_created', 'order_paid', 'lost', 'won', 'canceled', 'close']
+                       'po_created', 'lost', 'won', 'canceled', 'close']
                     )]
                 }
             "
@@ -118,7 +118,7 @@
           <field
             name="state"
             widget="statusbar"
-            statusbar_visible="new,qualified,processing,po_created,customer_so_created,client_accepted,order_paid,won"
+            statusbar_visible="new,qualified,processing,po_created,customer_so_created,client_accepted,won"
           />
         </field>
 
