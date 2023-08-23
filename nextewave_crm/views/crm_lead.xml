@@ -13,7 +13,7 @@
                 [('state',
                     'in',
                    ['draft', 'new', 'qualified', 'not_qualified', 'processing', 'customer_so_created',
-                   'po_created', 'lost', 'canceled', 'close', 'won']
+                   'po_created', 'client_accepted', 'lost', 'canceled', 'close', 'won']
                 )]
             }
           </attribute>
@@ -28,7 +28,7 @@
                 [('state',
                     'in',
                    ['draft', 'new', 'qualified', 'not_qualified', 'processing', 'customer_so_created',
-                    'po_created', 'lost', 'canceled', 'close', 'won']
+                    'po_created', 'client_accepted', 'lost', 'canceled', 'close', 'won']
                 )]
             }
           </attribute>
@@ -49,7 +49,7 @@
                {'invisible':
                     [('state',
                         'in',
-                      ['draft', 'qualified', 'processing', 'customer_so_created',
+                      ['draft', 'qualified', 'processing', 'customer_so_created', 'client_accepted',
                       'po_created', 'order_paid', 'lost', 'won', 'canceled', 'close']
                     )]
                 }"
@@ -63,7 +63,7 @@
                 {'invisible':
                     [('state',
                         'in',
-                       ['draft', 'new', 'not_qualified', 'processing', 'customer_so_created',
+                       ['draft', 'new', 'not_qualified', 'processing', 'customer_so_created', 'client_accepted',
                        'po_created', 'order_paid', 'lost', 'won', 'canceled', 'close']
                     )]
                 }
@@ -118,7 +118,7 @@
           <field
             name="state"
             widget="statusbar"
-            statusbar_visible="new,qualified,processing,po_created,customer_so_created,order_paid,won"
+            statusbar_visible="new,qualified,processing,po_created,customer_so_created,client_accepted,order_paid,won"
           />
         </field>
 

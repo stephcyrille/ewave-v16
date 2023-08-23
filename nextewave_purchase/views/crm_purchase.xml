@@ -18,7 +18,7 @@
                     [('state',
                         'in',
                       ['draft', 'new' , 'qualified', 'not_qualified', 'po_created', 'customer_so_created', 'order_paid',
-                      'lost', 'won', 'canceled', 'close']
+                      'lost', 'won', 'canceled', 'client_accepted', 'close']
                     )]
                 }"
           />

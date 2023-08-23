@@ -23,6 +23,7 @@ class NextewaveCrmLead(models.Model):
         ('processing', 'Processing'),
         ('po_created', 'PO created'),
         ('customer_so_created', 'SO created'),
+        ('client_accepted', 'Client accepted'),
         ('order_paid', 'Order Paid'),
         ('lost', 'Lost'),
         ('canceled', 'Canceled'),
