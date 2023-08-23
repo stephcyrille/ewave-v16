@@ -91,6 +91,9 @@ class NextewaveCrmLead(models.Model):
 
         message = self._get_rainbowman_message()
         if message:
+            self.write({
+                'state': 'won',
+            })
             return {
                 'effect': {
                     'fadeout': 'slow',
