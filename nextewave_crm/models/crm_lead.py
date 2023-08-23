@@ -29,7 +29,7 @@ class NextewaveCrmLead(models.Model):
         ('won', 'Won')], required=True, default='new', readonly=True, tracking=True)
     url = fields.Char('URL', default='https://www.nextewave.com')
     product_pic1_url = fields.Char(string="Picture 1 URL", required=False)
-    product_pic1 = fields.Binary(string="Picture 1", compute='_compute_image_1_url', readonly=False, store=True)
+    product_pic1 = fields.Binary(string="Picture 1", compute='_compute_image_1_url', required=True, readonly=False, store=True)
     product_pic2_url = fields.Char(string="Picture 2 URL", required=False)
     product_pic2 = fields.Binary(string="Picture 2", compute='_compute_image_2_url', readonly=False, store=True)
     product_pic3_url = fields.Char(string="Picture 3 URL", required=False)
