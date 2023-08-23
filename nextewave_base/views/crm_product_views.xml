@@ -10,8 +10,8 @@
     <menuitem
         id="menu_product_product"
         name="Products"
-        parent="crm.crm_menu_root"
-        sequence="4"
+        parent="nextewave_root_menu"
+        sequence="3"
         action="action_product_product"
     />
   </data>

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_campaign_product_line,nextewave_base.campaign_product_line,model_campaign_product_line,base.group_user,1,1,1,1
+access_buying_campaign,nextewave_base.buying_campaign,model_buying_campaign,base.group_user,1,1,1,1

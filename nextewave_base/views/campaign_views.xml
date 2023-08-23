@@ -1,0 +1,82 @@
+<odoo>
+  <data>
+    <record id="nextewave_campaign_form_view" model="ir.ui.view">
+      <field name="name">Campaign form</field>
+      <field name="model">buying.campaign</field>
+      <field name="arch" type="xml">
+          <form string="Campaign">
+              <header>
+                <field name="state" widget="statusbar" statusbar_visible="new,confirmed,published,closed, canceled"/>
+              </header>
+              <sheet>
+                <div class="oe_title">
+                    <span class="o_form_label">Campaign name</span>
+                    <h1 class="mt0">
+                        <field name="name" placeholder="Buy Tech products autumn 2023"/>
+                    </h1>
+
+                </div>
+
+                <group>
+                  <group>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="expected_revenue" />
+                  </group>
+
+                  <group>
+                    <field name="product_count" />
+                  </group>
+                </group>
+
+                <notebook>
+                  <page string="Products details">
+                    <field name="products_ids">
+                      <tree string="products" editable="bottom">
+                        <field name="product_id"/>
+                        <field name="description"/>
+                        <field name="product_qty"/>
+                        <field name="price_unit" />
+                        <field name="total_price" readonly="1" />
+                      </tree>
+                    </field>
+                  </page>
+                </notebook>
+
+              </sheet>
+
+              <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="activity_ids" widget="mail_activity"/>
+                <field name="message_ids" widget="mail_thread"/>
+              </div>
+          </form>
+      </field>
+  </record>
+
+
+  <record id="nextewave_campaign_action" model="ir.actions.act_window">
+    <field name="name">Buying campaign</field>
+    <field name="res_model">buying.campaign</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            There is no campaign created yet.
+        </p>
+        <p>
+            You can create a campaign for promote some product within a specific period.
+        </p>
+    </field>
+  </record>
+
+  <!-- menu categories -->
+  <menuitem
+          name="Campaign 4 you"
+          id="campaignforyou_menu"
+          parent="nextewave_root_menu"
+          action="nextewave_campaign_action"
+          sequence="2"
+  />
+
+  </data>
+</odoo>

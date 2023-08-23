@@ -19,7 +19,7 @@ NEXTeWave module for enhance CRM operations
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['crm', 'stock', 'product'],
+    'depends': ['crm', 'stock'],
 
     # always loaded
     'data': [
@@ -29,7 +29,6 @@ NEXTeWave module for enhance CRM operations
         'data/crm_stage_data.xml',
 
         'views/crm_lead.xml',
-        'views/crm_lead_picture.xml',
-        'views/crm_product_views.xml',
+        'views/crm_lead_picture.xml'
     ],
 }

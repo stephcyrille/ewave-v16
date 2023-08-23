@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.actions.act_window" id="sourcing_for_you_action">
+      <field name="name">We Sourcing 4 you</field>
+      <field name="res_model">crm.lead</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem
+            name="NEXTeWave Operations"
+            id="nextewave_root_menu"
+            sequence="2"
+    />
+
+    <!-- menu categories -->
+    <menuitem
+            name="Sourcing 4 you"
+            id="buyingforyou_menu"
+            parent="nextewave_root_menu"
+            action="sourcing_for_you_action"
+            sequence="1"
+    />
+
+</odoo>
