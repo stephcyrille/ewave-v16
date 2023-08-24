@@ -1,0 +1,18 @@
+<odoo>
+  <data>
+    <record id="campaign_product" model="ir.ui.view">
+      <field name="name">Product template</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_form_view"/>
+      <field name="arch" type="xml">
+          <xpath expr="//div[@name='options']/span[2]" position="after">
+              <span class="d-inline-block">
+                <field name="in_campaign"/>
+                <label for="in_campaign"/>
+              </span>
+          </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>
