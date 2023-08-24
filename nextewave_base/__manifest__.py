@@ -33,6 +33,7 @@ NEXTeWave module for managing:
         'views/sourcing_for_you.xml',
         'views/crm_product_views.xml',
         'views/campaign_views.xml',
+        'views/customer_request_view.xml',
         # 'views/templates.xml',
     ],
     'installable': True,

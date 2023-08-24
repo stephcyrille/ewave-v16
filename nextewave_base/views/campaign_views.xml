@@ -80,7 +80,7 @@
           sequence="2"
   />
   <menuitem
-          name="Buy campaign"
+          name="Buying campaign"
           id="buyingforyou_menu"
           parent="campaignforyou_menu"
           action="nextewave_campaign_action"

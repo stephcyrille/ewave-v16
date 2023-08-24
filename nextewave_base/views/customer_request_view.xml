@@ -1,0 +1,76 @@
+<odoo>
+  <data>
+    <record id="nextewave_campaign_buying_form_view" model="ir.ui.view">
+      <field name="name">Customer buying request</field>
+      <field name="model">buying.campaign.request</field>
+      <field name="arch" type="xml">
+          <form string="Buying request">
+              <sheet>
+
+                <group>
+                  <group>
+                    <field name="customer_id"/>
+                    <field name="campaign_id"/>
+                    <field name="request_amount"/>
+                  </group>
+
+                  <group>
+                    <field name="request_date" />
+                    <field name="delivery_expected_date" />
+                  </group>
+                </group>
+
+                <notebook>
+                  <page string="Request note">
+                      <field name="description" />
+                  </page>
+                  <page string="Products details">
+                    <field name="products_ids">
+                      <tree string="products" editable="bottom">
+                        <field name="product_id"/>
+                        <field name="description"/>
+                        <field name="product_qty"/>
+                        <field name="price_unit" />
+                        <field name="total_price" readonly="1" />
+                      </tree>
+                    </field>
+                  </page>
+                </notebook>
+
+              </sheet>
+
+              <div class="oe_chatter">
+                <field name="message_follower_ids" widget="mail_followers"/>
+                <field name="activity_ids" widget="mail_activity"/>
+                <field name="message_ids" widget="mail_thread"/>
+              </div>
+          </form>
+      </field>
+  </record>
+
+
+  <record id="nextewave_campaign_buy_request_action" model="ir.actions.act_window">
+    <field name="name">Buying Request</field>
+    <field name="res_model">buying.campaign.request</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            There is no customer request created yet.
+        </p>
+        <p>
+            You can create a request for buying campaign.
+        </p>
+    </field>
+  </record>
+
+  <!-- menu categories -->
+  <menuitem
+          name="Buying Request"
+          id="buy_request_menu"
+          parent="campaignforyou_menu"
+          action="nextewave_campaign_buy_request_action"
+          sequence="2"
+  />
+
+  </data>
+</odoo>

@@ -15,6 +15,7 @@ class CampaignProductLine(models.Model):
     price_unit = fields.Float('Price', required=False)
     total_price = fields.Float('Total price', required=False, readonly=True, tracking=True)
     buying_campaign = fields.Many2one('buying.campaign', ondelete='cascade', invisible=True)
+    buying_request = fields.Many2one('buying.campaign.request', ondelete='cascade', invisible=True)
 
     @api.onchange('price_unit')
     def _compute_total_price(self):
