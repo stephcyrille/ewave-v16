@@ -6,7 +6,58 @@
       <field name="arch" type="xml">
           <form string="Campaign">
               <header>
-                <field name="state" widget="statusbar" statusbar_visible="new,confirmed,published,closed, canceled"/>
+                  <button string="Confirm"
+                    name="action_confirm"
+                    type="object"
+                    class="oe_highlight"
+                    attrs="
+                       {'invisible':
+                            [('state',
+                                'in',
+                              ['confirmed', 'published', 'closed', 'canceled']
+                            )]
+                        }"
+                  />
+                  <button string="Publish"
+                    name="action_publish"
+                    type="object"
+                    class="oe_highlight"
+                    attrs="
+                       {'invisible':
+                            [('state',
+                                'in',
+                              ['new', 'published', 'closed', 'canceled']
+                            )]
+                        }"
+                  />
+                  <button string="Close campaign"
+                    name="action_close_campaign"
+                    type="object"
+                    class="oe_highlight"
+                    attrs="
+                       {'invisible':
+                            [('state',
+                                'in',
+                              ['new', 'confirmed', 'closed', 'canceled']
+                            )]
+                        }"
+                  />
+                  <button string="Cancel"
+                    name="action_cancel"
+                    type="object"
+                    attrs="
+                       {'invisible':
+                            [('state',
+                                'in',
+                              ['closed']
+                            )]
+                        }"
+                  />
+                   <button string="Reinitialize"
+                    name="action_reinitialize"
+                    type="object"
+                  />
+                <field name="state" widget="statusbar" statusbar_visible="new,confirmed,published,closed"/>
               </header>
               <sheet>
                 <field name="company_id" invisible="1"/>

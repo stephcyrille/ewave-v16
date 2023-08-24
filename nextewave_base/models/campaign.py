@@ -2,6 +2,7 @@
 from datetime import timedelta
 
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 
 class BuyingRequest(models.Model):
@@ -51,6 +52,39 @@ class BuyingRequest(models.Model):
         """ Compute company_id coherency. """
         for campaign in self:
             campaign.company_id = False
+
+    def action_confirm(self):
+        self.ensure_one()
+        if self.expected_revenue <= 0:
+            raise ValidationError("Expected revenue must be greater than 0")
+        else:
+            self.write({
+                'state': 'confirmed'
+            })
+
+    def action_publish(self):
+        self.ensure_one()
+        self.write({
+            'state': 'published'
+        })
+
+    def action_close_campaign(self):
+        self.ensure_one()
+        self.write({
+            'state': 'closed'
+        })
+
+    def action_cancel(self):
+        self.ensure_one()
+        self.write({
+            'state': 'canceled'
+        })
+
+    def action_reinitialize(self):
+        self.ensure_one()
+        self.write({
+            'state': 'new'
+        })
 
 
 
