@@ -16,7 +16,7 @@ class BuyingRequest(models.Model):
                                    readonly=True)
     expected_revenue = fields.Float("Expected revenue", default=0, tracking=True, required=True)
     order_id = fields.Many2one('sale.order', string='Sale order', tracking=True)
-    products_ids = fields.One2many('campaign.product.line', 'buying_campaign', string='Products', tracking=True)
+    products_ids = fields.One2many('campaign.product.line', 'buying_campaign_id', string='Products', tracking=True)
     state = fields.Selection([
         ('new', 'New'),
         ('confirmed', 'Confirmed'),

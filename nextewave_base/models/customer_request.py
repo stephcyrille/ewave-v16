@@ -14,9 +14,6 @@ class BuyingRequest(models.Model):
     request_date = fields.Date("Request date", tracking=True, default=fields.Date.today(), readonly=True)
     request_amount = fields.Float("Request amount", default=0, tracking=True, readonly=True)
     description = fields.Html('Notes')
-    delivery_expected_date = fields.Date("Delivery expected date", tracking=True, required=True)
-    products_ids = fields.One2many('campaign.product.line', 'buying_request', string='Products', tracking=True)
+    delivery_expected_date = fields.Date("Delivery expected", tracking=True, required=True)
 
 
-
-    # customer_request_ids = fields.One2many('buying.campaign.request', 'campaign_id', string='Customers requests', tracking=True)

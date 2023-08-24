@@ -13,16 +13,18 @@ class CampaignProductLine(models.Model):
     description = fields.Text('Description')
     product_qty = fields.Float('Quantity', required=True, tracking=True)
     price_unit = fields.Float('Price', required=False)
-    total_price = fields.Float('Total price', required=False, readonly=True, tracking=True)
-    buying_campaign = fields.Many2one('buying.campaign', ondelete='cascade', invisible=True)
-    buying_request = fields.Many2one('buying.campaign.request', ondelete='cascade', invisible=True)
+    total_price = fields.Float('Total price', readonly=True, tracking=True,
+                               compute='_compute_total_price')
+    buying_campaign_id = fields.Many2one('buying.campaign', ondelete='cascade', invisible=True)
+    buying_request_id = fields.Many2one('buying.campaign.request', ondelete='cascade', invisible=True)
 
-    @api.onchange('price_unit')
+    @api.depends('product_qty', 'price_unit')
     def _compute_total_price(self):
-        """
-        Trigger the recompute the total price.
-        """
-        if self.price_unit and self.product_qty:
-            self.total_price = self.price_unit * self.product_qty
-        else:
-            pass
+        for product_line in self:
+            """
+            Trigger the recompute the total price.
+            """
+            if product_line.price_unit and product_line.product_qty:
+                product_line.total_price = product_line.price_unit * product_line.product_qty
+            else:
+                product_line.total_price = 0

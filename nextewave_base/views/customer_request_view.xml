@@ -24,17 +24,6 @@
                   <page string="Request note">
                       <field name="description" />
                   </page>
-                  <page string="Products details">
-                    <field name="products_ids">
-                      <tree string="products" editable="bottom">
-                        <field name="product_id"/>
-                        <field name="description"/>
-                        <field name="product_qty"/>
-                        <field name="price_unit" />
-                        <field name="total_price" readonly="1" />
-                      </tree>
-                    </field>
-                  </page>
                 </notebook>
 
               </sheet>
