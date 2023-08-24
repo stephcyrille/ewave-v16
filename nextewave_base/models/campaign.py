@@ -23,7 +23,34 @@ class BuyingRequest(models.Model):
         ('published', 'Published'),
         ('closed', 'Closed'),
         ('canceled', 'Canceled')], required=True, default='new', readonly=True, tracking=True)
+    user_id = fields.Many2one(
+        'res.users', string='User', default=lambda self: self.env.user,
+        domain="['&', ('share', '=', False), ('company_ids', 'in', user_company_ids)]",
+        check_company=True, index=True, tracking=True)
+    company_id = fields.Many2one(
+        'res.company', string='Company', index=True,
+        compute='_compute_company_id', readonly=False, store=True)
+    user_company_ids = fields.Many2many(
+        'res.company', compute='_compute_user_company_ids',
+        help='UX: Limit to lead company or all if no company')
 
     def _count_products(self):
         self.product_count = len(self.products_ids)
+
+    @api.depends('company_id')
+    def _compute_user_company_ids(self):
+        all_companies = self.env['res.company'].search([])
+        for campaign in self:
+            if not campaign.company_id:
+                campaign.user_company_ids = all_companies
+            else:
+                campaign.user_company_ids = campaign.company_id
+
+    @api.depends('user_id')
+    def _compute_company_id(self):
+        """ Compute company_id coherency. """
+        for campaign in self:
+            campaign.company_id = False
+
+
 
