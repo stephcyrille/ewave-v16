@@ -19,7 +19,7 @@ NEXTeWave module for enhance CRM operations
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['crm', 'stock'],
+    'depends': ['crm', 'stock', 'nextewave_base'],
 
     # always loaded
     'data': [

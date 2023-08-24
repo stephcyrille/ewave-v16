@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="nextewave_crm_case_kanban_view_leads" model="ir.ui.view">
+        <field name="name">crm.lead.kanban.lead</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="arch" type="xml">
+<!--            <xpath expr="//kanban" position="attributes">-->
+<!--              <attribute name="default_group_by">-->
+<!--                'state'-->
+<!--              </attribute>-->
+<!--            </xpath>-->
+
+            <field name="stage_id" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </field>
+
+        </field>
+    </record>
+
     <record model="ir.actions.act_window" id="sourcing_for_you_action">
       <field name="name">We Sourcing 4 you</field>
       <field name="res_model">crm.lead</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <!-- Top menu item -->
@@ -17,7 +35,7 @@
     <!-- menu categories -->
     <menuitem
             name="Sourcing 4 you"
-            id="buyingforyou_menu"
+            id="sourcingforyou_menu"
             parent="nextewave_root_menu"
             action="sourcing_for_you_action"
             sequence="1"

@@ -74,8 +74,14 @@
           name="Campaign 4 you"
           id="campaignforyou_menu"
           parent="nextewave_root_menu"
-          action="nextewave_campaign_action"
           sequence="2"
+  />
+  <menuitem
+          name="Buying 4 you"
+          id="buyingforyou_menu"
+          parent="campaignforyou_menu"
+          action="nextewave_campaign_action"
+          sequence="1"
   />
 
   </data>
