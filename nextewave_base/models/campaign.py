@@ -57,6 +57,8 @@ class BuyingRequest(models.Model):
         self.ensure_one()
         if self.expected_revenue <= 0:
             raise ValidationError("Expected revenue must be greater than 0")
+        if len(self.products_ids) == 0:
+            raise ValidationError("You need to add at least on product for the campaign")
         else:
             self.write({
                 'state': 'confirmed'

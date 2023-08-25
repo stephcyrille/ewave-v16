@@ -12,7 +12,7 @@ class CampaignProductLine(models.Model):
     product_id = fields.Many2one('product.product', string='Product', required=False, tracking=True)
     description = fields.Text('Description')
     product_qty = fields.Float('Quantity', required=True, tracking=True)
-    price_unit = fields.Float('Price', required=False)
+    price_unit = fields.Float('Price', compute='_compute_unit_price')
     total_price = fields.Float('Total price', readonly=True, tracking=True,
                                compute='_compute_total_price')
     buying_campaign_id = fields.Many2one('buying.campaign', ondelete='cascade', invisible=True)
@@ -20,11 +20,22 @@ class CampaignProductLine(models.Model):
 
     @api.depends('product_qty', 'price_unit')
     def _compute_total_price(self):
-        for product_line in self:
-            """
-            Trigger the recompute the total price.
-            """
-            if product_line.price_unit and product_line.product_qty:
-                product_line.total_price = product_line.price_unit * product_line.product_qty
-            else:
-                product_line.total_price = 0
+        self.ensure_one()
+        """
+        Trigger the recompute the total price.
+        """
+        if self.price_unit and self.product_qty:
+            self.total_price = self.price_unit * self.product_qty
+        else:
+            self.total_price = 0
+
+    @api.depends('product_id')
+    def _compute_unit_price(self):
+        self.ensure_one()
+        """
+        Trigger the recompute the total price.
+        """
+        if self.product_id:
+            self.price_unit = self.product_id.list_price
+        else:
+            self.price_unit = 0

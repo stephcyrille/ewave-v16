@@ -15,16 +15,29 @@ class CrmProduct(models.Model):
     product_qty = fields.Float('Quantity', required=True, tracking=True)
     description = fields.Text('Description', required=True)
     vendor = fields.Many2one('res.partner', string='Vendor', required=False, tracking=True)
-    price_unit = fields.Float('Price', required=False)
-    total_price = fields.Float('Total price', required=False, readonly=True, tracking=True)
+    price_unit = fields.Float('Price', compute='_compute_unit_price')
+    total_price = fields.Float('Total price', readonly=True, tracking=True,
+                               compute='_compute_total_price')
     crm_lead = fields.Many2one('crm.lead', ondelete='cascade', invisible=True)
 
-    @api.onchange('price_unit')
+    @api.depends('product_qty', 'price_unit')
     def _compute_total_price(self):
+        self.ensure_one()
         """
         Trigger the recompute the total price.
         """
         if self.price_unit and self.product_qty:
             self.total_price = self.price_unit * self.product_qty
         else:
-            pass
+            self.total_price = 0
+
+    @api.depends('product_id')
+    def _compute_unit_price(self):
+        self.ensure_one()
+        """
+        Trigger the recompute the total price.
+        """
+        if self.product_id:
+            self.price_unit = self.product_id.list_price
+        else:
+            self.price_unit = 0
