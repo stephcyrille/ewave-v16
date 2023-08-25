@@ -15,18 +15,12 @@ class NextewaveCrmSaleOrder(models.Model):
         if context is None:
             context = self.env.context
         res = super(NextewaveCrmSaleOrder, self).default_get(fields)
-        print('\n\n\n===============\n')
-        print(res)
-        print('\n\n\n===============\n\n')
         crm_products = context.get('crm_products', False)
         opportunity_id = context.get('default_opportunity_id', False)
         order_line = []
         if opportunity_id:
             for product in crm_products:
                 curr_product = self.env['product.product'].sudo().search([('id', '=', product['id'])])
-                print('\n\n\n===============\n')
-                print(curr_product.uom_id.id)
-                print('\n\n\n===============\n\n')
                 line = (
                     0, 0, {
                         'name': curr_product.name,

@@ -25,7 +25,7 @@ NEXTeWave module for managing:
     'version': '1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'crm', 'product'],
+    'depends': ['base', 'crm', 'product', 'sale_management'],
 
     # always loaded
     'data': [
