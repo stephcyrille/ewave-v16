@@ -29,7 +29,7 @@ class NextewaveLeadCrmPurchase(models.Model):
                     'default_partner_id': rec.vendor_id.id,
                     'default_partner_ref': rec.name,
                     'default_opportunity_id': rec.id,
-                    # 'crm_products': [{'id': x.product_id.id, 'name': x.product_id.name, 'qty': x.product_qty, 'price': x.price_unit} for x in rec.crm_product_ids]
+                    'crm_products': [{'id': x.product_id.id, 'name': x.product_id.name, 'uom': x.product_id.uom_id.id, 'qty': x.product_qty, 'price': x.price_unit} for x in rec.crm_product_ids]
                 }
 
                 action['views'] = [(self.env.ref('purchase.purchase_order_form').id, 'form')]
@@ -62,13 +62,8 @@ class NextewaveLeadCrmPurchase(models.Model):
             'default_source_id': self.source_id.id,
             'default_company_id': self.company_id.id or self.env.company.id,
             'default_tag_ids': [(6, 0, self.tag_ids.ids)],
-            # 'crm_products': [
-            #     {'id': x.product_id.product_tmpl_id.id,
-            #      'name': x.product_id.name, 'qty': x.product_qty,
-            #      'price': x.price_unit,
-            #      'uom': x.product_id.product_tmpl_id.uom_id.id,
-            #      }
-            #     for x in self.crm_product_ids]
+            'crm_products': [
+                {'id': x.product_id.id, 'name': x.product_id.name, 'qty': x.product_qty, 'price': x.price_unit} for x in self.crm_product_ids]
         }
         if self.team_id:
             quotation_context['default_team_id'] = self.team_id.id

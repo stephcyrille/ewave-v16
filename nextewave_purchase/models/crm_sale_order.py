@@ -1,5 +1,6 @@
 from datetime import timedelta
 import logging
+import datetime
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError, UserError
 
@@ -8,6 +9,38 @@ _logger = logging.getLogger(__name__)
 
 class NextewaveCrmSaleOrder(models.Model):
     _inherit = 'sale.order'
+
+    @api.model
+    def default_get(self, fields, context=None):
+        if context is None:
+            context = self.env.context
+        res = super(NextewaveCrmSaleOrder, self).default_get(fields)
+        print('\n\n\n===============\n')
+        print(res)
+        print('\n\n\n===============\n\n')
+        crm_products = context.get('crm_products', False)
+        opportunity_id = context.get('default_opportunity_id', False)
+        order_line = []
+        if opportunity_id:
+            for product in crm_products:
+                curr_product = self.env['product.product'].sudo().search([('id', '=', product['id'])])
+                print('\n\n\n===============\n')
+                print(curr_product.uom_id.id)
+                print('\n\n\n===============\n\n')
+                line = (
+                    0, 0, {
+                        'name': curr_product.name,
+                        'product_id': curr_product.id,
+                        'product_uom_qty': product['qty'],
+                        'product_uom': curr_product.uom_id.id,
+                        'price_unit': product['price']
+                    }
+                )
+                order_line.append(line)
+            res.update({
+                'order_line': order_line,
+            })
+        return res
 
     @api.model
     def create(self, vals):
