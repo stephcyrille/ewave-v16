@@ -109,6 +109,25 @@
       </field>
   </record>
 
+      <record id="view_campaign_list" model="ir.ui.view">
+      <field name="name">Campaign list view</field>
+      <field name="model">buying.campaign</field>
+      <field name="arch" type="xml">
+          <tree string="Buying campaign list" multi_edit="1" sample="1">
+            <field name="company_id" invisible="1"/>
+            <field name="user_company_ids" invisible="1"/>
+            <field name="name" />
+            <field name="start_date" />
+            <field name="end_date" />
+            <field name="user_id" />
+            <field name="expected_revenue" />
+            <field name="state" optional="show" widget="badge" decoration-warning="state == 'new'" decoration-success=
+                "state in ('confirmed', 'published')" decoration-info="state in ('closed')"
+                decoration-danger="state == 'canceled'"/>
+          </tree>
+      </field>
+  </record>
+
 
   <record id="nextewave_campaign_action" model="ir.actions.act_window">
     <field name="name">Buying campaign</field>
