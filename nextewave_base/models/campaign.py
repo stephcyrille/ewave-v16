@@ -66,6 +66,10 @@ class BuyingRequest(models.Model):
 
     def action_publish(self):
         self.ensure_one()
+        for p in self.products_ids:
+            p.product_id.write({
+                'in_campaign': True
+            })
         self.write({
             'state': 'published'
         })
