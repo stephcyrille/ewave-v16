@@ -22,7 +22,7 @@
           </attribute>
         </xpath>
 
-        <xpath expr="//button[@name='186']" position="attributes">
+        <xpath expr="//button[2]" position="attributes">
           <attribute name="attrs">
             {'invisible':
                 [('state',
