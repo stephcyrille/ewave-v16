@@ -57,7 +57,7 @@
                     name="action_reinitialize"
                     type="object"
                   />
-                <field name="state" widget="statusbar" statusbar_visible="new,confirmed,published,closed"/>
+                <field name="state" widget="statusbar" statusbar_visible="new,confirmed,published"/>
               </header>
               <sheet>
                 <field name="company_id" invisible="1"/>
