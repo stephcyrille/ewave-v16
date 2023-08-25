@@ -17,7 +17,7 @@
                 {'invisible':
                     [('state',
                         'in',
-                      ['draft', 'new' , 'qualified', 'not_qualified', 'po_created',
+                      ['draft', 'new' , 'qualified', 'processing', 'po_created',
                       'lost', 'won', 'canceled', 'close']
                     )]
                 }"
