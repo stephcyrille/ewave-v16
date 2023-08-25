@@ -9,6 +9,7 @@ class BuyingRequest(models.Model):
     _name = 'buying.campaign'
     _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin', 'utm.mixin']
     _description = 'Nextewave Buying Campaign'
+    _rec_name = "name"
 
     name = fields.Char(string="Name", required=True)
     start_date = fields.Date("Start date", tracking=True, required=True)

@@ -5,8 +5,62 @@
       <field name="model">buying.campaign.request</field>
       <field name="arch" type="xml">
           <form string="Buying request">
-              <sheet>
+              <header>
+                  <button string="Confirm"
+                    name="action_confirm"
+                    type="object"
+                    class="oe_highlight"
+                    attrs="
+                       {'invisible':
+                            [('state',
+                                'in',
+                              ['confirmed', 'order_created', 'paid', 'canceled']
+                            )]
+                        }"
+                  />
+                  <button string="Create SO"
+                    name="action_create_so"
+                    type="object"
+                    class="oe_highlight"
+                    attrs="
+                       {'invisible':
+                            [('state',
+                                'in',
+                              ['new', 'order_created', 'paid', 'canceled']
+                            )]
+                        }"
+                  />
+                  <button string="Make a payment"
+                    name="action_make_payment"
+                    type="object"
+                    class="oe_highlight"
+                    attrs="
+                       {'invisible':
+                            [('state',
+                                'in',
+                              ['new', 'confirmed', 'canceled']
+                            )]
+                        }"
+                  />
+                  <button string="Cancel"
+                    name="action_cancel"
+                    type="object"
+                    attrs="
+                       {'invisible':
+                            [('state',
+                                'in',
+                              ['paid']
+                            )]
+                        }"
+                  />
+                   <button string="Reinitialize"
+                    name="action_reinitialize"
+                    type="object"
+                  />
+                <field name="state" widget="statusbar" statusbar_visible="new,confirmed,order_created,paid"/>
+              </header>
 
+              <sheet>
                 <group>
                   <group>
                     <field name="customer_id"/>
@@ -45,6 +99,22 @@
                 <field name="message_ids" widget="mail_thread"/>
               </div>
           </form>
+      </field>
+  </record>
+
+  <record id="view_user_request_list" model="ir.ui.view">
+      <field name="name">User request buy list view</field>
+      <field name="model">buying.campaign.request</field>
+      <field name="arch" type="xml">
+          <tree string="Buying request list" multi_edit="1" sample="1">
+            <field name="customer_id" />
+            <field name="campaign_id" />
+            <field name="request_date" />
+            <field name="request_amount" />
+            <field name="state" optional="show" widget="badge" decoration-warning="state == 'new'" decoration-success=
+                "state in ('confirmed')" decoration-info="state in ('order_created', 'paid')"
+                decoration-danger="state == 'canceled'"/>
+          </tree>
       </field>
   </record>
 

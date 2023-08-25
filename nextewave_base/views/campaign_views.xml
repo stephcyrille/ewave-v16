@@ -109,7 +109,7 @@
       </field>
   </record>
 
-      <record id="view_campaign_list" model="ir.ui.view">
+  <record id="view_campaign_list" model="ir.ui.view">
       <field name="name">Campaign list view</field>
       <field name="model">buying.campaign</field>
       <field name="arch" type="xml">
