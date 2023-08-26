@@ -28,6 +28,7 @@ class BuyingRequest(models.Model):
         ('order_created', 'Order created'),
         ('paid', 'Paid'),
         ('canceled', 'Canceled')], required=True, default='new', readonly=True, tracking=True)
+    sale_order_count = fields.Integer(string="Number of Quotations", default=1)
 
     @api.onchange('campaign_id')
     def _compute_products(self):
@@ -63,6 +64,21 @@ class BuyingRequest(models.Model):
                 self.products_ids]
         }
         action['views'] = [(self.env.ref('sale.view_order_form').id, 'form')]
+        return action
+
+    def action_view_sales_order(self):
+        self.ensure_one()
+        action = self.env["ir.actions.actions"]._for_xml_id("sale.action_quotations_with_onboarding")
+        action['context'] = {
+            'search_default_partner_id': self.customer_id.id,
+            'default_partner_id': self.customer_id.id,
+            'default_customer_buying_request_id': self.id,
+        }
+
+        sale_order = self.env['sale.order'].sudo().search([('customer_buying_request_id', '=', self.id)])
+        if len(sale_order) == 1:
+            action['views'] = [(self.env.ref('sale.view_order_form').id, 'form')]
+            action['res_id'] = sale_order.id
         return action
 
     def action_make_payment(self):

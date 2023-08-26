@@ -43,16 +43,12 @@ class BuyingRequestSaleOrder(models.Model):
             })
         return res
 
-    # @api.model
-    # def create(self, vals):
-    #     res = super(BuyingRequestSaleOrder, self).create(vals)
-    #     if res.opportunity_id:
-    #         # Check if we already have a vendor order
-    #         crm_stage_obj = self.env['crm.stage']
-    #         stage = crm_stage_obj.sudo().search([('sequence', '=', 6)])
-    #         res.opportunity_id.write({
-    #             'quotation_count': 1,
-    #             'state': 'customer_so_created',
-    #             'stage_id': stage.id
-    #         })
-    #     return res
+    @api.model
+    def create(self, vals):
+        res = super(BuyingRequestSaleOrder, self).create(vals)
+        if res.customer_buying_request_id:
+            res.customer_buying_request_id.write({
+                'sale_order_count': res.customer_buying_request_id.sale_order_count + 1,
+                'state': 'order_created'
+            })
+        return res

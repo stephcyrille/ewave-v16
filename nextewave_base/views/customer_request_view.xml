@@ -61,6 +61,13 @@
               </header>
 
               <sheet>
+                <div class="oe_button_box" name="button_box">
+                    <button class="oe_stat_button" type="object"
+                        name="action_view_sales_order" icon="fa-credit-card" attrs="{'invisible': [('sale_order_count', '=', 0)]}">
+                        <field name="sale_order_count" widget="statinfo" string="Sales orders"/>
+                    </button>
+                </div>
+
                 <group>
                   <group>
                     <field name="customer_id"/>
