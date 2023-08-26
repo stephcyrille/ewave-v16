@@ -28,7 +28,7 @@ class BuyingRequest(models.Model):
         ('order_created', 'Order created'),
         ('paid', 'Paid'),
         ('canceled', 'Canceled')], required=True, default='new', readonly=True, tracking=True)
-    sale_order_count = fields.Integer(string="Number of Quotations", default=1)
+    sale_order_count = fields.Integer(string="Number of Quotations", default=0)
 
     @api.onchange('campaign_id')
     def _compute_products(self):
