@@ -52,18 +52,18 @@ class BuyingRequest(models.Model):
 
     def action_create_so(self):
         self.ensure_one()
-        quotation_context = {
+        action = self.env["ir.actions.actions"]._for_xml_id("sale.action_quotations_with_onboarding")
+        action['context'] = {
             'default_customer_buying_request_id': self.id,
             'default_partner_id': self.customer_id.id,
+            'default_origin': f"{self.campaign_id.name} ({self.customer_id.name})",
+            'default_company_id': self.campaign_id.company_id.id or self.env.company.id,
             'request_products': [
                 {'id': x.product_id.id, 'name': x.product_id.name, 'qty': x.product_qty, 'price': x.price_unit} for x in
                 self.products_ids]
         }
-        if self.team_id:
-            quotation_context['default_team_id'] = self.team_id.id
-        if self.user_id:
-            quotation_context['default_user_id'] = self.user_id.id
-        return quotation_context
+        action['views'] = [(self.env.ref('sale.view_order_form').id, 'form')]
+        return action
 
     def action_make_payment(self):
         self.ensure_one()
