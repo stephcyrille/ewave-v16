@@ -77,6 +77,10 @@ class BuyingRequest(models.Model):
 
     def action_close_campaign(self):
         self.ensure_one()
+        for p in self.products_ids:
+            p.product_id.write({
+                'in_campaign': False
+            })
         self.write({
             'state': 'closed'
         })
