@@ -71,8 +71,7 @@ class BuyingRequest(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id("sale.action_quotations_with_onboarding")
         action['context'] = {
             'search_default_partner_id': self.customer_id.id,
-            'default_partner_id': self.customer_id.id,
-            'default_customer_buying_request_id': self.id,
+            'default_partner_id': self.customer_id.id
         }
 
         sale_order = self.env['sale.order'].sudo().search([('customer_buying_request_id', '=', self.id)])
