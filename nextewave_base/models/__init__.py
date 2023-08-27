@@ -7,3 +7,4 @@ from . import crm_lead
 from . import customer_request
 from . import product
 from . import sale
+from . import customer_request_payment

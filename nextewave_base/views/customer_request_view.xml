@@ -63,6 +63,10 @@
               <sheet>
                 <div class="oe_button_box" name="button_box">
                     <button class="oe_stat_button" type="object"
+                        name="action_view_payments" icon="fa-money" attrs="{'invisible': [('payments_count', '=', 0)]}">
+                        <field name="payments_count" widget="statinfo" string="Payments"/>
+                    </button>
+                    <button class="oe_stat_button" type="object"
                         name="action_view_sales_order" icon="fa-credit-card" attrs="{'invisible': [('sale_order_count', '=', 0)]}">
                         <field name="sale_order_count" widget="statinfo" string="Sales orders"/>
                     </button>
