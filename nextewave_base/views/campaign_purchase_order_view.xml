@@ -1,0 +1,37 @@
+<odoo>
+  <data>
+    <!-- Override CRM Form view -->
+    <record id="nextewave_campaign_purchase_form" model="ir.ui.view">
+      <field name="name">buying.campaign.form</field>
+      <field name="model">buying.campaign</field>
+      <field name="inherit_id" ref="nextewave_base.nextewave_customer_request_campaign"/>
+      <field name="arch" type="xml">
+          <button name="action_publish" position="after">
+              <button string="Create PO"
+                name="action_create_po"
+                type="object"
+                class="oe_highlight"
+                attrs="
+                   {'invisible':
+                        [('state',
+                            'in',
+                          ['new', 'published', 'closed', 'canceled']
+                        )]
+                    }"
+              />
+          </button>
+
+          <field name="end_date" position="after">
+              <field name="partner_id"  attrs="{'required': [('state','in', ['confirmed', 'published'])]}"/>
+          </field>
+
+          <button name="action_view_buying_requests" position="before">
+            <button class="oe_stat_button" type="object"
+                name="action_view_purchase_order" icon="fa-credit-card" attrs="{'invisible': [('purchases_count', '=', 0)]}">
+                <field name="purchases_count" widget="statinfo" string="PO"/>
+            </button>
+          </button>
+      </field>
+    </record>
+  </data>
+</odoo>

@@ -36,6 +36,7 @@ NEXTeWave module for managing:
         'views/customer_request_view.xml',
         'views/nextewave_product.xml',
         'views/customer_request_campaign.xml',
+        'views/campaign_purchase_order_view.xml',
         # 'views/templates.xml',
     ],
     'installable': True,

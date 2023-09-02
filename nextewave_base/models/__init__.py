@@ -9,3 +9,4 @@ from . import product
 from . import sale
 from . import customer_request_payment
 from . import campaign_buying_request
+from . import campaign_purchase_order
