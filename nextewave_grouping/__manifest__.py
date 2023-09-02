@@ -1,10 +1,10 @@
 {
     'name': "Nextewave Grouping Module",
 
-    'summary': """NEXTeWave Grouping: Stock and inventory manager""",
+    'summary': """NEXTeWave Grouping: Stock and grouping operation""",
 
     'description': """
-NEXTeWave Stock inventory module
+NEXTeWave Grouping module
 ==================================
 NEXTeWave module for grouping products and prepare for shipping
     """,
@@ -14,22 +14,12 @@ NEXTeWave module for grouping products and prepare for shipping
     'category': 'NEXTeWave/Addons',
 
     # any module necessary for this one to work correctly
-    'depends': [
-        'stock',
-        'account',
-        'mail',
-        'delivery',
-        'product',
-        'portal',
-        'utm',
-        'nextewave_base',
-        'nextewave_crm',
-        'nextewave_purchase'
-    ],
+    'depends': ['stock', 'nextewave_base'],
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'views/grouping_package_views.xml'
     ]
 }
 # -*- coding: utf-8 -*-

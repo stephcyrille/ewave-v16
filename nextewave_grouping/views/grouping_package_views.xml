@@ -1,0 +1,169 @@
+<odoo>
+
+  <record id="grouping_package_form" model="ir.ui.view">
+      <field name="name">Grouping Package form</field>
+      <field name="model">nextewave.grouping.package</field>
+      <field name="arch" type="xml">
+        <form string="Pack">
+          <header>
+            <field name="state" widget="statusbar" statusbar_visible="draft,checked,locked,confirmed"/>
+<!--            <button string="Vérifier"-->
+<!--              name="action_button_checked"-->
+<!--              type="object"-->
+<!--              class="oe_highlight"-->
+<!--              attrs="-->
+<!--                 {'invisible':-->
+<!--                      [('state',-->
+<!--                          'in',-->
+<!--                        ['locked', 'checked', 'canceled', 'confirmed', 'loaded', 'unloaded']-->
+<!--                      )]-->
+<!--                  }"-->
+<!--            />-->
+<!--            <button string="Vérouiller"-->
+<!--              name="action_button_lock"-->
+<!--              type="object"-->
+<!--              class="oe_highlight"-->
+<!--              attrs="-->
+<!--                 {'invisible':-->
+<!--                      [('state',-->
+<!--                          'in',-->
+<!--                        ['draft', 'locked', 'canceled', 'confirmed', 'loaded', 'unloaded']-->
+<!--                      )]-->
+<!--                  }"-->
+<!--            />-->
+<!--            <button string="Confirmé"-->
+<!--              name="action_button_confirm"-->
+<!--              type="object"-->
+<!--              class="oe_highlight"-->
+<!--              attrs="-->
+<!--                 {'invisible':-->
+<!--                      [('state',-->
+<!--                          'in',-->
+<!--                        ['draft', 'checked', 'canceled', 'confirmed', 'loaded', 'unloaded']-->
+<!--                      )]-->
+<!--                  }"-->
+<!--            />-->
+<!--            <button string="Réinitialiser"-->
+<!--              name="action_button_reinitializing"-->
+<!--              type="object"-->
+<!--              attrs="-->
+<!--                 {'invisible':-->
+<!--                      [('state',-->
+<!--                          'in',-->
+<!--                        ['draft']-->
+<!--                      )]-->
+<!--                  }"-->
+<!--            />-->
+<!--            <button string="Annulé"-->
+<!--              name="action_button_canceled"-->
+<!--              type="object"-->
+<!--              attrs="-->
+<!--                 {'invisible':-->
+<!--                      [('state',-->
+<!--                          'in',-->
+<!--                        ['canceled', 'confirmed']-->
+<!--                      )]-->
+<!--                  }"-->
+<!--            />-->
+          </header>
+
+          <sheet>
+            <div class="oe_title">
+              <!-- Invoice draft header -->
+              <span class="o_form_label">Create a new package</span>
+              <h1 class="mt0">
+                  <field name="ref" placeholder="PACK/2023/00001"/>
+              </h1>
+
+          </div>
+
+            <group>
+              <group>
+<!--                <field name="pack_type" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>-->
+                <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
+                <field name="actual_warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
+                <field name="location_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
+                <field name="barcode" />
+              </group>
+
+              <group>
+                <field name="departure_date" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
+                <field name="total_weight" />
+                <field name="total_capacity" />
+                <field name="creation_date" />
+              </group>
+            </group>
+
+            <notebook position="inside">
+              <page string="Package products">
+                <field name="products_lines_ids">
+                  <tree string="Package products" editable="bottom">
+                    <field name="product_id" domain="[('detailed_type', '=', 'product')]"/>
+                    <field name="description"/>
+                    <field name="product_qty"/>
+                    <field name="weight"/>
+                    <field name="capacity"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+  </record>
+
+  <record id="grouping_package_list" model="ir.ui.view">
+      <field name="name">Grouping Package list</field>
+      <field name="model">nextewave.grouping.package</field>
+      <field name="arch" type="xml">
+          <tree string="Pack grouping list" multi_edit="1" sample="1">
+            <field name="ref" />
+<!--            <field name="pack_type" />-->
+            <field name="warehouse_id" />
+            <field name="creation_date" />
+            <field name="departure_date" />
+            <field name="state" optional="show" widget="badge" decoration-warning="state == 'draft'" decoration-success=
+                "state in ('confirmed', 'loaded', 'unloaded')" decoration-info="state in ('locked', 'checked')"
+                decoration-danger="state == 'canceled'"/>
+          </tree>
+      </field>
+  </record>
+
+
+  <record id="grouping_package_action_window" model="ir.actions.act_window">
+    <field name="name">Package grouping</field>
+    <field name="res_model">nextewave.grouping.package</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            No grouping package already created. Let's start creating!
+        </p>
+        <p>
+            In this module, you could create many grouping packages with specifics characteristics.
+        </p>
+    </field>
+  </record>
+
+  <!-- Top menu item -->
+  <menuitem
+          name="Grouping 4 you"
+          id="grouping_for_you_menu"
+          parent="nextewave_base.nextewave_root_menu"
+          sequence="4"
+  />
+  <menuitem
+          name="Package"
+          id="grouping_package_menu"
+          parent="grouping_for_you_menu"
+          action="grouping_package_action_window"
+          sequence="3"
+  />
+</odoo>
+
+

@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_nextewave_grouping_package,nextewave_grouping.nextewave_grouping_package,model_nextewave_grouping_package,base.group_user,1,1,1,1
+access_nextewave_grouping_package_line,nextewave_grouping.nextewave_grouping_package_line,model_nextewave_grouping_package_line,base.group_user,1,1,1,1
