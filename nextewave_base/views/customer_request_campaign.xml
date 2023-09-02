@@ -1,0 +1,28 @@
+<odoo>
+  <data>
+    <!-- Override CRM Form view -->
+    <record id="nextewave_customer_request_campaign" model="ir.ui.view">
+      <field name="name">buying.campaign.form</field>
+      <field name="model">buying.campaign</field>
+      <field name="inherit_id" ref="nextewave_base.nextewave_campaign_form_view"/>
+      <field name="arch" type="xml">
+          <field name="company_id" position="before">
+            <div class="oe_button_box" name="button_box">
+                <button class="oe_stat_button" type="object"
+                    name="action_view_buying_requests" icon="fa-user" attrs="{'invisible': [('customer_buying_count', '=', 0)]}">
+                    <field name="customer_buying_count" widget="statinfo" string="Buying request"/>
+                </button>
+<!--                <button class="oe_stat_button" type="object"-->
+<!--                    name="action_view_sales_order" icon="fa-credit-card" attrs="{'invisible': [('sale_order_count', '=', 0)]}">-->
+<!--                    <field name="sale_order_count" widget="statinfo" string="Sales orders"/>-->
+<!--                </button>-->
+            </div>
+          </field>
+      </field>
+  </record>
+
+   <!-- Override CRM Form view -->
+
+
+  </data>
+</odoo>
