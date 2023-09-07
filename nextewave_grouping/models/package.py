@@ -110,19 +110,19 @@ class NextewaveGroupingPackage(models.Model):
     #     res.ref = self.env['ir.sequence'].next_by_code("nextewave.grouping.pack") or 'New'
     #     return res
 
-    # @api.depends('products_lines_ids')
-    # def _compute_total_capacity(self):
-    #     self.ensure_one()
-    #     total_capacity = 0
-    #     for line in self.products_lines_ids:
-    #         total_capacity += line.capacity or 0.0
-    #     self.total_capacity = total_capacity
-    #
-    # @api.depends('products_lines_ids')
-    # def _compute_total_weight(self):
-    #     self.ensure_one()
-    #     total_weight = 0
-    #     for line in self.products_lines_ids:
-    #         total_weight += line.weight or 0.0
-    #     self.total_weight = total_weight
+    @api.depends('products_lines_ids')
+    def _compute_total_capacity(self):
+        self.ensure_one()
+        total_capacity = 0
+        for line in self.products_lines_ids:
+            total_capacity += line.capacity or 0.0
+        self.total_capacity = total_capacity
+
+    @api.depends('products_lines_ids')
+    def _compute_total_weight(self):
+        self.ensure_one()
+        total_weight = 0
+        for line in self.products_lines_ids:
+            total_weight += line.weight or 0.0
+        self.total_weight = total_weight
 

@@ -1,12 +1,13 @@
 <odoo>
 
-  <record id="grouping_package_form" model="ir.ui.view">
-      <field name="name">Grouping Package form</field>
-      <field name="model">nextewave.grouping.package</field>
+  <record id="customer_package_grouping_form" model="ir.ui.view">
+      <field name="name">Grouping request form</field>
+      <field name="model">nextewave.grouping.package.request</field>
       <field name="arch" type="xml">
         <form string="Pack">
           <header>
-            <field name="state" widget="statusbar" statusbar_visible="draft,checked,locked,confirmed"/>
+                <field name="state" widget="statusbar" statusbar_visible="new,confirmed,paid,validated"/>
+<!--            <field name="state" widget="statusbar" statusbar_visible="draft,checked,locked,confirmed"/>-->
 <!--            <button string="Vérifier"-->
 <!--              name="action_button_checked"-->
 <!--              type="object"-->
@@ -70,41 +71,57 @@
           <sheet>
             <div class="oe_title">
               <!-- Invoice draft header -->
-              <span class="o_form_label">Create a new package</span>
+              <span class="o_form_label">New customer package request</span>
               <h1 class="mt0">
-                  <field name="ref" placeholder="PACK/2023/00001"/>
+                  <field name="ref" placeholder="REQ/PACK/2023/00001"/>
               </h1>
-
           </div>
 
             <group>
               <group>
-<!--                <field name="pack_type" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>-->
-                <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
-                <field name="actual_warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
-                <field name="location_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
-                <field name="barcode" />
+                <field name="customer_id" />
+                <field name="origin" />
+                <field name="destination" />
+                <field name="material" />
               </group>
 
               <group>
-                <field name="departure_date" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
-                <field name="total_weight" />
-                <field name="total_capacity" />
-                <field name="creation_date" />
+                <field name="departure_date" />
+                <field name="arrival_date" />
+                <field name="item_count" />
               </group>
             </group>
 
             <notebook position="inside">
-              <page string="Package products">
-                <field name="products_lines_ids">
-                  <tree string="Package products" editable="bottom">
-                    <field name="product_id" domain="[('detailed_type', '=', 'product')]"/>
-                    <field name="description"/>
-                    <field name="product_qty"/>
+              <page string="Request items">
+                <field name="items_lines_ids">
+                  <tree string="Request items" editable="bottom">
+                    <field name="name" />
+                    <field name="material"/>
+                    <field name="quantity"/>
+                    <field name="price"/>
                     <field name="weight"/>
                     <field name="capacity"/>
                   </tree>
                 </field>
+              </page>
+
+              <page string="Logistic detail">
+                <group>
+                    <group>
+                        <field name="source_warehouse_id" />
+                        <field name="destination_warehouse_id" />
+                        <field name="current_location_id" domain="[('usage', '=', 'internal')]" />
+                    </group>
+
+                    <group>
+                        <group>
+                            <field name="total_price" string="Price" />
+                            <field name="total_weight" string="Weight" />
+                            <field name="total_capacity" string="Capacity" />
+                        </group>
+                    </group>
+                </group>
               </page>
             </notebook>
           </sheet>
@@ -118,51 +135,46 @@
       </field>
   </record>
 
-  <record id="grouping_package_list" model="ir.ui.view">
-      <field name="name">Grouping Package list</field>
-      <field name="model">nextewave.grouping.package</field>
+  <record id="customer_package_grouping_list" model="ir.ui.view">
+      <field name="name">Customer Package request list</field>
+      <field name="model">nextewave.grouping.package.request</field>
       <field name="arch" type="xml">
           <tree string="Pack grouping list" multi_edit="1" sample="1">
             <field name="ref" />
 <!--            <field name="pack_type" />-->
-            <field name="warehouse_id" />
-            <field name="creation_date" />
+            <field name="customer_id" />
+            <field name="origin" />
+            <field name="destination" />
             <field name="departure_date" />
-            <field name="state" optional="show" widget="badge" decoration-warning="state == 'draft'" decoration-success=
-                "state in ('confirmed', 'loaded', 'unloaded')" decoration-info="state in ('locked', 'checked')"
-                decoration-danger="state == 'canceled'"/>
+            <field name="arrival_date" />
+<!--            <field name="state" optional="show" widget="badge" decoration-warning="state == 'draft'" decoration-success=-->
+<!--                "state in ('confirmed', 'loaded', 'unloaded')" decoration-info="state in ('locked', 'checked')"-->
+<!--                decoration-danger="state == 'canceled'"/>-->
           </tree>
       </field>
   </record>
 
 
-  <record id="grouping_package_action_window" model="ir.actions.act_window">
-    <field name="name">Package grouping</field>
-    <field name="res_model">nextewave.grouping.package</field>
+  <record id="grouping_package_request_action_window" model="ir.actions.act_window">
+    <field name="name">Grouping request</field>
+    <field name="res_model">nextewave.grouping.package.request</field>
     <field name="view_mode">tree,form</field>
     <field name="help" type="html">
         <p class="o_view_nocontent_smiling_face">
-            No grouping package already created. Let's start creating!
+            No grouping package request already created. Let's start creating!
         </p>
         <p>
-            In this module, you could create many grouping packages with specifics characteristics.
+            In this module, you could create customers packages requests.
         </p>
     </field>
   </record>
 
-  <!-- Top menu item -->
   <menuitem
-          name="Grouping 4 you"
-          id="grouping_for_you_menu"
-          parent="nextewave_base.nextewave_root_menu"
-          sequence="4"
-  />
-  <menuitem
-          name="Grouping Package"
-          id="grouping_package_menu"
+          name="Grouping request"
+          id="grouping_request_menu"
           parent="grouping_for_you_menu"
-          action="grouping_package_action_window"
-          sequence="3"
+          action="grouping_package_request_action_window"
+          sequence="2"
   />
 </odoo>
 
