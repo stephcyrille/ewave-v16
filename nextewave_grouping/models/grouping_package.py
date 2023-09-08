@@ -10,60 +10,59 @@ class NextewaveGroupingPackageLine(models.Model):
     _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin', 'utm.mixin']
     _description = 'NEXTeWave grouping Package line model'
 
-    product_id = fields.Many2one('product.product', string='Product', required=False,
-                                 tracking=True, domain="[('detailed_type', '=', 'product')]")
-    description = fields.Text('Description')
-    product_qty = fields.Float('Quantity', required=True, tracking=True)
-    price_unit = fields.Float('Price', compute='_compute_unit_price')
+    item_id = fields.Many2one('nextewave.grouping.item', string='Item', required=False, tracking=True)
+    product_qty = fields.Float('Quantity', readonly=True, tracking=True, compute='_compute_qty')
     total_price = fields.Float('Total price', readonly=True, tracking=True,
                                compute='_compute_total_price')
-    weight = fields.Float("Weight (in Kg)", compute='_compute_weight', tracking=True)
-    capacity = fields.Float("Capacity (in m3)", tracking=True, compute='_compute_volume')
+    total_weight = fields.Float("Total weight (Kg)", compute='_compute_total_weight', tracking=True,
+                                readonly=True)
+    total_capacity = fields.Float("Total capacity (m3)", tracking=True, compute='_compute_total_capacity',
+                                  readonly=True)
     grouping_package_id = fields.Many2one('nextewave.grouping.package', ondelete='cascade', invisible=True)
 
-    @api.depends('product_qty', 'price_unit')
+    @api.depends('item_id')
+    def _compute_qty(self):
+        """
+        Trigger compute quantity.
+        """
+        for rec in self:
+            if rec.item_id:
+                rec.product_qty = rec.item_id.quantity
+            else:
+                rec.product_qty = 0
+
+    @api.depends('item_id', 'product_qty')
     def _compute_total_price(self):
         """
         Trigger the recompute the total price.
         """
-        self.ensure_one()
-        if self.price_unit and self.product_qty:
-            self.total_price = self.price_unit * self.product_qty
-        else:
-            self.total_price = 0
+        for rec in self:
+            if rec.item_id:
+                rec.total_price = rec.item_id.quantity * rec.item_id.price
+            else:
+                rec.total_price = 0
 
-    @api.depends('product_id')
-    def _compute_unit_price(self):
-        """
-        Trigger the recompute the unit price.
-        """
-        self.ensure_one()
-        if self.product_id:
-            self.price_unit = self.product_id.list_price
-        else:
-            self.price_unit = 0
-
-    @api.depends('product_id')
-    def _compute_weight(self):
+    @api.depends('item_id', 'product_qty')
+    def _compute_total_weight(self):
         """
         Trigger the recompute the weight.
         """
-        self.ensure_one()
-        if self.product_id:
-            self.weight = self.product_id.weight
-        else:
-            self.weight = 0
+        for rec in self:
+            if rec.item_id:
+                rec.total_weight = rec.item_id.quantity * rec.item_id.weight
+            else:
+                rec.total_weight = 0
 
-    @api.depends('product_id')
-    def _compute_volume(self):
+    @api.depends('item_id', 'product_qty')
+    def _compute_total_capacity(self):
         """
-        Trigger the recompute the capicity.
+        Trigger the recompute the capacity.
         """
-        self.ensure_one()
-        if self.product_id:
-            self.capacity = self.product_id.volume
-        else:
-            self.capacity = 0
+        for rec in self:
+            if rec.item_id:
+                rec.total_capacity = rec.item_id.quantity * rec.item_id.capacity
+            else:
+                rec.total_capacity = 0
 
 
 class NextewaveGroupingPackage(models.Model):
@@ -99,30 +98,28 @@ class NextewaveGroupingPackage(models.Model):
         ('unloaded', 'Unloaded')], string='Status',
         copy=False, default='draft', index=True, readonly=True, tracking=True)
     now_is_locked = fields.Boolean(readonly=True, default=False, tracking=True)
-    products_lines_ids = fields.One2many('nextewave.grouping.package.line', 'grouping_package_id',
-                                         string='Products', tracking=True, required=True)
+    items_lines_ids = fields.One2many('nextewave.grouping.package.line', 'grouping_package_id',
+                                         string='Package Items', tracking=True, required=True)
 
-    # @api.model
-    # def create(self, vals):
-    #     res = super(NextewavePackage, self).create(vals)
-    #     ean = generate_ean(str(res.id))
-    #     res.barcode = ean
-    #     res.ref = self.env['ir.sequence'].next_by_code("nextewave.grouping.pack") or 'New'
-    #     return res
+    @api.model
+    def create(self, vals):
+        res = super(NextewaveGroupingPackage, self).create(vals)
+        res["ref"] = self.env["ir.sequence"].next_by_code("grouping.package.sequence") or "New"
+        return res
 
-    @api.depends('products_lines_ids')
+    @api.depends('items_lines_ids')
     def _compute_total_capacity(self):
-        self.ensure_one()
-        total_capacity = 0
-        for line in self.products_lines_ids:
-            total_capacity += line.capacity or 0.0
-        self.total_capacity = total_capacity
+        for rec in self:
+            total_capacity = 0
+            for line in rec.items_lines_ids:
+                total_capacity += line.total_capacity or 0.0
+            rec.total_capacity = total_capacity
 
-    @api.depends('products_lines_ids')
+    @api.depends('items_lines_ids')
     def _compute_total_weight(self):
-        self.ensure_one()
-        total_weight = 0
-        for line in self.products_lines_ids:
-            total_weight += line.weight or 0.0
-        self.total_weight = total_weight
+        for rec in self:
+            total_weight = 0
+            for line in rec.items_lines_ids:
+                total_weight += line.total_weight or 0.0
+            rec.total_weight = total_weight
 

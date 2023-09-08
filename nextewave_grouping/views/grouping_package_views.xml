@@ -82,7 +82,7 @@
 <!--                <field name="pack_type" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>-->
                 <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
                 <field name="actual_warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
-                <field name="location_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
+                <field name="location_id" domain="[('warehouse_id', '=', warehouse_id)]" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
                 <field name="barcode" />
               </group>
 
@@ -95,14 +95,14 @@
             </group>
 
             <notebook position="inside">
-              <page string="Package products">
-                <field name="products_lines_ids">
-                  <tree string="Package products" editable="bottom">
-                    <field name="product_id" domain="[('detailed_type', '=', 'product')]"/>
-                    <field name="description"/>
+              <page string="Package items">
+                <field name="items_lines_ids">
+                  <tree string="Package items" editable="bottom">
+                    <field name="item_id" domain="[('status', '=', 'in_stock')]" />
                     <field name="product_qty"/>
-                    <field name="weight"/>
-                    <field name="capacity"/>
+                    <field name="total_price"/>
+                    <field name="total_weight"/>
+                    <field name="total_capacity"/>
                   </tree>
                 </field>
               </page>
