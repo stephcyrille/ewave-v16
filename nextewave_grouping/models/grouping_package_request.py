@@ -11,7 +11,8 @@ class NextewaveSaleGroupingPackageRequest(models.Model):
     _rec_name = 'ref'
     _order = 'ref'
 
-    ref = fields.Char('Ref', required=True, tracking=True)
+    ref = fields.Char('Request reference', tracking=True, readonly=True, required=False, index=True,
+                      copy=False, default="New")
     customer_id = fields.Many2one('res.partner', string='Customer', tracking=True, required=True)
     origin = fields.Char(string='From place', tracking=True, required=True)
     destination = fields.Char(string='Destination', tracking=True, required=True)
@@ -55,6 +56,7 @@ class NextewaveSaleGroupingPackageRequest(models.Model):
         if res.items_lines_ids:
             for line in res.items_lines_ids:
                 line.customer_id = res.customer_id
+        res["ref"] = self.env["ir.sequence"].next_by_code("grouping.package.request.sequence") or "New"
         return res
 
     @api.depends('items_lines_ids')
@@ -62,6 +64,8 @@ class NextewaveSaleGroupingPackageRequest(models.Model):
         for rec in self:
             if rec.items_lines_ids:
                 rec.item_count = len(rec.items_lines_ids)
+            else:
+                rec.item_count = 0
 
     @api.depends('items_lines_ids')
     def _compute_total_price(self):
@@ -69,6 +73,8 @@ class NextewaveSaleGroupingPackageRequest(models.Model):
             if rec.items_lines_ids:
                 for line in rec.items_lines_ids:
                     rec.total_price += (line.quantity * line.price)
+            else:
+                rec.total_price = 0
 
     @api.depends('items_lines_ids')
     def _compute_total_weight(self):
@@ -76,6 +82,8 @@ class NextewaveSaleGroupingPackageRequest(models.Model):
             if rec.items_lines_ids:
                 for line in rec.items_lines_ids:
                     rec.total_weight += (line.quantity * line.weight)
+            else:
+                rec.total_weight = 0
 
     @api.depends('items_lines_ids')
     def _compute_total_capacity(self):
@@ -83,6 +91,8 @@ class NextewaveSaleGroupingPackageRequest(models.Model):
             if rec.items_lines_ids:
                 for line in rec.items_lines_ids:
                     rec.total_capacity += (line.quantity * line.capacity)
+            else:
+                rec.total_capacity = 0
 
     def action_confirm(self):
         self.ensure_one()

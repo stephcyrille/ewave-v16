@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    <record id="my_sequence_id" model="ir.sequence">
+      <field name="name">Grouping request sequence</field>
+      <field name="code">grouping.package.request.sequence</field>
+      <field name="prefix">REQ/PACK/%(year)s/</field>
+      <field name="padding">5</field>
+      <field name="number_next">1</field>
+    </record>
+  </data>
+</odoo>

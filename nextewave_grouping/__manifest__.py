@@ -19,6 +19,7 @@ NEXTeWave module for grouping products and prepare for shipping
     # always loaded
     'data': [
         'security/ir.model.access.csv',
+        'data/grouping_pack_req_seq.xml',
         'views/grouping_package_views.xml',
         'views/items_views.xml',
         'views/grouping_package_request_views.xml',
