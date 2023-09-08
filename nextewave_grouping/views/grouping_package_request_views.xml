@@ -20,40 +20,18 @@
                           )]
                       }"
                 />
-<!--            <button string="Confirmé"-->
-<!--              name="action_button_confirm"-->
-<!--              type="object"-->
-<!--              class="oe_highlight"-->
-<!--              attrs="-->
-<!--                 {'invisible':-->
-<!--                      [('state',-->
-<!--                          'in',-->
-<!--                        ['draft', 'checked', 'canceled', 'confirmed', 'loaded', 'unloaded']-->
-<!--                      )]-->
-<!--                  }"-->
-<!--            />-->
-<!--            <button string="Réinitialiser"-->
-<!--              name="action_button_reinitializing"-->
-<!--              type="object"-->
-<!--              attrs="-->
-<!--                 {'invisible':-->
-<!--                      [('state',-->
-<!--                          'in',-->
-<!--                        ['draft']-->
-<!--                      )]-->
-<!--                  }"-->
-<!--            />-->
-<!--            <button string="Annulé"-->
-<!--              name="action_button_canceled"-->
-<!--              type="object"-->
-<!--              attrs="-->
-<!--                 {'invisible':-->
-<!--                      [('state',-->
-<!--                          'in',-->
-<!--                        ['canceled', 'confirmed']-->
-<!--                      )]-->
-<!--                  }"-->
-<!--            />-->
+                <button string="Collect customer items"
+                  name="action_collect_items"
+                  type="object"
+                  class="oe_highlight"
+                  attrs="
+                     {'invisible':
+                          [('state',
+                              'in',
+                            ['new', 'confirmed', 'canceled', 'validated']
+                          )]
+                      }"
+                />
           </header>
 
           <sheet>
@@ -100,7 +78,7 @@
                     <group>
                         <field name="source_warehouse_id" attrs="{'readonly': [('state','in', ['paid', 'validated', 'canceled'])]}" />
                         <field name="destination_warehouse_id" attrs="{'readonly': [('state','in', ['paid', 'validated', 'canceled'])]}" />
-                        <field name="current_location_id" domain="[('usage', '=', 'internal')]" attrs="{'readonly': [('state','in', ['confirmed', 'paid', 'validated', 'canceled'])]}" />
+                        <field name="current_location_id" domain="[('usage', '=', 'internal')]" attrs="{'readonly': [('state','in', ['confirmed', 'validated', 'canceled'])]}" />
                     </group>
 
                     <group>

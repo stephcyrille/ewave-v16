@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 
 class NextewaveSaleGroupingPackageRequest(models.Model):
@@ -85,6 +86,18 @@ class NextewaveSaleGroupingPackageRequest(models.Model):
 
     def action_confirm(self):
         self.ensure_one()
+        if not  self.items_lines_ids:
+            raise ValidationError("You must add at least 1 item in the request")
         self.write({
             'state': 'confirmed'
+        })
+
+    def action_collect_items(self):
+        self.ensure_one()
+        for line in self.items_lines_ids:
+            line.write({
+                'status': 'in_stock'
+            })
+        self.write({
+            'state': 'validated'
         })
