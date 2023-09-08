@@ -28,6 +28,14 @@ class NextewaveSaleGroupingItem(models.Model):
                                                   ondelete='cascade', invisible=True)
     location_id = fields.Many2one("stock.location", string="Location", tracking=True, readonly=True,
                                   compute="_compute_location")
+    status = fields.Selection([
+        ('arrival', 'Arrival'),
+        ('in_stock', 'In stock'),
+        ('on_transit', 'On transit'),
+        ('almost_there', 'Almost there'),
+        ('picked_off', 'Picked off'),
+        ('available', 'Available')], string='arrival',
+        copy=False, default='arrival', index=True, tracking=True)
 
     @api.depends('grouping_package_request_id')
     def _compute_location(self):

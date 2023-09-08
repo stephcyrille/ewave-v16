@@ -13,6 +13,7 @@
         <field name="weight"/>
         <field name="capacity"/>
         <field name="location_id"/>
+        <field name="status"/>
       </tree>
     </field>
   </record>
