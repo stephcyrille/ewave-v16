@@ -20,18 +20,6 @@
                           )]
                       }"
                 />
-<!--            <button string="Vérouiller"-->
-<!--              name="action_button_lock"-->
-<!--              type="object"-->
-<!--              class="oe_highlight"-->
-<!--              attrs="-->
-<!--                 {'invisible':-->
-<!--                      [('state',-->
-<!--                          'in',-->
-<!--                        ['draft', 'locked', 'canceled', 'confirmed', 'loaded', 'unloaded']-->
-<!--                      )]-->
-<!--                  }"-->
-<!--            />-->
 <!--            <button string="Confirmé"-->
 <!--              name="action_button_confirm"-->
 <!--              type="object"-->
@@ -75,7 +63,7 @@
               <h1 class="mt0">
                   <field name="ref" placeholder="REQ/PACK/2023/00001"/>
               </h1>
-          </div>
+            </div>
 
             <group>
               <group>

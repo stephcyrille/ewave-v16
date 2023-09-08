@@ -1,0 +1,35 @@
+<odoo>
+  <data>
+    <record id="grouping_pack_req_payment" model="ir.ui.view">
+      <field name="name">nextewave.grouping.package.request.form</field>
+      <field name="model">nextewave.grouping.package.request</field>
+      <field name="inherit_id" ref="nextewave_grouping.customer_package_grouping_form"/>
+      <field name="arch" type="xml">
+          <button name="action_confirm" position="after">
+              <button string="Make a payment"
+                  name="action_make_payment"
+                  type="object"
+                  class="oe_highlight"
+                  attrs="
+                     {'invisible':
+                          [('state',
+                              'in',
+                            ['new', 'canceled', 'validated']
+                          )]
+                      }"
+                />
+          </button>
+
+          <xpath expr="//sheet/div[1]" position="before">
+              <div class="oe_button_box" name="button_box">
+                <button class="oe_stat_button" type="object"
+                    name="action_view_payments" icon="fa-money" attrs="{'invisible': [('payments_count', '=', 0)]}">
+                    <field name="payments_count" widget="statinfo" string="Payments"/>
+                </button>
+            </div>
+          </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>
