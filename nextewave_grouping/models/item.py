@@ -26,3 +26,14 @@ class NextewaveSaleGroupingItem(models.Model):
     capacity = fields.Float("Unit Capacity", default=0, tracking=True, help="Unit Capacity (in m3)")
     grouping_package_request_id = fields.Many2one('nextewave.grouping.package.request',
                                                   ondelete='cascade', invisible=True)
+    location_id = fields.Many2one("stock.location", string="Location", tracking=True, readonly=True,
+                                  compute="_compute_location")
+
+    @api.depends('grouping_package_request_id')
+    def _compute_location(self):
+        for rec in self:
+            if rec.grouping_package_request_id:
+                rec.location_id = rec.grouping_package_request_id.current_location_id.id
+            else:
+                rec.location_id = False
+

@@ -58,27 +58,33 @@ class NextewaveSaleGroupingPackageRequest(models.Model):
 
     @api.depends('items_lines_ids')
     def _compute_total_items(self):
-        self.ensure_one()
-        if self.items_lines_ids:
-            self.item_count = len(self.items_lines_ids)
+        for rec in self:
+            if rec.items_lines_ids:
+                rec.item_count = len(rec.items_lines_ids)
 
     @api.depends('items_lines_ids')
     def _compute_total_price(self):
-        self.ensure_one()
-        if self.items_lines_ids:
-            for line in self.items_lines_ids:
-                self.total_price += (line.quantity * line.price)
+        for rec in self:
+            if rec.items_lines_ids:
+                for line in rec.items_lines_ids:
+                    rec.total_price += (line.quantity * line.price)
 
     @api.depends('items_lines_ids')
     def _compute_total_weight(self):
-        self.ensure_one()
-        if self.items_lines_ids:
-            for line in self.items_lines_ids:
-                self.total_weight += (line.quantity * line.weight)
+        for rec in self:
+            if rec.items_lines_ids:
+                for line in rec.items_lines_ids:
+                    rec.total_weight += (line.quantity * line.weight)
 
     @api.depends('items_lines_ids')
     def _compute_total_capacity(self):
+        for rec in self:
+            if rec.items_lines_ids:
+                for line in rec.items_lines_ids:
+                    rec.total_capacity += (line.quantity * line.capacity)
+
+    def action_confirm(self):
         self.ensure_one()
-        if self.items_lines_ids:
-            for line in self.items_lines_ids:
-                self.total_capacity += (line.quantity * line.capacity)
+        self.write({
+            'state': 'confirmed'
+        })

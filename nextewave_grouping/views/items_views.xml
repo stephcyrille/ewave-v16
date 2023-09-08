@@ -6,12 +6,13 @@
     <field name="arch" type="xml">
       <tree string="Grouping request items" create="false">
         <field name="name"/>
+        <field name="customer_id"/>
         <field name="material"/>
         <field name="quantity"/>
         <field name="price"/>
         <field name="weight"/>
         <field name="capacity"/>
-        <field name="customer_id"/>
+        <field name="location_id"/>
       </tree>
     </field>
   </record>
