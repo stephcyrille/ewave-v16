@@ -7,30 +7,30 @@
         <form string="Pack">
           <header>
             <field name="state" widget="statusbar" statusbar_visible="draft,checked,locked,confirmed"/>
-<!--            <button string="Vérifier"-->
-<!--              name="action_button_checked"-->
-<!--              type="object"-->
-<!--              class="oe_highlight"-->
-<!--              attrs="-->
-<!--                 {'invisible':-->
-<!--                      [('state',-->
-<!--                          'in',-->
-<!--                        ['locked', 'checked', 'canceled', 'confirmed', 'loaded', 'unloaded']-->
-<!--                      )]-->
-<!--                  }"-->
-<!--            />-->
-<!--            <button string="Vérouiller"-->
-<!--              name="action_button_lock"-->
-<!--              type="object"-->
-<!--              class="oe_highlight"-->
-<!--              attrs="-->
-<!--                 {'invisible':-->
-<!--                      [('state',-->
-<!--                          'in',-->
-<!--                        ['draft', 'locked', 'canceled', 'confirmed', 'loaded', 'unloaded']-->
-<!--                      )]-->
-<!--                  }"-->
-<!--            />-->
+            <button string="Check"
+              name="action_button_checked"
+              type="object"
+              class="oe_highlight"
+              attrs="
+                 {'invisible':
+                      [('state',
+                          'in',
+                        ['locked', 'checked', 'canceled', 'confirmed', 'loaded', 'unloaded']
+                      )]
+                  }"
+            />
+            <button string="Lock"
+              name="action_button_lock"
+              type="object"
+              class="oe_highlight"
+              attrs="
+                 {'invisible':
+                      [('state',
+                          'in',
+                        ['draft', 'locked', 'canceled', 'confirmed', 'loaded', 'unloaded']
+                      )]
+                  }"
+            />
 <!--            <button string="Confirmé"-->
 <!--              name="action_button_confirm"-->
 <!--              type="object"-->
@@ -81,13 +81,13 @@
               <group>
 <!--                <field name="pack_type" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>-->
                 <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
-                <field name="actual_warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
-                <field name="location_id" domain="[('warehouse_id', '=', warehouse_id)]" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
+                <field name="actual_warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed', 'loaded'])], 'required': [('state', '=', 'checked')]}"/>
+                <field name="location_id" domain="[('warehouse_id', '=', warehouse_id)]" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])], 'required': [('state', '=', 'checked')]}"/>
                 <field name="barcode" />
               </group>
 
               <group>
-                <field name="departure_date" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
+                <field name="departure_date" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}" />
                 <field name="total_weight" />
                 <field name="total_capacity" />
                 <field name="creation_date" />

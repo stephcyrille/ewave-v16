@@ -123,3 +123,18 @@ class NextewaveGroupingPackage(models.Model):
                 total_weight += line.total_weight or 0.0
             rec.total_weight = total_weight
 
+    def action_button_checked(self):
+        self.ensure_one()
+        if not  self.items_lines_ids:
+            raise ValidationError("You must add at least 1 item in the request")
+        self.write({
+            'state': 'checked'
+        })
+    def action_button_lock(self):
+        self.ensure_one()
+        # if not  self.items_lines_ids:
+        #     raise ValidationError("You must add at least 1 item in the request")
+        # self.write({
+        #     'state': 'checked'
+        # })
+        return 0
