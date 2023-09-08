@@ -36,6 +36,10 @@ class NextewaveSaleGroupingItem(models.Model):
         ('picked_off', 'Picked off'),
         ('available', 'Available')], string='arrival',
         copy=False, default='arrival', index=True, tracking=True)
+    is_locked = fields.Boolean('Is locked', default=False, tracking=True, readonly=True,
+                               help="When the item is locked it is not possible to get it "
+                                    "in grouping package request, it is lock for a specific "
+                                    "grouping package, till the delivery or cancelling grouping package")
 
     @api.depends('grouping_package_request_id')
     def _compute_location(self):

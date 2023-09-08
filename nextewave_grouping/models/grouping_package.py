@@ -86,7 +86,7 @@ class NextewaveGroupingPackage(models.Model):
                                   compute='_compute_total_capacity')
     creation_date = fields.Date("Creation date", tracking=True, default=fields.Date.today(),
                                 readonly=True)
-    departure_date = fields.Date("Estimated departure", tracking=True)
+    departure_date = fields.Date("Estimated departure", tracking=True, required=True)
     # pack_type = fields.Many2one("product.packaging", string="Package type", tracking=True, required=True)
     state = fields.Selection([
         ('draft', 'Draft'),
@@ -125,16 +125,18 @@ class NextewaveGroupingPackage(models.Model):
 
     def action_button_checked(self):
         self.ensure_one()
-        if not  self.items_lines_ids:
+        if not self.items_lines_ids:
             raise ValidationError("You must add at least 1 item in the request")
         self.write({
             'state': 'checked'
         })
+
     def action_button_lock(self):
         self.ensure_one()
-        # if not  self.items_lines_ids:
-        #     raise ValidationError("You must add at least 1 item in the request")
-        # self.write({
-        #     'state': 'checked'
-        # })
-        return 0
+        if self.items_lines_ids:
+            for line in self.items_lines_ids:
+                line.item_id.is_locked = True
+            self.write({
+                'state': 'locked'
+            })
+
