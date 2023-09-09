@@ -11,6 +11,8 @@ class NextewaveGroupingPackageLine(models.Model):
     _description = 'NEXTeWave grouping Package line model'
 
     item_id = fields.Many2one('nextewave.grouping.item', string='Item', required=False, tracking=True)
+    customer_id = fields.Many2one('res.partner', string='Customer', tracking=True,
+                                  compute='_compute_customer')
     product_qty = fields.Float('Quantity', readonly=True, tracking=True, compute='_compute_qty')
     total_price = fields.Float('Total price', readonly=True, tracking=True,
                                compute='_compute_total_price')
@@ -63,6 +65,14 @@ class NextewaveGroupingPackageLine(models.Model):
                 rec.total_capacity = rec.item_id.quantity * rec.item_id.capacity
             else:
                 rec.total_capacity = 0
+
+    @api.depends('item_id')
+    def _compute_customer(self):
+        for rec in self:
+            if rec.item_id:
+                rec.customer_id = rec.item_id.customer_id.id
+            else:
+                rec.customer_id = False
 
 
 class NextewaveGroupingPackage(models.Model):

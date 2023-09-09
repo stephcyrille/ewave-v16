@@ -96,13 +96,14 @@
 
             <notebook position="inside">
               <page string="Package items">
-                <field name="items_lines_ids">
+                <field name="items_lines_ids" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}" >
                   <tree string="Package items" editable="bottom">
                     <field name="item_id" domain="['&amp;', ('status', '=', 'in_stock'), ('is_locked', '=', False)]" />
                     <field name="product_qty"/>
                     <field name="total_price"/>
                     <field name="total_weight"/>
                     <field name="total_capacity"/>
+                    <field name="customer_id" widget="badge"/>
                   </tree>
                 </field>
               </page>
