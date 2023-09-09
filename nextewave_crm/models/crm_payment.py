@@ -26,13 +26,8 @@ class NextewaveCrmPayment(models.Model):
             # If we already have paid an opportunity, we don't need to edit his state
             if len(opportunity_payments) <= 1:
                 res.opportunity_id.write({
-                    'payments_count': res.opportunity_id.payments_count + 1,
                     'state': 'client_accepted',
                     'stage_id': stage.id
-                })
-            else:
-                res.opportunity_id.write({
-                    'payments_count': res.opportunity_id.payments_count + 1
                 })
 
         return res
@@ -43,7 +38,8 @@ class Crm(models.Model):
     _description = 'NEXTeWave CRM Lead'
 
     payments_count = fields.Integer(string="Number of payment", default=0)
-    payment_amount = fields.Float("Payment amount", default=0, tracking=True, readonly=True)
+    payment_amount = fields.Float("Payment amount", default=0, tracking=True, readonly=True,
+                                  compute='_compute_payment_count')
 
     def action_goto_payment_form(self):
         self.ensure_one()
@@ -76,3 +72,15 @@ class Crm(models.Model):
             action['res_id'] = payment.id
         return action
 
+    def _compute_payment_count(self):
+        self.ensure_one()
+        """
+            Count all payments for our CRM opportunity
+        """
+        payments = self.env['account.payment']. \
+            sudo().search([('opportunity_id', '=', self.id)])
+
+        if payments:
+            self.payments_count = len(payments)
+        else:
+            self.payments_count = 0
