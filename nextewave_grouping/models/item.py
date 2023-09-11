@@ -11,6 +11,7 @@ class NextewaveSaleGroupingItem(models.Model):
     _order = 'name'
 
     name = fields.Char('Name', required=True, tracking=True)
+    origin_document = fields.Char('Name', tracking=True)
     customer_id = fields.Many2one('res.partner', string='Customer', tracking=True)
     material = fields.Selection([
         ('other', 'Other'),

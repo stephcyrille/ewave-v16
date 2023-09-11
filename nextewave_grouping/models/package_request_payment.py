@@ -18,10 +18,10 @@ class NextewavePackageRequestPayment(models.Model):
     def create(self, vals):
         res = super(NextewavePackageRequestPayment, self).create(vals)
         if res.grouping_package_request_id:
-            grouping_package_request = self.env['account.payment'].sudo().search(
+            grouping_package_request_payments = self.env['account.payment'].sudo().search(
                 [('grouping_package_request_id', '=', res.grouping_package_request_id.id)])
             # If we already have paid an opportunity, we don't need to edit his state
-            if len(grouping_package_request) <= 1:
+            if len(grouping_package_request_payments) <= 1:
                 res.grouping_package_request_id.write({
                     'state': 'paid'
                 })
