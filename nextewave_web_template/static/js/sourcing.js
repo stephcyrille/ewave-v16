@@ -29,27 +29,28 @@ var i = 1
 
 function addProductTab (e){
   var itemHTML = `
-  <div id=productTab${i+1} class="container tab-pane fade"><br />
-    <div class="form-group row">
-      <label for=product_name${i+1} class="col-sm-3 col-form-label" >Product name</label>
+  <div class="tab-pane fade" id=nav_product_${i+1} role="tabpanel"
+       aria-labelledby=nav_product_${i+1}_tab><br />
+    <div class="form-group row my-3">
+      <label for=product_name${i+1} class="col-sm-3 col-form-label" >Product ${i+1}</label>
       <div class="col-sm-9">
         <input class="form-control" type="text" id=product_name${i+1} name=product_name${i+1} placeholder="Product name" required="0"/>
       </div>
     </div>
-    <div class="form-group row">
-      <label for=product_picture${i+1} class="col-sm-3 col-form-label">Product picture</label>
+    <div class="form-group row my-3">
+      <label for=product_picture${i+1} class="col-sm-3 col-form-label">Picture</label>
       <div class="col-sm-9">
         <input type="file" class="form-control-file" name=product_picture${i+1} accept="image/jpeg,image/gif,image/png" />
       </div>
     </div>
-    <div class="form-group row">
-      <label for=quantity${i+1} class="col-sm-3 col-form-label" >Quantity needed <sup>*</sup></label>
+    <div class="form-group row my-3">
+      <label for=quantity${i+1} class="col-sm-3 col-form-label" >Quantity <sup>*</sup></label>
       <div class="col-sm-9">
         <input class="form-control" value="1" type="number" id=quantity${i+1} name=quantity${i+1} min="1" placeholder="Quantity needed" required="1"/>
       </div>
     </div>
-    <div class="form-group row">
-      <label for=product_description${i+1} class="col-sm-3 col-form-label" >Product description <sup>*</sup></label>
+    <div class="form-group row my-3">
+      <label for=product_description${i+1} class="col-sm-3 col-form-label" >Description <sup>*</sup></label>
       <div class="col-sm-9">
         <textarea class="form-control" type="text" id=product_description${i+1} name=product_description${i+1} placeholder="More about our product description " required="1"></textarea>
       </div>
@@ -62,11 +63,11 @@ function addProductTab (e){
 
 function addNavItem (e){
   var itemHTML = `
-  <li class="nav-item custom-nav_item">
-    <a class="nav-link" data-toggle="tab" href=#productTab${i+1}>
-      Product ${i+1} <i class="fa fa-times-circle close_product_tab text-danger" id=closeProduct${i+1}></i>
-    </a>
-  </li>`
+  <button class="nav-link" id=nav_product_${i+1}_tab data-bs-toggle="tab"
+          data-bs-target=#nav_product_${i+1} type="button" role="tab"
+          aria-controls=nav_product_${i+1} aria-selected="false">
+    Product ${i+1} <i class="fa fa-times-circle close_product_tab text-danger" id=closeProduct${i+1}></i>
+  </button>`
 
   var listTabElm = document.getElementById("navitemTab");
   console.log('Tab list obj----', listTabElm)
@@ -89,23 +90,14 @@ addProductBtn.onclick = function(e){
 
 // delete item
 listTabElm.onclick = function(e){
-  console.log("On clicked", e.target.parentNode.getAttribute("href"));
   if( e.target.nodeName == "I" ){
-    // get the id of element for tab pane deletion
-    var a_ref = e.target.parentNode.getAttribute("href");
-    var pane_id = a_ref.replace(/^#+/i, '');
+    var tab_id = e.target.parentNode.getAttribute("id");
+    var tap_pane = e.target.parentNode.getAttribute("aria-controls");
 
-    // Remove pane value
-    document.getElementById(pane_id).remove();
-    // Remove tab pane
-    e.target.parentNode.parentNode.removeChild(e.target.parentNode);
-
+    document.getElementById(tab_id).remove();
+    document.getElementById(tap_pane).remove();
+    document.getElementById("nav_product_1_tab").click()
     i--
-  } else {
-    if(e.target.getAttribute("href")){
-        console.log("bimmmmmm=============", e.target.getAttribute("href"));
-        window.location.hash = e.target.getAttribute("href");
-    }
   }
 }
 
@@ -120,4 +112,6 @@ observeDOM( listTabElm, function(m){
   console.clear();
   console.log('Added:', addedNodes, 'Removed:', removedNodes);
 });
+
+
 

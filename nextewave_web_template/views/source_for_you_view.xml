@@ -24,7 +24,7 @@
               transition: ease-out 0.4s;
               opacity: 0;
             }
-            .nav-item .nav-link:hover > .close_product_tab{
+            .nav-link:hover > .close_product_tab{
               opacity: 1;
             }
           </style>
@@ -33,41 +33,50 @@
 
             <div class="row" style="margin: 0px; padding: 40px 0; width: 100%">
               <div class="offset-md-2 col-md-8">
-                <form action="" method="post" enctype="multipart/form-data">
-<!--                  <button class="btn btn-secondary" id="addProductTrigger" style="margin-bottom: 15px">Add product</button>-->
+                <form action="/sourcing-4-you/submit" method="post" enctype="multipart/form-data">
+                  <button class="btn btn-secondary" id="addProductTrigger" style="margin-bottom: 15px">Add product</button>
 
                   <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" role="tablist" id="navitemTab">
-                    <li class="nav-item custom-nav_item">
-                      <a class="nav-link active" data-toggle="tab" href="#home">Product 1 </a>
-                    </li>
-                  </ul>
+                  <nav>
+                    <div class="nav nav-tabs" role="tablist" id="navitemTab">
+                      <button class="nav-link active" id="nav_product_1_tab" data-bs-toggle="tab"
+                              data-bs-target="#nav_product_1" type="button" role="tab"
+                              aria-controls="nav_product_1" aria-selected="true">
+                        Product 1
+                      </button>
+                    </div>
+                  </nav>
 
                   <!-- Tab panes -->
                   <div class="tab-content" style="border-bottom: 1px solid lightgray; margin-bottom: 30px;" id="myTabContent">
-                    <div id="home" class="container tab-pane active"><br />
-                      <div class="form-group row mb-3">
-                        <label for="product_name" class="col-sm-3 col-form-label" >Product name</label>
+                    <div id="nav_product_1" class="tab-pane fade show active"
+                         aria-labelledby="nav_product_1_tab" role="tabpanel"><br />
+                      <div class="form-group row mt-3">
+                        <label for="product_name_1" class="col-sm-3 col-form-label" >Product</label>
                         <div class="col-sm-9">
-                          <input class="form-control" type="text" id="product_name" name="product_name" placeholder="Product name" required="0"/>
+                          <input class="form-control" type="text" id="product_name_1" name="product_name_1" placeholder="Product name" required="0"/>
                         </div>
                       </div>
-                      <div class="form-group row mb-3">
-                        <label for="product_picture" class="col-sm-3 col-form-label">Product picture</label>
+                      <div class="form-group row mt-3">
+                        <label for="product_picture_1" class="col-sm-3 col-form-label">Picture</label>
                         <div class="col-sm-9">
-                          <input type="file" class="form-control-file" name="product_picture" accept="image/jpeg,image/gif,image/png" data-show-upload="true" data-show-caption="true" lass="file" data-show-preview="true"/>
+                          <input type="file" class="form-control-file" name="product_picture_1"
+                                 accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                                 data-show-caption="true" lass="file" data-show-preview="true"
+                                 id="product_picture_1"
+                          />
                         </div>
                       </div>
-                      <div class="form-group row mb-3">
-                        <label for="quantity" class="col-sm-3 col-form-label" >Quantity needed <sup>*</sup></label>
+                      <div class="form-group row mt-3">
+                        <label for="quantity_1" class="col-sm-3 col-form-label" >Quantity <sup>*</sup></label>
                         <div class="col-sm-9">
-                          <input class="form-control" value="1" type="number" id="quantity" name="quantity" min="1" placeholder="Quantity needed" required="1"/>
+                          <input class="form-control" value="1" type="number" id="quantity_1" name="quantity_1" min="1" placeholder="Quantity needed" required="1"/>
                         </div>
                       </div>
-                      <div class="form-group row mb-3">
-                        <label for="product_description" class="col-sm-3 col-form-label" >Product description <sup>*</sup></label>
+                      <div class="form-group row my-3">
+                        <label for="product_description_1" class="col-sm-3 col-form-label" >Description <sup>*</sup></label>
                         <div class="col-sm-9">
-                          <textarea class="form-control" type="text" id="product_description" name="product_description" placeholder="More about our product description " required="1"/>
+                          <textarea class="form-control" type="text" id="product_description_1" name="product_description_1" placeholder="More about our product description " required="1"/>
                         </div>
                       </div>
                     </div>
@@ -78,7 +87,7 @@
                   <div class="multipleProduct" id="multipleProductWrapper" style="margin: 0; width: 100%">
 
                   </div>
-                  <div class="form-group row mb-3">
+                  <div class="form-group row mt-3">
                     <label for="usage" class="col-sm-3 col-form-label" >Usage</label>
                     <div class="col-sm-9">
                       <div class="row" style="margin: 0; width: 100%">
@@ -97,31 +106,31 @@
                       </div>
                     </div>
                   </div>
-                  <div class="form-group row mb-3">
+                  <div class="form-group row mt-3">
                     <label for="more_information" class="col-sm-3 col-form-label" >Additional informations</label>
                     <div class="col-sm-9">
                       <textarea nae="more_information" name="more_information" id="more_information" class="form-control" placeholder="Additional information here" />
                     </div>
                   </div>
-                  <div class="form-group row mb-3">
+                  <div class="form-group row mt-3">
                     <label for="company_name" class="col-sm-3 col-form-label" >Company name <sup>*</sup></label>
                     <div class="col-sm-9">
                       <input class="form-control" type='text' id="company_name" name="company_name" placeholder="Company name" required="1"/>
                     </div>
                   </div>
-                  <div class="form-group row mb-3">
+                  <div class="form-group row mt-3">
                     <label for="name" class="col-sm-3 col-form-label" >Name and surname <sup>*</sup></label>
                     <div class="col-sm-9">
                       <input class="form-control" type='text' id="name" name="name" placeholder="Name and surname" required="1"/>
                     </div>
                   </div>
-                  <div class="form-group row mb-3">
+                  <div class="form-group row mt-3">
                     <label for="phone_number" class="col-sm-3 col-form-label" >Phone number <sup>*</sup></label>
                     <div class="col-sm-9">
                       <input class="form-control" type="text" id="phone_number" name="phone_number" placeholder="Phone number" required="1"/>
                     </div>
                   </div>
-                  <div class="form-group row mb-3">
+                  <div class="form-group row mt-3">
                     <label for="email" class="col-sm-3 col-form-label" >Email <sup>*</sup></label>
                     <div class="col-sm-9">
                       <input class="form-control" type="email" id="email" name="email" placeholder="Adresse mail" required="1"/>
@@ -129,7 +138,7 @@
                   </div>
 
                   <input type="hidden" name="product_counter" id="product_counter" value="1"/>
-                  <div class="submit_button">
+                  <div class="submit_button my-3">
                     <input type="submit" class="btn btn-primary btn-md" value="Submit"/>
                   </div>
                 </form>
@@ -138,7 +147,7 @@
           </div>
 
           <script type="text/javascript" src="/nextewave_web_template/static/js/jquery-111.js"/>
-          <script src="nextewave_web_template/static/js/sourcing.js" />
+          <script src="nextewave_web_template/static/js/sourcing.js"></script>
       </t>
     </t>
   </template>
