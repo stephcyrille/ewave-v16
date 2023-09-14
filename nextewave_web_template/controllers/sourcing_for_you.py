@@ -56,8 +56,7 @@ class NextewaveSourcingForYou(http.Controller):
         products_line = []
         all_pictures = []
 
-        counter = 2
-        for i in range(1, int(counter)):
+        for i in range(1, int(counter) + 1):
 
             # Compose dict key for list product attributes
             key_picture = 'product_picture_' + str(i)

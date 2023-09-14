@@ -44,9 +44,9 @@ function addProductTab (e){
       </div>
     </div>
     <div class="form-group row my-3">
-      <label for=quantity${i+1} class="col-sm-3 col-form-label" >Quantity <sup>*</sup></label>
+      <label for=quantity_${i+1} class="col-sm-3 col-form-label" >Quantity <sup>*</sup></label>
       <div class="col-sm-9">
-        <input class="form-control" value="1" type="number" id=quantity${i+1} name=quantity${i+1} min="1" placeholder="Quantity needed" required="1"/>
+        <input class="form-control" value="1" type="number" id=quantity_${i+1} name=quantity_${i+1} min="1" placeholder="Quantity needed" required="1"/>
       </div>
     </div>
     <div class="form-group row my-3">
@@ -83,6 +83,8 @@ addProductBtn.onclick = function(e){
     i++
     console.log("Value of ", i)
     document.getElementsByName("product_counter")[0].value = i
+    new_tab_key = `nav_product_${i}_tab`
+    document.getElementById(new_tab_key).click()
   } else {
     alert("You cannot add more than 30 products !")
   }
@@ -96,7 +98,9 @@ listTabElm.onclick = function(e){
 
     document.getElementById(tab_id).remove();
     document.getElementById(tap_pane).remove();
-    document.getElementById("nav_product_1_tab").click()
+
+    new_tab_key = `nav_product_${i-1}_tab`
+    document.getElementById(new_tab_key).click()
     i--
   }
 }
