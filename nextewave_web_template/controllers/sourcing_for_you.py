@@ -120,4 +120,15 @@ class NextewaveSourcingForYou(http.Controller):
         print(post_crm_val)
         print("\n\n\n\n")
 
+        values = {
+            'color': 'success',
+            'title': 'Success!',
+            'message_header': 'Your application is well submitted, and it is under processing.',
+            'message_body': 'Now we will contact you these next days by phone or email for next step.',
+        }
+        request.update_context(msg_data=values)
+        request.update_context(parms="Heeeee")
+
+        return request.redirect('/?state=s4y')
+
 

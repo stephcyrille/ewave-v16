@@ -30,6 +30,7 @@ NEXTeWave module for the web front office that contain:
 
     # always loaded
     'data': [
-        'views/source_for_you_view.xml'
+        'views/source_for_you_view.xml',
+        'views/home_page.xml'
     ],
 }

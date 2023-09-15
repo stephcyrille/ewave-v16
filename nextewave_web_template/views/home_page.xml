@@ -1,0 +1,24 @@
+<!--<div class="container"><div class="alert alert-dismissible alert-info text-center fade show" style="-->
+<!--    z-index: 10;-->
+<!--">-->
+<!--                <strong>Wraning!</strong>-->
+<!--                You can't buy product with freight &amp; no freight together.-->
+<!--              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>-->
+<!--            </div></div>-->
+
+<odoo>
+  <template id="next_ewave_homepage" name="Nexewave Home" inherit_id="website.layout">
+        <xpath expr="//main" position="before">
+            <t t-if="form_alert">
+                <div>
+                    <div t-attf-class="alert alert-dismissible alert-#{form_alert['color']} text-center fade show mb-0" style="z-index: 10;">
+                        <strong><span t-esc="form_alert['title']" /></strong>
+                        <span t-esc="form_alert['message_header']" /> <br/>
+                        <span t-esc="form_alert['message_body']" />
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"/>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+  </template>
+</odoo>
