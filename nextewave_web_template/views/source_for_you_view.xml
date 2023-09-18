@@ -158,7 +158,7 @@
           </div>
 
           <script type="text/javascript" src="/nextewave_web_template/static/js/jquery-111.js"/>
-          <script src="nextewave_web_template/static/js/sourcing.js"></script>
+          <script src="nextewave_web_template/static/js/sourcing.js"/>
       </t>
     </t>
   </template>

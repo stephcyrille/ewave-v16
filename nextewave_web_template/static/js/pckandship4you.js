@@ -26,32 +26,59 @@ var listTabElm = document.getElementById("navitemTab");
 
 // Product increment
 var i = 1
+var tab_counter = 1
 
 function addProductTab (e){
   var itemHTML = `
-  <div id=productTab${i+1} class="container tab-pane fade pl-3 pr-3"><br />
-    <div class="form-group row">
-      <label for=item_description${i+1} class="col-sm-3 col-form-label" >Item description <sup>*</sup></label>
+  <div class="tab-pane fade" id=nav_product_${i+1} role="tabpanel"
+       aria-labelledby=nav_product_${i+1}_tab><br />
+    <div class="form-group row my-3">
+      <label for=product_name_${i+1} class="col-sm-3 col-form-label" >Name</label>
       <div class="col-sm-9">
-        <textarea class="form-control" type="text" id=item_description${i+1} name=item_description${i+1} placeholder="More about our item description " required="1"></textarea>
+        <input class="form-control" type="text" id=product_name_${i+1} name=product_name_${i+1} placeholder="Product name" required="1"/>
       </div>
     </div>
-    <div class="form-group row">
-      <label for=quantity${i+1} class="col-sm-3 col-form-label" >Quantity needed <sup>*</sup></label>
+    <div class="form-group row my-3">
+      <label for=product_material_${i+1} class="col-sm-3 col-form-label">Material</label>
       <div class="col-sm-9">
-        <input class="form-control" value="1" type="number" id=quantity${i+1} name=quantity${i+1} min="1" placeholder="Quantity needed" required="1"/>
+        <select class="form-control" id=product_material_${i+1} name=product_material_${i+1}
+                  placeholder="Product material">
+            <option value="other">Other</option>
+            <option value="electronic">Electronic</option>
+            <option value="textile">Textile</option>
+            <option value="cosmetic">Cosmetic</option>
+            <option value="shoes">Shoes</option>
+        </select>
       </div>
     </div>
-    <div class="form-group row">
-      <label for=item_weight${i+1} class="col-sm-3 col-form-label" >Weight (Kg) <sup>*</sup></label>
+    <div class="form-group row my-3">
+      <label for=quantity_${i+1} class="col-sm-3 col-form-label" >Quantity <sup>*</sup></label>
       <div class="col-sm-9">
-        <input class="form-control" type="number" step="0.01" id=item_weight${i+1} name=item_weight${i+1} value="1.0" min="0" placeholder="Weight in Kg" required="1"/>
+        <input class="form-control" value="1" type="number" id=quantity_${i+1} name=quantity_${i+1} min="1" placeholder="Quantity needed" required="1"/>
       </div>
     </div>
-    <div class="form-group row">
-      <label for=item_capacity${i+1} class="col-sm-3 col-form-label" >Capacity (m3) <sup>*</sup></label>
+    <div class="form-group row my-3">
+      <label for=product_weight_${i+1} class="col-sm-3 col-form-label" >Weight</label>
       <div class="col-sm-9">
-        <input class="form-control" type="number" step="0.01" id=item_capacity${i+1} name=item_capacity${i+1} value="1.0" min="0" placeholder="Capacity in m3" required="1"/>
+      <input class="form-control" value="1.0" type="number" step="0.01"
+                                   id=product_weight_${i+1} name=product_weight_${i+1} min="1"
+                                   placeholder="Weight in Kg" required="1" />
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label for=product_capacity_${i+1} class="col-sm-3 col-form-label" >Capacity</label>
+      <div class="col-sm-9">
+      <input class="form-control" value="1.0" type="number" step="0.01"
+                                   id=product_capacity_${i+1} name=product_capacity_${i+1} min="1"
+                                   placeholder="Weight in Kg" required="1" />
+      </div>
+    </div>
+    <div class="form-group row my-3">
+      <label for=product_price_${i+1} class="col-sm-3 col-form-label" >Price</label>
+      <div class="col-sm-9">
+      <input class="form-control" value="1.0" type="number" step="0.01"
+                                   id=product_price_${i+1} name=product_price_${i+1} min="1"
+                                   placeholder="Estimated price (XAF)" required="1" />
       </div>
     </div>
   </div>`
@@ -62,11 +89,11 @@ function addProductTab (e){
 
 function addNavItem (e){
   var itemHTML = `
-  <li class="nav-item custom-nav_item">
-    <a class="nav-link" data-toggle="tab" href=#productTab${i+1}>
-      Item ${i+1} <i class="fa fa-times-circle close_product_tab text-danger" id=closeProduct${i+1}></i>
-    </a>
-  </li>`
+  <button class="nav-link" id=nav_product_${i+1}_tab data-bs-toggle="tab"
+          data-bs-target=#nav_product_${i+1} type="button" role="tab"
+          aria-controls=nav_product_${i+1} aria-selected="false">
+    Product ${i+1} <i class="fa fa-times-circle close_product_tab text-danger" id=closeProduct${i+1}></i>
+  </button>`
 
   var listTabElm = document.getElementById("navitemTab");
   console.log('Tab list obj----', listTabElm)
@@ -74,12 +101,17 @@ function addNavItem (e){
 }
 
 addProductBtn.onclick = function(e){
+  e.preventDefault();
+
   if(i <= 30){
     addNavItem()
     addProductTab()
     i++
+    tab_counter++
     console.log("Value of ", i)
-    document.getElementsByName("product_counter")[0].value = i
+    document.getElementsByName("product_counter")[0].value = tab_counter
+    new_tab_key = `nav_product_${i}_tab`
+    document.getElementById(new_tab_key).click()
   } else {
     alert("You cannot add more than 30 products !")
   }
@@ -87,24 +119,20 @@ addProductBtn.onclick = function(e){
 
 // delete item
 listTabElm.onclick = function(e){
-  console.log("On clicked", e.target.parentNode.getAttribute("href"));
   if( e.target.nodeName == "I" ){
-    // get the id of element for tab pane deletion
-    var a_ref = e.target.parentNode.getAttribute("href");
-    var pane_id = a_ref.replace(/^#+/i, '');
+    var tab_id = e.target.parentNode.getAttribute("id");
+    var tap_pane = e.target.parentNode.getAttribute("aria-controls");
 
-    console.log("Identifiant pane ", pane_id)
-    // Remove pane value
-    document.getElementById(pane_id).remove();
-    // Remove tab pane
-    e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+    document.getElementById(tab_id).remove();
+    document.getElementById(tap_pane).remove();
 
-    // Set item 1 active by default
-    var homeTab = document.getElementById("home");
-    var navHomeTab = document.getElementById("nav1");
-    homeTab.className = "container tab-pane active"
-    navHomeTab.className = "nav-link active"
-    i--
+    new_tab_key = `nav_product_${i-1}_tab`
+    if(document.getElementById(new_tab_key)){
+        document.getElementById(new_tab_key).click()
+    } else {
+        document.getElementById('nav_product_1_tab').click()
+    }
+    tab_counter--
   }
 }
 
@@ -116,6 +144,9 @@ observeDOM( listTabElm, function(m){
 
    m.forEach(record => record.removedNodes.length & removedNodes.push(...record.removedNodes))
 
-  //console.clear();
+  console.clear();
   console.log('Added:', addedNodes, 'Removed:', removedNodes);
 });
+
+
+
