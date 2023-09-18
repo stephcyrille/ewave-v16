@@ -31,6 +31,17 @@
           <div class="container" style="padding: 40px 0">
             <h1 class="text-center display-4" style="margin-bottom: 25px; width: 100%">We sourcing 4 you application</h1>
 
+            <t t-if="form_alert">
+                <div>
+                    <div t-attf-class="alert alert-dismissible alert-#{form_alert['color']} text-center fade show mb-0" style="z-index: 10;">
+                        <strong><span t-esc="form_alert['title']" /></strong>
+                        <span t-esc="form_alert['message_header']" /> <br/>
+                        <span t-esc="form_alert['message_body']" />
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"/>
+                    </div>
+                </div>
+            </t>
+
             <div class="row" style="margin: 0px; padding: 40px 0; width: 100%">
               <div class="offset-md-2 col-md-8">
                 <form action="/sourcing-4-you/submit" method="post" enctype="multipart/form-data">
@@ -58,12 +69,12 @@
                         </div>
                       </div>
                       <div class="form-group row mt-3">
-                        <label for="product_picture_1" class="col-sm-3 col-form-label">Picture</label>
+                        <label for="product_picture_1" class="col-sm-3 col-form-label">Picture*</label>
                         <div class="col-sm-9">
                           <input type="file" class="form-control-file" name="product_picture_1"
                                  accept="image/jpeg,image/gif,image/png" data-show-upload="true"
                                  data-show-caption="true" lass="file" data-show-preview="true"
-                                 id="product_picture_1"
+                                 id="product_picture_1" required="1"
                           />
                         </div>
                       </div>

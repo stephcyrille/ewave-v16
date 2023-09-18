@@ -32,15 +32,15 @@ function addProductTab (e){
   <div class="tab-pane fade" id=nav_product_${i+1} role="tabpanel"
        aria-labelledby=nav_product_${i+1}_tab><br />
     <div class="form-group row my-3">
-      <label for=product_name${i+1} class="col-sm-3 col-form-label" >Product ${i+1}</label>
+      <label for=product_name_${i+1} class="col-sm-3 col-form-label" >Product ${i+1}</label>
       <div class="col-sm-9">
-        <input class="form-control" type="text" id=product_name${i+1} name=product_name${i+1} placeholder="Product name" required="0"/>
+        <input class="form-control" type="text" id=product_name_${i+1} name=product_name_${i+1} placeholder="Product name" required="0"/>
       </div>
     </div>
     <div class="form-group row my-3">
-      <label for=product_picture${i+1} class="col-sm-3 col-form-label">Picture</label>
+      <label for=product_picture_${i+1} class="col-sm-3 col-form-label">Picture</label>
       <div class="col-sm-9">
-        <input type="file" class="form-control-file" name=product_picture${i+1} accept="image/jpeg,image/gif,image/png" />
+        <input type="file" class="form-control-file" name=product_picture_${i+1} accept="image/jpeg,image/gif,image/png" />
       </div>
     </div>
     <div class="form-group row my-3">
@@ -50,9 +50,9 @@ function addProductTab (e){
       </div>
     </div>
     <div class="form-group row my-3">
-      <label for=product_description${i+1} class="col-sm-3 col-form-label" >Description <sup>*</sup></label>
+      <label for=product_description_${i+1} class="col-sm-3 col-form-label" >Description <sup>*</sup></label>
       <div class="col-sm-9">
-        <textarea class="form-control" type="text" id=product_description${i+1} name=product_description${i+1} placeholder="More about our product description " required="1"></textarea>
+        <textarea class="form-control" type="text" id=product_description_${i+1} name=product_description_${i+1} placeholder="More about our product description " required="1"></textarea>
       </div>
     </div>
   </div>`
