@@ -8,10 +8,6 @@ class CustomWebHomepage(Home):
     @http.route(auth='public')
     def index(self, **kw):
         super(CustomWebHomepage, self).index()
-        print("\n\n\n\n===================================================\n\n")
-        print(kw)
-        # print(request.env['ir.config_parameter'].sudo())
-        print("\n\n====================================================\n\n\n\n")
 
         values = ''
 

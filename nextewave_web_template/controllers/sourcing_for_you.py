@@ -7,9 +7,6 @@ import base64
 class NextewaveSourcingForYou(http.Controller):
     @http.route('/sourcing-4-you', type='http', auth='public', website=True)
     def sourcing_for_you(self, **kwagrs):
-        if kwagrs:
-            print("ARGSSSSSSSSSS", kwagrs)
-            print('BAAAAAAAAAAAAAAAA=========', kwagrs.get('var'))
         return request.render('nextewave_web_template.source_for_you_form', {})
 
     @http.route('/sourcing-4-you/submit', type='http', auth='public', website=True, csrf=False)
@@ -95,13 +92,7 @@ class NextewaveSourcingForYou(http.Controller):
                 "product_pic3": base64.encodebytes(kwagrs.get('product_picture_3').read()) if kwagrs.get('product_picture_3') else False,
                 "product_pic4": base64.encodebytes(kwagrs.get('product_picture_4').read()) if kwagrs.get('product_picture_4') else False,
             }
-
-            crm_lead_obj.sudo().create(post_crm_val)
-
-            print("\n\n\n\n===================================================\n\n")
-            print(post_crm_val.keys())
-            print("\n\n\n\n")
-
+            crm_lead_obj.sudo().create(post_crm_val)\
             return request.redirect('/?state=s4y')
         except Exception as e:
             values = {
