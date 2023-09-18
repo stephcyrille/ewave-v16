@@ -26,6 +26,7 @@ var listTabElm = document.getElementById("navitemTab");
 
 // Product increment
 var i = 1
+var tab_counter = 1
 
 function addProductTab (e){
   var itemHTML = `
@@ -81,8 +82,9 @@ addProductBtn.onclick = function(e){
     addNavItem()
     addProductTab()
     i++
+    tab_counter++
     console.log("Value of ", i)
-    document.getElementsByName("product_counter")[0].value = i
+    document.getElementsByName("product_counter")[0].value = tab_counter
     new_tab_key = `nav_product_${i}_tab`
     document.getElementById(new_tab_key).click()
   } else {
@@ -100,8 +102,12 @@ listTabElm.onclick = function(e){
     document.getElementById(tap_pane).remove();
 
     new_tab_key = `nav_product_${i-1}_tab`
-    document.getElementById(new_tab_key).click()
-    i--
+    if(document.getElementById(new_tab_key)){
+        document.getElementById(new_tab_key).click()
+    } else {
+        document.getElementById('nav_product_1_tab').click()
+    }
+    tab_counter--
   }
 }
 
