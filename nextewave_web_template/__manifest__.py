@@ -31,6 +31,7 @@ NEXTeWave module for the web front office that contain:
     # always loaded
     'data': [
         'views/source_for_you_view.xml',
-        'views/home_page.xml'
+        'views/home_page.xml',
+        'views/we_pack_and_ship_template.xml',
     ],
 }
