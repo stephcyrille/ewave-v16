@@ -33,13 +33,13 @@ function addProductTab (e){
   <div class="tab-pane fade" id=nav_product_${i+1} role="tabpanel"
        aria-labelledby=nav_product_${i+1}_tab><br />
     <div class="form-group row my-3">
-      <label for=product_name_${i+1} class="col-sm-3 col-form-label" >Name</label>
+      <label for=product_name_${i+1} class="col-sm-3 col-form-label" >Name <sup>*</sup></label>
       <div class="col-sm-9">
         <input class="form-control" type="text" id=product_name_${i+1} name=product_name_${i+1} placeholder="Product name" required="1"/>
       </div>
     </div>
     <div class="form-group row my-3">
-      <label for=product_material_${i+1} class="col-sm-3 col-form-label">Material</label>
+      <label for=product_material_${i+1} class="col-sm-3 col-form-label">Material <sup>*</sup></label>
       <div class="col-sm-9">
         <select class="form-control" id=product_material_${i+1} name=product_material_${i+1}
                   placeholder="Product material">
@@ -58,7 +58,7 @@ function addProductTab (e){
       </div>
     </div>
     <div class="form-group row my-3">
-      <label for=product_weight_${i+1} class="col-sm-3 col-form-label" >Weight</label>
+      <label for=product_weight_${i+1} class="col-sm-3 col-form-label" >Weight <sup>*</sup></label>
       <div class="col-sm-9">
       <input class="form-control" value="1.0" type="number" step="0.01"
                                    id=product_weight_${i+1} name=product_weight_${i+1} min="1"
@@ -66,7 +66,7 @@ function addProductTab (e){
       </div>
     </div>
     <div class="form-group row my-3">
-      <label for=product_capacity_${i+1} class="col-sm-3 col-form-label" >Capacity</label>
+      <label for=product_capacity_${i+1} class="col-sm-3 col-form-label" >Capacity <sup>*</sup></label>
       <div class="col-sm-9">
       <input class="form-control" value="1.0" type="number" step="0.01"
                                    id=product_capacity_${i+1} name=product_capacity_${i+1} min="1"
@@ -74,7 +74,7 @@ function addProductTab (e){
       </div>
     </div>
     <div class="form-group row my-3">
-      <label for=product_price_${i+1} class="col-sm-3 col-form-label" >Price</label>
+      <label for=product_price_${i+1} class="col-sm-3 col-form-label" >Price <sup>*</sup></label>
       <div class="col-sm-9">
       <input class="form-control" value="1.0" type="number" step="0.01"
                                    id=product_price_${i+1} name=product_price_${i+1} min="1"
