@@ -132,8 +132,14 @@
                       <div class="form-group row mt-3">
                         <label for="product_material_1" class="col-sm-3 col-form-label" >Material</label>
                         <div class="col-sm-9">
-                          <input class="form-control" type="text" id="product_material_1"
-                                    name="product_material_1" placeholder="Product material" required="0"/>
+                          <select class="form-control" id="product_material_1" name="product_material_1"
+                                  placeholder="Product material">
+                            <option value="other">Other</option>
+                            <option value="electronic">Electronic</option>
+                            <option value="textile">Textile</option>
+                            <option value="cosmetic">Cosmetic</option>
+                            <option value="shoes">Shoes</option>
+                          </select>
                         </div>
                       </div>
                       <div class="form-group row mt-3">
@@ -157,6 +163,14 @@
                             <input class="form-control" value="1.0" type="number" step="0.01"
                                    id="product_capacity_1" name="product_capacity_1" min="1"
                                    placeholder="Capacity in m3" required="1" />
+                          </div>
+                      </div>
+                      <div class="form-group row mt-3">
+                          <label for="product_price_1" class="col-sm-3 col-form-label" >Estimated price <sup>*</sup></label>
+                          <div class="col-sm-9">
+                            <input class="form-control" value="1.0" type="number" step="0.01"
+                                   id="product_price_1" name="product_price_1" min="1"
+                                   placeholder="Estimated price (XAF)" required="1" />
                           </div>
                       </div>
                     </div>
