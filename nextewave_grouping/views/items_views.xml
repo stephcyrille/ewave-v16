@@ -1,5 +1,50 @@
 <odoo>
 
+  <record id="grouping_item_form_view" model="ir.ui.view">
+    <field name="name">nextewave.grouping.item.form</field>
+    <field name="model">nextewave.grouping.item</field>
+    <field name="arch" type="xml">
+      <form string="Pack">
+        <header>
+          <field name="status" widget="statusbar" />
+        </header>
+
+        <sheet>
+          <div class="oe_title">
+            <span class="o_form_label">Item name</span>
+            <h1 class="mt0">
+                <field name="name" readonly="1" />
+            </h1>
+
+          </div>
+
+          <group>
+            <group>
+              <field name="origin_document" readonly="1" />
+              <field name="material" readonly="1" />
+              <field name="location_id" readonly="1" />
+              <field name="customer_id" readonly="1" />
+              <field name="is_locked" readonly="1" />
+            </group>
+
+            <group>
+              <field name="quantity" readonly="1" />
+              <field name="price" readonly="1" />
+              <field name="weight" readonly="1" />
+              <field name="capacity" readonly="1" />
+            </group>
+          </group>
+        </sheet>
+
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="activity_ids" widget="mail_activity"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
+      </form>
+    </field>
+  </record>
+
   <record id="nextewave_grouping_request_item_list_view" model="ir.ui.view">
     <field name="name">nextewave.grouping.item.tree</field>
     <field name="model">nextewave.grouping.item</field>
@@ -21,7 +66,7 @@
   <record id="grouping_request_items_action_window" model="ir.actions.act_window">
     <field name="name">Grouping request items</field>
     <field name="res_model">nextewave.grouping.item</field>
-    <field name="view_mode">tree</field>
+    <field name="view_mode">tree,form</field>
     <field name="help" type="html">
         <p class="o_view_nocontent_smiling_face">
             No grouping package request item created.
