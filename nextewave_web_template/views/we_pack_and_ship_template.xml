@@ -45,7 +45,7 @@
 
             <div class="row" style="margin: 0px; padding: 40px 0; width: 100%">
               <div class="offset-md-1 col-md-10">
-                <form action="" method="post">
+                <form action="/pack-and-ship-4-you/submit" method="post">
                   <div class="row mb-5 pb-4" style="border-bottom: 1px solid lightgray;">
                     <div class="row">
                       <div class="col-md-6">

@@ -14,7 +14,7 @@ class CustomWebHomepage(Home):
         # Check if we have a querystring first in the URL for avoiding crashing of the app
         if kw:
             if kw['state']:
-                if kw['state'] == 's4y':
+                if kw['state'] == 'xgt':
                     values = {
                         'color': 'success',
                         'title': 'Success!',
