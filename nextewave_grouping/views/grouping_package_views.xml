@@ -95,9 +95,9 @@
             </group>
 
             <notebook position="inside">
-              <page string="Package items">
+              <page string="Grouping Package lines">
                 <field name="items_lines_ids" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}" >
-                  <tree string="Package items" editable="bottom">
+                  <tree string="Grouping Package lines" editable="bottom">
                     <field name="item_id" domain="['&amp;', ('status', '=', 'in_stock'), ('is_locked', '=', False)]" />
                     <field name="product_qty"/>
                     <field name="total_price"/>
