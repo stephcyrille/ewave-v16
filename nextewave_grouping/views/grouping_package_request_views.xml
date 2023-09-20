@@ -113,9 +113,9 @@
             <field name="destination" />
             <field name="departure_date" />
             <field name="arrival_date" />
-<!--            <field name="state" optional="show" widget="badge" decoration-warning="state == 'draft'" decoration-success=-->
-<!--                "state in ('confirmed', 'loaded', 'unloaded')" decoration-info="state in ('locked', 'checked')"-->
-<!--                decoration-danger="state == 'canceled'"/>-->
+            <field name="state" optional="show" widget="badge" decoration-warning="state == 'new'" decoration-success=
+                "state == 'validated'" decoration-info="state in ('confirmed', 'paid')"
+                decoration-danger="state == 'canceled'"/>
           </tree>
       </field>
   </record>
