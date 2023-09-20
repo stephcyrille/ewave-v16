@@ -79,7 +79,12 @@
 
             <group>
               <group>
-                <field name="package_size" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed', 'checked', 'confirmed'])]}"/>
+                <field name="package_size"
+                       attrs="{
+                        'readonly': [
+                           ('state', 'in', ['locked', 'confirmed', 'checked', 'confirmed'])],
+                        'required': [('state', '=', 'checked')]
+                        }"/>
                 <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
                 <field name="actual_warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed', 'loaded'])], 'required': [('state', '=', 'checked')]}"/>
                 <field name="location_id" domain="[('warehouse_id', '=', warehouse_id)]" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])], 'required': [('state', '=', 'checked')]}"/>
