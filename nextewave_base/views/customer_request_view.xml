@@ -71,6 +71,13 @@
                         <field name="sale_order_count" widget="statinfo" string="Sales orders"/>
                     </button>
                 </div>
+                  
+                <div class="oe_title">
+                  <span class="o_form_label">Reference</span>
+                  <h1 class="mt0">
+                      <field name="ref" placeholder="REQ/BUY/2023/00001"/>
+                  </h1>
+                </div>
 
                 <group>
                   <group>

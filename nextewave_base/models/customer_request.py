@@ -9,8 +9,10 @@ class BuyingRequest(models.Model):
     _name = 'buying.campaign.request'
     _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin', 'utm.mixin']
     _description = 'Nextewave Buying Campaign request'
-    _rec_name = 'campaign_id'
+    _rec_name = 'ref'
 
+    ref = fields.Char('Reference', tracking=True, readonly=True, index=True,
+                      copy=False, default="New")
     customer_id = fields.Many2one("res.partner", string="Customer", tracking=True, required=True)
     campaign_id = fields.Many2one("buying.campaign", string="Campaign", tracking=True,
                                   required=True, domain="[('state', '=', 'published')]")
@@ -31,6 +33,12 @@ class BuyingRequest(models.Model):
     sale_order_count = fields.Integer(string="Number of Quotations", default=0)
     payments_count = fields.Integer(string="Number of payment", default=0)
     payment_amount = fields.Float("Payment amount", default=0, tracking=True, readonly=True)
+
+    @api.model
+    def create(self, vals):
+        res = super(BuyingRequest, self).create(vals)
+        res["ref"] = self.env["ir.sequence"].next_by_code("buying.campaign.request.sequence") or "New"
+        return res
 
     @api.onchange('campaign_id')
     def _compute_products(self):

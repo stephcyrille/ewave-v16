@@ -5,12 +5,14 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
-class BuyingRequest(models.Model):
+class BuyingCampaign(models.Model):
     _name = 'buying.campaign'
     _inherit = ['portal.mixin', 'mail.thread', 'mail.activity.mixin', 'utm.mixin']
     _description = 'Nextewave Buying Campaign'
-    _rec_name = "name"
+    _rec_name = "ref"
 
+    ref = fields.Char('Reference', tracking=True, readonly=True, index=True,
+                      copy=False, default="New")
     name = fields.Char(string="Name", required=True)
     start_date = fields.Date("Start date", tracking=True, required=True)
     end_date = fields.Date("End date", tracking=True, required=True)
@@ -35,6 +37,12 @@ class BuyingRequest(models.Model):
     user_company_ids = fields.Many2many(
         'res.company', compute='_compute_user_company_ids',
         help='UX: Limit to lead company or all if no company')
+
+    @api.model
+    def create(self, vals):
+        res = super(BuyingCampaign, self).create(vals)
+        res["ref"] = self.env["ir.sequence"].next_by_code("buying.campaign.sequence") or "New"
+        return res
 
     def _count_products(self):
         self.product_count = len(self.products_ids)

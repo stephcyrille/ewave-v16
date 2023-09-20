@@ -29,6 +29,7 @@ NEXTeWave module for managing:
 
     # always loaded
     'data': [
+        'data/buying_campaign_seq.xml',
         'security/ir.model.access.csv',
         'views/sourcing_for_you.xml',
         'views/crm_product_views.xml',
