@@ -6,7 +6,7 @@
       <field name="model">buying.campaign</field>
       <field name="inherit_id" ref="nextewave_base.nextewave_customer_request_campaign"/>
       <field name="arch" type="xml">
-          <button name="action_publish" position="after">
+          <button name="action_close_campaign" position="after">
               <button string="Create PO"
                 name="action_create_po"
                 type="object"
@@ -15,7 +15,7 @@
                    {'invisible':
                         [('state',
                             'in',
-                          ['new', 'published', 'closed', 'canceled']
+                          ['new', 'closed', 'canceled']
                         )]
                     }"
               />
