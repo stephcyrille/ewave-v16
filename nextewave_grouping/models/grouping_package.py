@@ -108,6 +108,7 @@ class NextewaveGroupingPackage(models.Model):
         ('unloaded', 'Unloaded')], string='Status',
         copy=False, default='draft', index=True, readonly=True, tracking=True)
     now_is_locked = fields.Boolean(readonly=True, default=False, tracking=True)
+    package_size = fields.Many2one("nextewave.package.size", string="Package size", tracking=True)
     items_lines_ids = fields.One2many('nextewave.grouping.package.line', 'grouping_package_id',
                                          string='Package Items', tracking=True, required=True)
 
