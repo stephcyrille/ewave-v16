@@ -1,0 +1,72 @@
+<odoo>
+    <record id="package_size_form" model="ir.ui.view">
+      <field name="name">nextewave.package.size.form</field>
+      <field name="model">nextewave.package.size</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+              <div class="oe_title">
+                  <span class="o_form_label">Size name</span>
+                  <h1 class="mt0">
+                      <field name="name" placeholder="PACK XL"/>
+                  </h1>
+              </div>
+
+              <group string="Size characteristics">
+                  <group>
+                      <field name="max_weight" />
+                      <field name="max_width" />
+                  </group>
+                  <group>
+                      <field name="max_height" />
+                      <field name="max_depth" />
+                  </group>
+              </group>
+          </sheet>
+
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+    </record>
+
+    <record id="package_size_list" model="ir.ui.view">
+      <field name="name">nextewave.package.size.list</field>
+      <field name="model">nextewave.package.size</field>
+      <field name="arch" type="xml">
+          <tree string="Package size type list" multi_edit="1" sample="1">
+            <field name="name" />
+            <field name="max_weight" />
+            <field name="max_width" />
+            <field name="max_height" />
+            <field name="max_depth" />
+          </tree>
+      </field>
+    </record>
+
+
+  <record id="package_size_action_window" model="ir.actions.act_window">
+    <field name="name">Package size</field>
+    <field name="res_model">nextewave.package.size</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            No grouping package size created. Let's start creating!
+        </p>
+        <p>
+            In this module, you could create packages size with specifics characteristics.
+        </p>
+    </field>
+  </record>
+
+  <menuitem
+          name="Package size"
+          id="package_size_menu"
+          parent="nextewave_base.configuration_menu"
+          action="package_size_action_window"
+          sequence="4"
+  />
+</odoo>
