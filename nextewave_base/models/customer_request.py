@@ -132,3 +132,6 @@ class BuyingRequest(models.Model):
         self.write({
             'state': 'new'
         })
+
+    # TODO create e new action that create a new grouping package request, items must be created from
+    # Products in customer requests

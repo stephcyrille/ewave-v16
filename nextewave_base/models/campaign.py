@@ -75,6 +75,16 @@ class BuyingCampaign(models.Model):
 
     def action_publish(self):
         self.ensure_one()
+        all_campaign = self.env['buying.campaign'].search(['state', '=', 'published'])
+        if len(all_campaign) > 0:
+            for campaign in all_campaign:
+                for product in campaign.products_ids:
+                    product.write({
+                        'in_campaign': False
+                    })
+                campaign.write({
+                    'state': 'closed'
+                })
         for p in self.products_ids:
             p.product_id.write({
                 'in_campaign': True
