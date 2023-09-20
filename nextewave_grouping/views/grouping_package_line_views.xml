@@ -1,0 +1,58 @@
+<odoo>
+
+  <record id="grouping_package_line_form_view" model="ir.ui.view">
+    <field name="name">nextewave.grouping.package.line.form</field>
+    <field name="model">nextewave.grouping.package.line</field>
+    <field name="arch" type="xml">
+      <form string="Pack">
+        <sheet>
+          <group>
+            <group>
+              <field name="item_id" readonly="1" />
+              <field name="customer_id" readonly="1" />
+              <field name="product_qty" readonly="1" />
+              <field name="grouping_package_id" readonly="1" />
+            </group>
+
+            <group>
+              <field name="total_price" readonly="1" />
+              <field name="total_weight" readonly="1" />
+              <field name="total_capacity" readonly="1" />
+            </group>
+          </group>
+        </sheet>
+
+        <div class="oe_chatter">
+          <field name="message_follower_ids" widget="mail_followers"/>
+          <field name="activity_ids" widget="mail_activity"/>
+          <field name="message_ids" widget="mail_thread"/>
+        </div>
+      </form>
+    </field>
+  </record>
+
+<!--  <record id="grouping_package_line_list_view" model="ir.ui.view">-->
+<!--    <field name="name">nextewave.grouping.package.line.tree</field>-->
+<!--    <field name="model">nextewave.grouping.package.line</field>-->
+<!--    <field name="arch" type="xml">-->
+<!--      <tree string="Grouping request items" create="false">-->
+<!--      </tree>-->
+<!--    </field>-->
+<!--  </record>-->
+
+  <record id="grouping_package_line_action_window" model="ir.actions.act_window">
+    <field name="name">nextewave.grouping.package.action</field>
+    <field name="res_model">nextewave.grouping.package.line</field>
+    <field name="view_mode">form</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            No element created.
+        </p>
+        <p>
+            No element.
+        </p>
+    </field>
+  </record>
+</odoo>
+
+
