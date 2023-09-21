@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+      <template id="report_grouping_package_manifest">
+        <t t-call="web.html_container">
+          <t t-call="web.external_layout">
+            <div class="page">
+              <div class="oe_structure"/>
+              <t t-foreach="docs" t-as="o">
+                <div style="margin-bottom: 20px">
+                    <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
+                        <tr>
+                            <td style="border: 2px solid black;text-align: center; width: 100%">
+                                [<strong t-field="o.ref"/>]
+                            </td>
+                        </tr>
+                        <tr style="width: 1in;">
+                            <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
+                                <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 250, 80)" alt="Barcode"/>
+                                <br />
+                                <span t-field="o.barcode"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <h2 class="mt16">
+                      <span t-field="o.ref"/>
+                    </h2>
+
+                    <h5>
+                      <span style="font-weight: bold">Package size : </span>
+                      <span t-field="o.package_size.name"/>
+                    </h5>
+                    <h5>
+                      <span style="font-weight: bold">Departure date : </span>
+                      <span t-field="o.departure_date"/>
+                    </h5>
+                </div>
+
+                <table class="table table-sm o_main_table">
+                  <!-- In case we want to repeat the header, remove "display: table-row-group" -->
+                  <thead style="display: table-row-group">
+                    <tr>
+                      <th name="th_description" class="text-start">Item name</th>
+                      <th name="th_qty" class="text-end">Quantity</th>
+                      <th name="th_weight" class="text-end">Weight (en Kg)</th>
+                      <th name="th_capacity" class="text-end">Volume (en m3)</th>
+                      <th name="th_client" class="text-end">Customer</th>
+                    </tr>
+                  </thead>
+                  <tbody class="pack_tbody">
+                    <t t-foreach="o.items_lines_ids" t-as="line">
+                      <tr class="">
+                        <td name="td_ref"><span t-field="line.item_id.name"/></td>
+                        <td name="td_qty" class="text-end">
+                            <span t-field="line.product_qty"/>
+                        </td>
+                        <td name="td_weight" class="text-end">
+                            <span t-field="line.total_weight"/>
+                        </td>
+                        <td name="td_capacity" class="text-end">
+                            <span t-field="line.total_capacity"/>
+                        </td>
+                        <td name="td_customer_id" class="text-end">
+                            <span t-field="line.customer_id.name"/>
+                        </td>
+                      </tr>
+                    </t>
+                  </tbody>
+                </table>
+              </t>
+            </div>
+          </t>
+        </t>
+      </template>
+
+    </data>
+</odoo>
