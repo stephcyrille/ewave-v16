@@ -135,11 +135,17 @@ class NextewaveGroupingPackage(models.Model):
                 total_weight += line.total_weight or 0.0
             rec.total_weight = total_weight
 
-    @api.depends('package_size')
     def action_button_checked(self):
         self.ensure_one()
         if not self.items_lines_ids:
             raise ValidationError("You must add at least 1 item in the request")
+        self.write({
+            'state': 'checked'
+        })
+
+    @api.depends('package_size', 'items_lines_ids')
+    def action_button_lock(self):
+        self.ensure_one()
         if self.package_size:
             estimated_volume = self.package_size.max_width * \
                                self.package_size.max_height * self.package_size.max_depth
@@ -151,12 +157,6 @@ class NextewaveGroupingPackage(models.Model):
                                       " product weight is greater than the package size weight.")
         else:
             raise ValidationError("The package size is required.")
-        self.write({
-            'state': 'checked'
-        })
-
-    def action_button_lock(self):
-        self.ensure_one()
         if self.items_lines_ids:
             for line in self.items_lines_ids:
                 line.item_id.is_locked = True
