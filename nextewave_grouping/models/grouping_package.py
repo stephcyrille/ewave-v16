@@ -84,9 +84,9 @@ class NextewaveGroupingPackage(models.Model):
     ref = fields.Char('Reference', tracking=True, readonly=True, required=True, index=True,
                       copy=False, default="New")
     barcode = fields.Char('Barcode', tracking=True, readonly=True)
-    warehouse_id = fields.Many2one("stock.warehouse", string="Origin warehouse", tracking=True,
+    warehouse_id = fields.Many2one("stock.warehouse", string="Origin WH", tracking=True,
                                    required=True)
-    actual_warehouse_id = fields.Many2one("stock.warehouse", string="Destination warehouse",
+    actual_warehouse_id = fields.Many2one("stock.warehouse", string="Destination WH",
                                           tracking=True, required=False)
     location_id = fields.Many2one('stock.location', string='Current location', tracking=True,
                                   required=False)
@@ -117,6 +117,8 @@ class NextewaveGroupingPackage(models.Model):
     def create(self, vals):
         res = super(NextewaveGroupingPackage, self).create(vals)
         res["ref"] = self.env["ir.sequence"].next_by_code("grouping.package.sequence") or "New"
+        ean = generate_ean(str(res.id))
+        res.barcode = ean
         return res
 
     @api.depends('items_lines_ids')

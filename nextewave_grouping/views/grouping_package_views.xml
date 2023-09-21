@@ -31,40 +31,6 @@
                       )]
                   }"
             />
-<!--            <button string="Confirmé"-->
-<!--              name="action_button_confirm"-->
-<!--              type="object"-->
-<!--              class="oe_highlight"-->
-<!--              attrs="-->
-<!--                 {'invisible':-->
-<!--                      [('state',-->
-<!--                          'in',-->
-<!--                        ['draft', 'checked', 'canceled', 'confirmed', 'loaded', 'unloaded']-->
-<!--                      )]-->
-<!--                  }"-->
-<!--            />-->
-<!--            <button string="Réinitialiser"-->
-<!--              name="action_button_reinitializing"-->
-<!--              type="object"-->
-<!--              attrs="-->
-<!--                 {'invisible':-->
-<!--                      [('state',-->
-<!--                          'in',-->
-<!--                        ['draft']-->
-<!--                      )]-->
-<!--                  }"-->
-<!--            />-->
-<!--            <button string="Annulé"-->
-<!--              name="action_button_canceled"-->
-<!--              type="object"-->
-<!--              attrs="-->
-<!--                 {'invisible':-->
-<!--                      [('state',-->
-<!--                          'in',-->
-<!--                        ['canceled', 'confirmed']-->
-<!--                      )]-->
-<!--                  }"-->
-<!--            />-->
           </header>
 
           <sheet>
