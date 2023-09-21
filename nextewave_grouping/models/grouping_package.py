@@ -108,7 +108,8 @@ class NextewaveGroupingPackage(models.Model):
         ('unloaded', 'Unloaded')], string='Status',
         copy=False, default='draft', index=True, readonly=True, tracking=True)
     now_is_locked = fields.Boolean(readonly=True, default=False, tracking=True)
-    package_size = fields.Many2one("nextewave.package.size", string="Package size", tracking=True)
+    package_size = fields.Many2one("nextewave.package.size", string="Package size", tracking=True,
+                                   required=True)
     items_lines_ids = fields.One2many('nextewave.grouping.package.line', 'grouping_package_id',
                                          string='Package Items', tracking=True, required=True)
 
@@ -134,10 +135,22 @@ class NextewaveGroupingPackage(models.Model):
                 total_weight += line.total_weight or 0.0
             rec.total_weight = total_weight
 
+    @api.depends('package_size')
     def action_button_checked(self):
         self.ensure_one()
         if not self.items_lines_ids:
             raise ValidationError("You must add at least 1 item in the request")
+        if self.package_size:
+            estimated_volume = self.package_size.max_width * \
+                               self.package_size.max_height * self.package_size.max_depth
+            if estimated_volume < self.total_capacity :
+                raise ValidationError("Volume error: Please choose a correct package size. The sum of your"
+                                      " product volume is greater than the package size volume.")
+            if self.package_size.max_weight < self.total_weight:
+                raise ValidationError("Weight error: Please choose a correct package size. The sum of your"
+                                      " product weight is greater than the package size weight.")
+        else:
+            raise ValidationError("The package size is required.")
         self.write({
             'state': 'checked'
         })

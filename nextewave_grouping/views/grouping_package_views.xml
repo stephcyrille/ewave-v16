@@ -82,8 +82,7 @@
                 <field name="package_size"
                        attrs="{
                         'readonly': [
-                           ('state', 'in', ['locked', 'confirmed', 'checked', 'confirmed'])],
-                        'required': [('state', '=', 'checked')]
+                           ('state', 'in', ['locked', 'confirmed', 'checked', 'confirmed'])]
                         }"/>
                 <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
                 <field name="actual_warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed', 'loaded'])], 'required': [('state', '=', 'checked')]}"/>
