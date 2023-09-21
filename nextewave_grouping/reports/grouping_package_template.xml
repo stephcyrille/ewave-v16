@@ -7,37 +7,144 @@
           <t t-call="web.external_layout">
             <div class="page">
               <t t-foreach="docs" t-as="o">
-                <div class="col-md-6 col-xs-4" style="padding:0;">
-                  <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
-                    <tr>
-                        <td style="border: 2px solid black;text-align: center; width: 100%">
-                            [<strong t-field="o.ref"/>]
-                        </td>
-                    </tr>
-                    <tr style="width: 1in;">
-                        <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
-                            <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 400, 100)" alt="Barcode"/>
-                            <br />
-                            <span t-field="o.barcode"/>
-                        </td>
-                    </tr>
-                  </table>
+                  <div style="display: block; width: 100%; margin-bottom: 20px">
+                    <div style="padding:0; width: 45%; display: inline-block">
+                      <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
+                        <tr>
+                            <td style="border: 2px solid black;text-align: center; width: 100%">
+                                [<strong t-field="o.ref"/>]
+                            </td>
+                        </tr>
+                        <tr style="width: 1in;">
+                            <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
+                                <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 250, 80)" alt="Barcode"/>
+                                <br />
+                                <span t-field="o.barcode"/>
+                            </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div style="padding:0; width: 45%; display: inline-block">
+                      <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
+                        <tr>
+                            <td style="border: 2px solid black;text-align: center; width: 100%">
+                                [<strong t-field="o.ref"/>]
+                            </td>
+                        </tr>
+                        <tr style="width: 1in;">
+                            <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
+                                <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 250, 80)" alt="Barcode"/>
+                                <br />
+                                <span t-field="o.barcode"/>
+                            </td>
+                        </tr>
+                      </table>
+                    </div>
                 </div>
-                <div class="col-md-6 col-xs-4" style="padding:0;">
-                  <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
-                    <tr>
-                        <td style="border: 2px solid black;text-align: center; width: 100%">
-                            [<strong t-field="o.ref"/>]
-                        </td>
-                    </tr>
-                    <tr style="width: 1in;">
-                        <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
-                            <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 400, 100)" alt="Barcode"/>
-                            <br />
-                            <span t-field="o.barcode"/>
-                        </td>
-                    </tr>
-                  </table>
+
+                <div style="display: block; width: 100%; margin-bottom: 20px">
+                    <div style="padding:0; width: 45%; display: inline-block">
+                      <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
+                        <tr>
+                            <td style="border: 2px solid black;text-align: center; width: 100%">
+                                [<strong t-field="o.ref"/>]
+                            </td>
+                        </tr>
+                        <tr style="width: 1in;">
+                            <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
+                                <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 250, 80)" alt="Barcode"/>
+                                <br />
+                                <span t-field="o.barcode"/>
+                            </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div style="padding:0; width: 45%; display: inline-block">
+                      <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
+                        <tr>
+                            <td style="border: 2px solid black;text-align: center; width: 100%">
+                                [<strong t-field="o.ref"/>]
+                            </td>
+                        </tr>
+                        <tr style="width: 1in;">
+                            <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
+                                <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 250, 80)" alt="Barcode"/>
+                                <br />
+                                <span t-field="o.barcode"/>
+                            </td>
+                        </tr>
+                      </table>
+                    </div>
+                </div>
+
+                <div style="display: block; width: 100%; margin-bottom: 20px">
+                    <div style="padding:0; width: 45%; display: inline-block">
+                      <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
+                        <tr>
+                            <td style="border: 2px solid black;text-align: center; width: 100%">
+                                [<strong t-field="o.ref"/>]
+                            </td>
+                        </tr>
+                        <tr style="width: 1in;">
+                            <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
+                                <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 250, 80)" alt="Barcode"/>
+                                <br />
+                                <span t-field="o.barcode"/>
+                            </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div style="padding:0; width: 45%; display: inline-block">
+                      <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
+                        <tr>
+                            <td style="border: 2px solid black;text-align: center; width: 100%">
+                                [<strong t-field="o.ref"/>]
+                            </td>
+                        </tr>
+                        <tr style="width: 1in;">
+                            <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
+                                <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 250, 80)" alt="Barcode"/>
+                                <br />
+                                <span t-field="o.barcode"/>
+                            </td>
+                        </tr>
+                      </table>
+                    </div>
+                </div>
+                  
+                <div style="display: block; width: 100%; margin-bottom: 20px">
+                    <div style="padding:0; width: 45%; display: inline-block">
+                      <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
+                        <tr>
+                            <td style="border: 2px solid black;text-align: center; width: 100%">
+                                [<strong t-field="o.ref"/>]
+                            </td>
+                        </tr>
+                        <tr style="width: 1in;">
+                            <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
+                                <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 250, 80)" alt="Barcode"/>
+                                <br />
+                                <span t-field="o.barcode"/>
+                            </td>
+                        </tr>
+                      </table>
+                    </div>
+                    <div style="padding:0; width: 45%; display: inline-block">
+                      <table class="table table-condensed" style="border-bottom: 0px solid white !important;width: 3in;">
+                        <tr>
+                            <td style="border: 2px solid black;text-align: center; width: 100%">
+                                [<strong t-field="o.ref"/>]
+                            </td>
+                        </tr>
+                        <tr style="width: 1in;">
+                            <td style="border: 2px solid black;text-align: center; vertical-align: middle;" class="">
+                                <img class="barcode" t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1&amp;quiet=0' % ('Code128', o.barcode, 250, 80)" alt="Barcode"/>
+                                <br />
+                                <span t-field="o.barcode"/>
+                            </td>
+                        </tr>
+                      </table>
+                    </div>
                 </div>
               </t>
             </div>
