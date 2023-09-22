@@ -31,6 +31,18 @@
                       )]
                   }"
             />
+            <button string="Start the journey"
+              name="action_button_start_the_journey"
+              type="object"
+              class="oe_highlight"
+              attrs="
+                 {'invisible':
+                      [('state',
+                          'in',
+                        ['draft', 'in_transit', 'arrived', 'available', 'canceled']
+                      )]
+                  }"
+            />
           </header>
 
           <sheet>

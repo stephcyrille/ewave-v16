@@ -121,10 +121,6 @@ class NextewaveGroupingContainer(models.Model):
                                       "as the current Warehouse in this stage")
             else:
                 for pack_line in self.packages_lines_ids:
-                    # for line in pack_line.items_lines_ids:
-                    #     line.item_id.write({
-                    #         'status': 'In transit'
-                    #     })
                     location = self.env['stock.location'].sudo().search(
                         [('warehouse_id', '=', self.current_warehouse_id.id)])
                     if len(location) < 0:
@@ -140,5 +136,16 @@ class NextewaveGroupingContainer(models.Model):
                     'state': 'loaded'
                 })
 
+    def action_button_start_the_journey(self):
+        self.ensure_one()
+        if self.packages_lines_ids:
+            for pack_line in self.packages_lines_ids:
+                for line in pack_line.package_id.items_lines_ids:
+                    line.item_id.write({
+                        'status': 'in_transit'
+                    })
+            self.write({
+                'state': 'in_transit'
+            })
 
 
