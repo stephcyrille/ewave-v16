@@ -86,7 +86,7 @@ class NextewaveGroupingPackage(models.Model):
     barcode = fields.Char('Barcode', tracking=True, readonly=True)
     warehouse_id = fields.Many2one("stock.warehouse", string="Origin WH", tracking=True,
                                    required=True)
-    actual_warehouse_id = fields.Many2one("stock.warehouse", string="Destination WH",
+    actual_warehouse_id = fields.Many2one("stock.warehouse", string="Current WH",
                                           tracking=True, required=False)
     location_id = fields.Many2one('stock.location', string='Current location', tracking=True,
                                   required=False)

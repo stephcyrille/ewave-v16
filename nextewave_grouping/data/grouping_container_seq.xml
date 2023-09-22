@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <data noupdate="1">
-    <record id="grouping_package_sequence" model="ir.sequence">
-      <field name="name">Grouping package sequence</field>
-      <field name="code">grouping.package.sequence</field>
-      <field name="prefix">PACKAGE/%(year)s/</field>
+    <record id="grouping_container_sequence" model="ir.sequence">
+      <field name="name">Grouping container sequence</field>
+      <field name="code">grouping.container.sequence</field>
+      <field name="prefix">CONTAINER/%(year)s/</field>
       <field name="padding">5</field>
       <field name="number_next">1</field>
     </record>
