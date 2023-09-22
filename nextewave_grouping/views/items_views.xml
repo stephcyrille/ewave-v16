@@ -58,7 +58,9 @@
         <field name="weight"/>
         <field name="capacity"/>
         <field name="location_id"/>
-        <field name="status"/>
+        <field name="status" optional="show" widget="badge" decoration-warning="status == 'in_transit'" decoration-success=
+                "status in ('available')" decoration-info="status in ('in_stock')"
+                decoration-danger="status == 'almost_there'"/>
       </tree>
     </field>
   </record>
