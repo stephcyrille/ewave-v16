@@ -1,0 +1,151 @@
+<odoo>
+
+  <record id="grouping_container_form" model="ir.ui.view">
+      <field name="name">nextewave.grouping.container.form</field>
+      <field name="model">nextewave.grouping.container</field>
+      <field name="arch" type="xml">
+        <form string="Pack">
+          <header>
+            <field name="state" widget="statusbar" statusbar_visible="draft,checked,loaded,arrived"/>
+<!--            <button string="Check"-->
+<!--              name="action_button_checked"-->
+<!--              type="object"-->
+<!--              class="oe_highlight"-->
+<!--              attrs="-->
+<!--                 {'invisible':-->
+<!--                      [('state',-->
+<!--                          'in',-->
+<!--                        ['locked', 'checked', 'canceled', 'confirmed', 'loaded', 'unloaded']-->
+<!--                      )]-->
+<!--                  }"-->
+<!--            />-->
+<!--            <button string="Lock"-->
+<!--              name="action_button_lock"-->
+<!--              type="object"-->
+<!--              class="oe_highlight"-->
+<!--              attrs="-->
+<!--                 {'invisible':-->
+<!--                      [('state',-->
+<!--                          'in',-->
+<!--                        ['draft', 'locked', 'canceled', 'confirmed', 'loaded', 'unloaded']-->
+<!--                      )]-->
+<!--                  }"-->
+<!--            />-->
+          </header>
+
+          <sheet>
+            <div class="oe_title">
+              <!-- Invoice draft header -->
+              <span class="o_form_label">Create a new package</span>
+              <h1 class="mt0">
+                  <field name="ref" placeholder="PACK/2023/00001"/>
+              </h1>
+
+          </div>
+
+            <group>
+              <group>
+                <field name="from_warehouse_id"
+                       attrs="{
+                        'readonly': [
+                           ('state', 'in', ['loaded', 'in_transit', 'arrived', 'available'])]
+                        }"/>
+                <field name="to_warehouse_id"
+                       attrs="{
+                        'readonly': [
+                           ('state', 'in', ['loaded', 'in_transit', 'arrived', 'available'])]
+                        }"/>
+                <field name="estimated_departure_date"
+                       attrs="{
+                        'readonly': [
+                           ('state', 'in', ['checked', 'loaded', 'in_transit', 'arrived', 'available'])]
+                        }"/>
+                <field name="estimated_arrival_date"
+                       attrs="{
+                        'readonly': [
+                           ('state', 'in', ['checked', 'loaded', 'in_transit', 'arrived', 'available'])]
+                        }"/>
+                <field name="current_location" />
+              </group>
+
+              <group>
+                <field name="transportation_way" />
+                <field name="total_weight" />
+                <field name="total_capacity" />
+                <field name="tracking_number" />
+              </group>
+            </group>
+
+            <notebook position="inside">
+              <page string="Container Packages">
+                <field name="packages_lines_ids" attrs="{'readonly': [('state', 'in', ['checked', 'loaded', 'in_transit', 'arrived', 'available'])]}" >
+                  <tree string="Container Package lines" editable="bottom">
+                    <field name="package_id" domain="[('state', '=', 'confirmed')]" />
+                    <field name="weight"/>
+                    <field name="capacity"/>
+                  </tree>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+
+          <div class="oe_chatter">
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+            <field name="message_ids" widget="mail_thread"/>
+          </div>
+        </form>
+      </field>
+  </record>
+
+  <record id="grouping_grouping_list" model="ir.ui.view">
+      <field name="name">nextewave.grouping.container.list</field>
+      <field name="model">nextewave.grouping.container</field>
+      <field name="arch" type="xml">
+          <tree string="Pack grouping list" multi_edit="1" sample="1">
+            <field name="ref" />
+            <field name="from_warehouse_id" />
+            <field name="to_warehouse_id" />
+            <field name="current_location" />
+            <field name="transportation_way" />
+            <field name="estimated_departure_date" />
+            <field name="tracking_number" />
+            <field name="state" optional="show" widget="badge" decoration-warning="state in ('loaded', 'in_transit')"
+                   decoration-success="state in ('arrived', 'available')" decoration-info="state in ('checked')"
+                   decoration-danger="state == 'canceled'"/>
+          </tree>
+      </field>
+  </record>
+
+
+  <record id="grouping_container_action_window" model="ir.actions.act_window">
+    <field name="name">Package container</field>
+    <field name="res_model">nextewave.grouping.container</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+            No grouping container already created. Let's start creating!
+        </p>
+        <p>
+            In this module, you could create many grouping container with specifics characteristics.
+        </p>
+    </field>
+  </record>
+
+  <menuitem
+          name="Container"
+          id="grouping_container_before_menu"
+          parent="grouping_for_you_menu"
+          sequence="5"
+  />
+
+  <menuitem
+          name="Grouping container"
+          id="grouping_container_menu"
+          parent="grouping_for_you_menu"
+          action="grouping_container_action_window"
+          sequence="6"
+  />
+</odoo>
+
+

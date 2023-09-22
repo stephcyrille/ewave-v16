@@ -6,7 +6,7 @@
     <field name="arch" type="xml">
       <form string="Pack">
         <header>
-          <field name="status" widget="statusbar" />
+          <field name="status" widget="statusbar" statusbar_visible="arrival,in_stock,in_transit,almost_there,available"/>
         </header>
 
         <sheet>

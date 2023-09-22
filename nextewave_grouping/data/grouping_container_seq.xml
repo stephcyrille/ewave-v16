@@ -8,5 +8,14 @@
       <field name="padding">5</field>
       <field name="number_next">1</field>
     </record>
+
+    <record id="grouping_container_tracking_sequence" model="ir.sequence">
+      <field name="name">Grouping container tracking sequence</field>
+      <field name="code">grouping.container.tracking.sequence</field>
+      <field name="prefix">N-%(year)s</field>
+      <field name="padding">4</field>
+      <field name="suffix">%(month)s</field>
+      <field name="number_next">1</field>
+    </record>
   </data>
 </odoo>

@@ -88,6 +88,7 @@ class NextewaveGroupingPackage(models.Model):
                                    required=True)
     actual_warehouse_id = fields.Many2one("stock.warehouse", string="Current WH",
                                           tracking=True, required=False)
+    # TODO Change it when we loading it in a container
     location_id = fields.Many2one('stock.location', string='Current location', tracking=True,
                                   required=False)
     total_weight = fields.Float("Total weight", default=0, tracking=True, readonly=True,
@@ -165,4 +166,10 @@ class NextewaveGroupingPackage(models.Model):
             self.write({
                 'state': 'locked'
             })
+
+    def action_button_confirm(self):
+        self.ensure_one()
+        self.write({
+            'state': 'confirmed'
+        })
 

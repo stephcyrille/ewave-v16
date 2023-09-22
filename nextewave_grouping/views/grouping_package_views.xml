@@ -31,6 +31,18 @@
                       )]
                   }"
             />
+            <button string="Confirm"
+              name="action_button_confirm"
+              type="object"
+              class="oe_highlight"
+              attrs="
+                 {'invisible':
+                      [('state',
+                          'in',
+                        ['draft', 'canceled', 'confirmed', 'loaded', 'unloaded']
+                      )]
+                  }"
+            />
           </header>
 
           <sheet>
@@ -95,7 +107,7 @@
       <field name="arch" type="xml">
           <tree string="Pack grouping list" multi_edit="1" sample="1">
             <field name="ref" />
-<!--            <field name="pack_type" />-->
+            <field name="package_size" />
             <field name="warehouse_id" />
             <field name="creation_date" />
             <field name="departure_date" />

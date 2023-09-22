@@ -28,6 +28,7 @@ NEXTeWave module for grouping products and prepare for shipping
         'views/grouping_pack_req_payment.xml',
         'views/grouping_package_line_views.xml',
         'views/package_size_views.xml',
+        'views/grouping_container_views.xml',
 
         # Reports
         'reports/reports_actions.xml',

@@ -32,7 +32,7 @@ class NextewaveSaleGroupingItem(models.Model):
     status = fields.Selection([
         ('arrival', 'Arrival'),
         ('in_stock', 'In stock'),
-        ('on_transit', 'On transit'),
+        ('in_transit', 'In transit'),
         ('almost_there', 'Almost there'),
         ('picked_off', 'Picked off'),
         ('available', 'Available')], string='arrival',
