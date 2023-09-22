@@ -60,16 +60,16 @@
                 <field name="package_size"
                        attrs="{
                         'readonly': [
-                           ('state', 'in', ['locked', 'confirmed', 'checked', 'confirmed'])]
+                           ('state', 'in', ['locked', 'confirmed', 'checked', 'confirmed', 'loaded'])]
                         }"/>
-                <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}"/>
+                <field name="warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed', 'loaded'])]}"/>
                 <field name="actual_warehouse_id" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed', 'loaded'])], 'required': [('state', '=', 'checked')]}"/>
-                <field name="location_id" domain="[('warehouse_id', '=', warehouse_id)]" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])], 'required': [('state', '=', 'checked')]}"/>
+                <field name="location_id" domain="[('warehouse_id', '=', warehouse_id)]" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed', 'loaded'])], 'required': [('state', '=', 'checked')]}"/>
                 <field name="barcode" />
               </group>
 
               <group>
-                <field name="departure_date" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed'])]}" />
+                <field name="departure_date" attrs="{'readonly': [('state', 'in', ['locked', 'confirmed', 'loaded'])]}" />
                 <field name="total_weight" />
                 <field name="total_capacity" />
                 <field name="creation_date" />

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
-from .libs import generate_ean
+from odoo.exceptions import ValidationError
 
 
 class NextewaveGroupingContainerLine(models.Model):
@@ -54,6 +54,9 @@ class NextewaveGroupingContainer(models.Model):
                                         tracking=True, required=True)
     to_warehouse_id = fields.Many2one("stock.warehouse", string="Destination WH",
                                       tracking=True, required=True)
+    current_warehouse_id = fields.Many2one("stock.warehouse", string="Current WH",
+                                           tracking=True, help="It could be for the first time the boat"
+                                                               " internal warehouse (abstract WH)")
     current_location = fields.Char('Current location', tracking=True, readonly=True, index=True)
     total_weight = fields.Float("Total weight", default=0, tracking=True, readonly=True,
                                 compute='_compute_total_weight')
@@ -97,4 +100,45 @@ class NextewaveGroupingContainer(models.Model):
             for line in rec.packages_lines_ids:
                 total_weight += line.weight or 0.0
             rec.total_weight = total_weight
+
+    def action_button_checked(self):
+        self.ensure_one()
+        if not self.packages_lines_ids:
+            raise ValidationError("You must add at least 1 package in the container")
+        self.write({
+            'state': 'checked'
+        })
+
+    def action_button_load(self):
+        self.ensure_one()
+        if self.packages_lines_ids:
+            # First check that the current warehouse is different of origin and from WH
+            if self.from_warehouse_id == self.current_warehouse_id:
+                raise ValidationError("The origin Warehouse must not be the same "
+                                      "as the current Warehouse in this stage")
+            elif self.to_warehouse_id == self.current_warehouse_id:
+                raise ValidationError("The destination Warehouse must not be the same "
+                                      "as the current Warehouse in this stage")
+            else:
+                for pack_line in self.packages_lines_ids:
+                    # for line in pack_line.items_lines_ids:
+                    #     line.item_id.write({
+                    #         'status': 'In transit'
+                    #     })
+                    location = self.env['stock.location'].sudo().search(
+                        [('warehouse_id', '=', self.current_warehouse_id.id)])
+                    if len(location) < 0:
+                        raise ValidationError(
+                            "You must create at least one location for the current Warehouse ")
+                    else:
+                        loc_id = location[0].id
+                    pack_line.package_id.write({
+                        'state': 'loaded',
+                        'location_id': loc_id
+                    })
+                self.write({
+                    'state': 'loaded'
+                })
+
+
 
