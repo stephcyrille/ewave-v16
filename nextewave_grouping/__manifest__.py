@@ -34,6 +34,7 @@ NEXTeWave module for grouping products and prepare for shipping
         'reports/reports_actions.xml',
         'reports/grouping_package_template.xml',
         'reports/grouping_pack_manifest_template.xml',
+        'wizards/update_location_view.xml',
     ]
 }
 # -*- coding: utf-8 -*-

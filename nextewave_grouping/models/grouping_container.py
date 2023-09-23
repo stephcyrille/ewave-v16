@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import datetime
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
@@ -77,6 +77,8 @@ class NextewaveGroupingContainer(models.Model):
     packages_lines_ids = fields.One2many('nextewave.grouping.container.line',
                                          'grouping_package_container_id',
                                          string='Packages')
+    history_lines_ids = fields.One2many('nextewave.grouping.container.location', 'container_id',
+                                        string='History lines')
 
     @api.model
     def create(self, vals):
@@ -147,5 +149,22 @@ class NextewaveGroupingContainer(models.Model):
             self.write({
                 'state': 'in_transit'
             })
+
+    def action_update_location(self):
+        self.ensure_one()
+        ctx = {
+            'default_container_id': self.id,
+            'default_time': datetime.datetime.now(),
+        }
+
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'nextewave.grouping.container.location',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'views': [(False, 'form')],
+            'target': 'new',
+            'context': ctx,
+        }
 
 

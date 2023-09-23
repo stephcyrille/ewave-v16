@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+    <record id="nextewave_container_location_form" model="ir.ui.view">
+        <field name="name">nextewave.grouping.container.location.form</field>
+        <field name="model">nextewave.grouping.container.location</field>
+        <field name="arch" type="xml">
+            <form string="Update location">
+              <div>
+                <h1>Container #<field name="container_id" readonly="1"/></h1>
+              </div>
+                <group>
+                  <group>
+                    <field name="actual_location" />
+                    <field name="time" />
+                  </group>
+                  <group>
+                    <field name="is_arrived" />
+                  </group>
+                </group>
+                <group>
+                  <field name="comment" />
+                </group>
+
+                <footer>
+                    <button name="action_save_update_location" string="Save" type="object" class="oe_highlight" />
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+  </data>
+</odoo>
