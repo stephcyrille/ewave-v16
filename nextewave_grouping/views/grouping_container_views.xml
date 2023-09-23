@@ -54,6 +54,18 @@
                       )]
                   }"
             />
+            <button string="Set arrived"
+              name="action_set_is_arrived"
+              type="object"
+              class="oe_highlight"
+              attrs="
+                 {'invisible':
+                      [('state',
+                          'in',
+                        ['draft', 'loaded', 'arrived', 'available', 'canceled']
+                      )]
+                  }"
+            />
           </header>
 
           <sheet>

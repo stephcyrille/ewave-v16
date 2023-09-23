@@ -138,6 +138,7 @@ class NextewaveGroupingContainer(models.Model):
                     'state': 'loaded'
                 })
 
+    @api.depends('packages_lines_ids')
     def action_button_start_the_journey(self):
         self.ensure_one()
         if self.packages_lines_ids:
@@ -166,5 +167,31 @@ class NextewaveGroupingContainer(models.Model):
             'target': 'new',
             'context': ctx,
         }
+
+    @api.depends('history_lines_ids', 'packages_lines_ids')
+    def action_set_is_arrived(self):
+        self.ensure_one()
+        is_arrived = False
+
+        if self.history_lines_ids:
+            # Check all container locations, if we have one line arrived, the container
+            # is_arrived attribute will set to true
+            for line in self.history_lines_ids:
+                if line.is_arrived:
+                    is_arrived = True
+            # Here we update the state of the container only, if the state is set arrived and
+            # the previous container state was in_transit
+            if is_arrived:
+                self.write({
+                    'state': 'arrived'
+                })
+                # Then update also items status, because
+                for pack_line in self.packages_lines_ids:
+                    for line in pack_line.package_id.items_lines_ids:
+                        line.item_id.write({
+                            'status': 'almost_there'
+                        })
+            else:
+                raise ValidationError("At least one location history must be set arrived!")
 
 

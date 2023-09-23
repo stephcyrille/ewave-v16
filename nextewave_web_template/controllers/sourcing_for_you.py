@@ -93,7 +93,7 @@ class NextewaveSourcingForYou(http.Controller):
                 "product_pic4": base64.encodebytes(kwagrs.get('product_picture_4').read()) if kwagrs.get('product_picture_4') else False,
             }
             crm_lead_obj.sudo().create(post_crm_val)
-            return request.redirect('/?state=s4y')
+            return request.redirect('/?state=xgt')
         except Exception as e:
             values = {
                 'color': 'danger',
