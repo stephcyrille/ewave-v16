@@ -32,11 +32,18 @@
             sequence="2"
     />
 
-    <!-- menu categories -->
+    <!-- menu Sourcing -->
+    <menuitem
+          name="We sourcing 4 you"
+          id="we_sourcing_top_menu"
+          parent="nextewave_root_menu"
+          sequence="1"
+    />
+
     <menuitem
             name="Sourcing 4 you"
             id="sourcingforyou_menu"
-            parent="nextewave_root_menu"
+            parent="we_sourcing_top_menu"
             action="sourcing_for_you_action"
             sequence="1"
     />

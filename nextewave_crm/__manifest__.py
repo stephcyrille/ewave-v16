@@ -29,7 +29,7 @@ NEXTeWave module for enhance CRM operations
         'data/crm_stage_data.xml',
 
         'views/crm_lead.xml',
-        'views/crm_lead_picture.xml',
         'views/crm_payment_views.xml',
+        'views/product_picture_views.xml',
     ],
 }

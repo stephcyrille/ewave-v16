@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record id="pictures_product_form_view" model="ir.ui.view">
+          <field name="name">nextewave.product.picture.form</field>
+          <field name="model">nextewave.product.picture</field>
+          <field name="arch" type="xml">
+              <form>
+                <sheet>
+                    <div class="oe_title">
+                        <span class="o_form_label">Product item</span>
+                        <h1 class="mt0">
+                            <field name="item_id" />
+                        </h1>
+                    </div>
+                    <br/>
+                    <group>
+                        <group>
+                            <field name="product_pic1" widget="image"/>
+                            <field name="product_pic2" widget="image"/>
+                        </group>
+                        <group>
+                            <field name="product_pic3" widget="image"/>
+                            <field name="product_pic4" widget="image"/>
+                        </group>
+                    </group>
+                </sheet>
+              </form>
+          </field>
+        </record>
+
+        <record id="pictures_product_list_view" model="ir.ui.view">
+          <field name="name">nextewave.product.picture.form</field>
+          <field name="model">nextewave.product.picture</field>
+          <field name="arch" type="xml">
+              <tree string="Product picture list" multi_edit="1" sample="1">
+                <field name="item_id" />
+                <field name="product_pic1" />
+                <field name="product_pic2" />
+                <field name="product_pic3" />
+                <field name="product_pic4" />
+              </tree>
+          </field>
+        </record>
+
+        <record id="pictures_product_action" model="ir.actions.act_window">
+            <field name="name">CRM product picture</field>
+            <field name="res_model">nextewave.product.picture</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    There is no crm product picture created yet.
+                </p>
+                <p>
+                    You can create crm product picture within a specific period.
+                </p>
+            </field>
+        </record>
+
+        <menuitem
+          name="CRM Product item"
+          id="crm_product_menu"
+          parent="nextewave_base.we_sourcing_top_menu"
+          action="pictures_product_action"
+          sequence="2"
+        />
+
+    </data>
+</odoo>
