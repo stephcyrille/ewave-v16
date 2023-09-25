@@ -69,49 +69,6 @@
                 }
             "
           />
-
-<!--          <button-->
-<!--              string=""-->
-<!--              name="action_customer_validate"-->
-<!--              type="object"-->
-<!--              class="oe_highlight"-->
-<!--              attrs="-->
-<!--                {'invisible':-->
-<!--                    [('state',-->
-<!--                        'in',-->
-<!--                      ['draft', 'new' , 'qualified', 'not_qualified', 'po_created', 'customer_so_created', 'order_paid',-->
-<!--                      'lost', 'won', 'canceled', 'close']-->
-<!--                    )]-->
-<!--                }"-->
-<!--          />-->
-<!--          <button-->
-<!--              string="Confirm vendor"-->
-<!--              name="action_button_select_vendor"-->
-<!--              type="object"-->
-<!--              class="oe_highlight"-->
-<!--              attrs="-->
-<!--                {'invisible':-->
-<!--                    [('state',-->
-<!--                        'in',-->
-<!--                      ['draft', 'new' , 'qualified', 'processing', 'not_qualified', 'customer_so_created', 'order_paid',-->
-<!--                      'lost', 'won', 'canceled', 'close']-->
-<!--                    )]-->
-<!--                }"-->
-<!--          />-->
-<!--          <button-->
-<!--              string="create purchase order"-->
-<!--              name="action_button_create_purchase"-->
-<!--              type="object"-->
-<!--              class="oe_highlight"-->
-<!--              attrs="-->
-<!--                {'invisible':-->
-<!--                    [('state',-->
-<!--                        'in',-->
-<!--                    ['draft', 'new', 'qualified', 'not_qualified', 'order_paid', 'po_created',-->
-<!--                    'lost', 'won', 'processing', 'canceled', 'close']-->
-<!--                    )]-->
-<!--                }"-->
-<!--          />-->
         </button>
 
         <field name="stage_id" position="replace">
