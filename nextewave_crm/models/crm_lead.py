@@ -17,62 +17,6 @@ class NextewaveCrmLead(models.Model):
                                       tracking=True)
     crm_product_ids = fields.One2many('nextewave.product.line', 'crm_lead', string='Products', tracking=True)
     url = fields.Char('URL', default='https://www.nextewave.com')
-    product_pic1_url = fields.Char(string="Picture 1 URL", required=False)
-    product_pic1 = fields.Binary(string="Picture 1", compute='_compute_image_1_url', required=True, readonly=False, store=True)
-    product_pic2_url = fields.Char(string="Picture 2 URL", required=False)
-    product_pic2 = fields.Binary(string="Picture 2", compute='_compute_image_2_url', readonly=False, store=True)
-    product_pic3_url = fields.Char(string="Picture 3 URL", required=False)
-    product_pic3 = fields.Binary(string="Picture 3", compute='_compute_image_3_url', readonly=False, store=True)
-    product_pic4_url = fields.Char(string="Picture 4 URL", required=False)
-    product_pic4 = fields.Binary(string="Picture 4", compute='_compute_image_4_url', readonly=False, store=True)
-
-    def get_image_from_url(self, url):
-        """
-        :return: Returns a base64 encoded string.
-        """
-        data = ""
-        try:
-            data = base64.b64encode(requests.get(url.strip()).content).replace(b"\n", b"")
-        except Exception as e:
-            _logger.warning("Can't load the image from URL %s" % url)
-            logging.exception(e)
-        return data
-
-    @api.depends("product_pic1_url")
-    def _compute_image_1_url(self):
-        for record in self:
-            image = None
-            if record.product_pic1_url:
-               image = self.get_image_from_url(record.product_pic1_url)
-               self.check_access_rule(image)
-            record.update({"product_pic1": image, })
-
-    @api.depends("product_pic2_url")
-    def _compute_image_2_url(self):
-        for record in self:
-            image = None
-            if record.product_pic2_url:
-               image = self.get_image_from_url(record.product_pic2_url)
-               self.check_access_rule(image)
-               record.update({"product_pic2": image, })
-
-    @api.depends("product_pic3_url")
-    def _compute_image_3_url(self):
-       for record in self:
-           image = None
-           if record.product_pic3_url:
-               image = self.get_image_from_url(record.product_pic3_url)
-               self.check_access_rule(image)
-           record.update({"product_pic3": image, })
-
-    @api.depends("product_pic4_url")
-    def _compute_image_4_url(self):
-       for record in self:
-           image = None
-           if record.product_pic4_url:
-               image = self.get_image_from_url(record.product_pic4_url)
-               self.check_access_rule(image)
-           record.update({"product_pic4": image, })
 
     def action_set_won_rainbowman(self):
         self.ensure_one()
