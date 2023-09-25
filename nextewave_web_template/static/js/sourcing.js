@@ -41,7 +41,46 @@ function addProductTab (e){
     <div class="form-group row my-3">
       <label for=product_picture_${i+1} class="col-sm-3 col-form-label">Picture</label>
       <div class="col-sm-9">
-        <input type="file" class="form-control-file" name=product_picture_${i+1} accept="image/jpeg,image/gif,image/png" />
+        <div class="row mb-3">
+            <div class="col-sm-6 col-md-6">
+              <div class="row">
+                <input type="file" class="form-control-file" name=product_picture_${i+1}
+                   accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                   data-show-caption="true" lass="file" data-show-preview="true"
+                   id=product_picture_${i+1} onchange="onAddPic(this)"
+                />
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <div class="row">
+                <input type="file" class="form-control-file" name="product_picture_${i+1}_2"
+                   accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                   data-show-caption="true" lass="file" data-show-preview="true"
+                   id="product_picture_${i+1}_2" onchange="onAddPic(this)"
+                />
+              </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6">
+              <div class="row">
+                <input type="file" class="form-control-file" name="product_picture_${i+1}_3"
+                   accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                   data-show-caption="true" lass="file" data-show-preview="true"
+                   id="product_picture_${i+1}_3" onchange="onAddPic(this)"
+                />
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+              <div class="row">
+                <input type="file" class="form-control-file" name="product_picture_${i+1}_4"
+                   accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                   data-show-caption="true" lass="file" data-show-preview="true"
+                   id="product_picture_${i+1}_4" onchange="onAddPic(this)"
+                />
+              </div>
+            </div>
+        </div>
       </div>
     </div>
     <div class="form-group row my-3">
@@ -109,6 +148,36 @@ listTabElm.onclick = function(e){
     }
     tab_counter--
   }
+}
+
+function onAddPic(input){
+    var id_pic = input.id
+
+    if (input.files && input.files[0]) {
+        if (!document.getElementById(`${id_pic}_prev`)){
+            var url = window.URL.createObjectURL(input.files[0])
+            var prevElt = `<div class='row mt-1' id='${id_pic}_prev'>
+                    <i class="fa fa-times text-danger text-center" onclick="delPrev(this)"/>
+                    <img src=${url} style="width: 200px; height: 100px"/>
+                </div>`
+            document.getElementById(id_pic)
+                .parentNode.insertAdjacentHTML("beforeend", prevElt);
+        } else {
+            document.getElementById(`${id_pic}_prev`).remove()
+            var url = window.URL.createObjectURL(input.files[0])
+            var prevElt = `<div class='row mt-1' id='${id_pic}_prev'>
+                    <i class="fa fa-times text-danger text-center" onclick="delPrev(this)"/>
+                    <img src=${url} style="width: 200px; height: 100px"/>
+                </div>`
+            document.getElementById(id_pic)
+                .parentNode.insertAdjacentHTML("beforeend", prevElt);
+        }
+    }
+}
+
+function delPrev(elt){
+    elt.parentNode.previousSibling.previousSibling.value= null;
+    elt.parentNode.remove();
 }
 
 // Observe a specific DOM element:

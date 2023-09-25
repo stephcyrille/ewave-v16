@@ -43,7 +43,7 @@
             </t>
 
             <div class="row" style="margin: 0px; padding: 40px 0; width: 100%">
-              <div class="offset-md-2 col-md-8">
+              <div class="offset-md-1 col-md-10">
                 <form action="/sourcing-4-you/submit" method="post" enctype="multipart/form-data">
                   <button class="btn btn-secondary" id="addProductTrigger" style="margin-bottom: 15px">Add product</button>
 
@@ -69,13 +69,48 @@
                         </div>
                       </div>
                       <div class="form-group row mt-3">
-                        <label for="product_picture_1" class="col-sm-3 col-form-label">Picture*</label>
+                        <label for="product_picture_1" class="col-sm-3 col-form-label">Picture</label>
                         <div class="col-sm-9">
-                          <input type="file" class="form-control-file" name="product_picture_1"
-                                 accept="image/jpeg,image/gif,image/png" data-show-upload="true"
-                                 data-show-caption="true" lass="file" data-show-preview="true"
-                                 id="product_picture_1" required="1"
-                          />
+                          <div class="row mb-3">
+                            <div class="col-sm-6 col-md-6">
+                              <div class="row">
+                                <input type="file" class="form-control-file" name="product_picture_1"
+                                   accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                                   data-show-caption="true" lass="file" data-show-preview="true"
+                                   id="product_picture_1" onchange="onAddPic(this)"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                              <div class="row">
+                                <input type="file" class="form-control-file" name="product_picture_1_2"
+                                   accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                                   data-show-caption="true" lass="file" data-show-preview="true"
+                                   id="product_picture_1_2" onchange="onAddPic(this)"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                              <div class="row">
+                                <input type="file" class="form-control-file" name="product_picture_1_3"
+                                   accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                                   data-show-caption="true" lass="file" data-show-preview="true"
+                                   id="product_picture_1_3" onchange="onAddPic(this)"
+                                />
+                              </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                              <div class="row">
+                                <input type="file" class="form-control-file" name="product_picture_1_4"
+                                   accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                                   data-show-caption="true" lass="file" data-show-preview="true"
+                                   id="product_picture_1_4" onchange="onAddPic(this)"
+                                />
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div class="form-group row mt-3">
