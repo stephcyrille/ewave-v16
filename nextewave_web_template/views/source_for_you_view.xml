@@ -63,7 +63,7 @@
                     <div id="nav_product_1" class="tab-pane fade show active"
                          aria-labelledby="nav_product_1_tab" role="tabpanel"><br />
                       <div class="form-group row mt-3">
-                        <label for="product_name_1" class="col-sm-3 col-form-label" >Product</label>
+                        <label for="product_name_1" class="col-sm-3 col-form-label" >Name</label>
                         <div class="col-sm-9">
                           <input class="form-control" type="text" id="product_name_1" name="product_name_1" placeholder="Product name" required="0"/>
                         </div>

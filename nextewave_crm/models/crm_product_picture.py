@@ -27,8 +27,8 @@ class CrmProductPicture(models.Model):
             related_crm_product = self.env['nextewave.product.line'].sudo().search(
                 [('product_picture_id', '=', fields.id)])
             if len(related_crm_product) > 0:
-                res.append((fields.id, f"{related_crm_product[0].description}_pictures"))
+                res.append((fields.id, f"Pictures/{related_crm_product[0].description}"))
             else:
-                res.append((fields.id, f"producs {fields.id}"))
+                res.append((fields.id, f"Pictures/{fields.id}"))
         return res
 

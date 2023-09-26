@@ -20,7 +20,8 @@ class CrmProduct(models.Model):
     total_price = fields.Float('Total price', readonly=True, tracking=True,
                                compute='_compute_total_price')
     crm_lead = fields.Many2one('crm.lead', ondelete='cascade', invisible=True)
-    product_picture_id = fields.Many2one('nextewave.product.picture', ondelete='cascade', invisible=True)
+    product_picture_id = fields.Many2one('nextewave.product.picture', ondelete='cascade', readonly=True,
+                                         invisible=True)
 
     @api.depends('product_qty', 'price_unit')
     def _compute_total_price(self):

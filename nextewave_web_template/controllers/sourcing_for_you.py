@@ -13,6 +13,8 @@ class NextewaveSourcingForYou(http.Controller):
     def post_source_and_buy_for_you(self, **kwagrs):
         partner_obj = request.env['res.partner']
         crm_lead_obj = request.env['crm.lead']
+        crm_product_pic_obj = request.env['nextewave.product.picture']
+
         counter = kwagrs.get('product_counter')
         if counter is None:
             counter = 1
@@ -56,10 +58,26 @@ class NextewaveSourcingForYou(http.Controller):
                 key_product_name = f'product_name_{i}'
                 key_quantity = f'quantity_{i}'
                 key_description = f'product_description_{i}'
+
+                key_picture_1 = f'product_picture_{i}'
+                key_picture_2 = f'product_picture_{i}_2'
+                key_picture_3 = f'product_picture_{i}_3'
+                key_picture_4 = f'product_picture_{i}_4'
+
+                val = {
+                    "product_pic1": base64.encodebytes(kwagrs.get(key_picture_1).read()) if kwagrs.get(key_picture_1) else False,
+                    "product_pic2": base64.encodebytes(kwagrs.get(key_picture_2).read()) if kwagrs.get(key_picture_2) else False,
+                    "product_pic3": base64.encodebytes(kwagrs.get(key_picture_3).read()) if kwagrs.get(key_picture_3) else False,
+                    "product_pic4": base64.encodebytes(kwagrs.get(key_picture_4).read()) if kwagrs.get(key_picture_4) else False
+                }
+
+                product_pic = crm_product_pic_obj.sudo().create(val)
+
                 line = (
                     0, 0, {
                         'product_qty': int(kwagrs.get(key_quantity)),
                         'description': kwagrs.get(key_product_name),
+                        "product_picture_id": product_pic.id
                     }
                 )
                 products_line.append(line)
@@ -86,11 +104,7 @@ class NextewaveSourcingForYou(http.Controller):
                 "description": lead_description,
 
                 "partner_id": partner.id,
-                'crm_product_ids': products_line,
-                "product_pic1": base64.encodebytes(kwagrs.get('product_picture_1').read()) if kwagrs.get('product_picture_1') else False,
-                "product_pic2": base64.encodebytes(kwagrs.get('product_picture_2').read()) if kwagrs.get('product_picture_2') else False,
-                "product_pic3": base64.encodebytes(kwagrs.get('product_picture_3').read()) if kwagrs.get('product_picture_3') else False,
-                "product_pic4": base64.encodebytes(kwagrs.get('product_picture_4').read()) if kwagrs.get('product_picture_4') else False,
+                'crm_product_ids': products_line
             }
             crm_lead_obj.sudo().create(post_crm_val)
             return request.redirect('/?state=xgt')
