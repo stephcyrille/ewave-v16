@@ -12,10 +12,23 @@ _logger = logging.getLogger(__name__)
 class CrmProductPicture(models.Model):
     _name = 'nextewave.product.picture'
     _description = 'Nextewave product picture'
-    _rec_name = "item_id"
 
-    item_id = fields.Many2one('nextewave.product.line', string='Item')
     product_pic1 = fields.Binary(string="Picture 1")
     product_pic2 = fields.Binary(string="Picture 2")
     product_pic3 = fields.Binary(string="Picture 3")
     product_pic4 = fields.Binary(string="Picture 4")
+
+    def name_get(self):
+        res = []
+        print("\n\n======================\n")
+        print('instance')
+        print("\n\n======================\n\n\n")
+        for fields in self:
+            related_crm_product = self.env['nextewave.product.line'].sudo().search(
+                [('product_picture_id', '=', fields.id)])
+            if len(related_crm_product) > 0:
+                res.append((fields.id, f"{related_crm_product[0].description}_pictures"))
+            else:
+                res.append((fields.id, f"producs {fields.id}"))
+        return res
+

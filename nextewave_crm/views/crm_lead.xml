@@ -88,6 +88,7 @@
                 <field name="product_qty"/>
                 <field name="price_unit" />
                 <field name="total_price" readonly="1" />
+                <field name="product_picture_id" string="Pictures" />
               </tree>
             </field>
           </page>

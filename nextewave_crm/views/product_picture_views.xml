@@ -7,10 +7,7 @@
               <form>
                 <sheet>
                     <div class="oe_title">
-                        <span class="o_form_label">Product item</span>
-                        <h1 class="mt0">
-                            <field name="item_id" />
-                        </h1>
+                        <h1 class="o_form_label">Product item pictures</h1>
                     </div>
                     <br/>
                     <group>
@@ -33,7 +30,6 @@
           <field name="model">nextewave.product.picture</field>
           <field name="arch" type="xml">
               <tree string="Product picture list" multi_edit="1" sample="1">
-                <field name="item_id" />
                 <field name="product_pic1" />
                 <field name="product_pic2" />
                 <field name="product_pic3" />
