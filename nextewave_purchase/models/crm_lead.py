@@ -17,8 +17,6 @@ class NextewaveLeadCrmPurchase(models.Model):
 
     def action_goto_purchase_order_form(self):
         for rec in self:
-            if not len(rec.crm_product_ids) > 0:
-                raise ValidationError("Products details error: You must first add system product before to continue")
             if not rec.vendor_id:
                 raise ValidationError("Vendor is missing: You must add a vendor for processing")
             else:

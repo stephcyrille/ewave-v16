@@ -39,6 +39,7 @@ class NextewaveCrmLead(models.Model):
         return True
 
     def action_button_qualify_lead(self):
+        self.ensure_one()
         if self.expected_revenue == 0:
             raise ValidationError("Expected revenue must be greater than 0 !")
         if not self.partner_id:
@@ -52,6 +53,14 @@ class NextewaveCrmLead(models.Model):
         elif not self.mobile:
             raise ValidationError("Contact missing: Please fill the mobile phone number before to continue !")
         else:
+            if not len(self.crm_product_ids) > 0:
+                raise ValidationError("Product lines is required in product details panel")
+            i = 1
+            for product in self.crm_product_ids:
+                if not product.product_id:
+                    raise ValidationError(f"Products details error (line {i}): You must first add "
+                                          "system product before to proceed")
+                i += 1
             # Set stage_id and synchronize it with custom state. If stage doesn't exist, we will create it
             crm_stage_obj = self.env['crm.stage']
             stage = crm_stage_obj.sudo().search([('sequence', '=', 2)])

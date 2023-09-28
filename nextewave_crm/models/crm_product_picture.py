@@ -20,9 +20,6 @@ class CrmProductPicture(models.Model):
 
     def name_get(self):
         res = []
-        print("\n\n======================\n")
-        print('instance')
-        print("\n\n======================\n\n\n")
         for fields in self:
             related_crm_product = self.env['nextewave.product.line'].sudo().search(
                 [('product_picture_id', '=', fields.id)])
