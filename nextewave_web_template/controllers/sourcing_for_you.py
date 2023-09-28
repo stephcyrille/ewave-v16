@@ -27,12 +27,11 @@ class NextewaveSourcingForYou(http.Controller):
             partner = req_partner
         else:
             # Create a new client
-            name = kwagrs.get("company_name")
             email = kwagrs.get("email")
             phone = kwagrs.get("phone_number")
-            company_type = "company"
+            company_type = 'company' if kwagrs.get("company_name") != '' else 'person'
             user_val = {
-                "name": name,
+                "name": kwagrs.get("company_name") if company_type == 'company' else  kwagrs.get("name"),
                 "email": email,
                 "phone": phone,
                 "company_type": company_type

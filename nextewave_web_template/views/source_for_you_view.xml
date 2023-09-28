@@ -44,6 +44,11 @@
 
             <div class="row" style="margin: 0px; padding: 40px 0; width: 100%">
               <div class="offset-md-1 col-md-10">
+                <div class="my-1">
+                  <p class="text-secondary" style="font-style: italic">(*) All the field with with symbol <b>"*"</b> after the field
+                    label are required.</p>
+                </div>
+
                 <form action="/sourcing-4-you/submit" method="post" enctype="multipart/form-data">
                   <button class="btn btn-secondary" id="addProductTrigger" style="margin-bottom: 15px">Add product</button>
 
@@ -159,9 +164,9 @@
                     </div>
                   </div>
                   <div class="form-group row mt-3">
-                    <label for="company_name" class="col-sm-3 col-form-label" >Company name <sup>*</sup></label>
+                    <label for="company_name" class="col-sm-3 col-form-label" >Company name</label>
                     <div class="col-sm-9">
-                      <input class="form-control" type='text' id="company_name" name="company_name" placeholder="Company name" required="1"/>
+                      <input class="form-control" type='text' id="company_name" name="company_name" placeholder="Company name" />
                     </div>
                   </div>
                   <div class="form-group row mt-3">
@@ -177,9 +182,9 @@
                     </div>
                   </div>
                   <div class="form-group row mt-3">
-                    <label for="email" class="col-sm-3 col-form-label" >Email <sup>*</sup></label>
+                    <label for="email" class="col-sm-3 col-form-label" >Email </label>
                     <div class="col-sm-9">
-                      <input class="form-control" type="email" id="email" name="email" placeholder="Adresse mail" required="1"/>
+                      <input class="form-control" type="email" id="email" name="email" placeholder="Adresse mail" />
                     </div>
                   </div>
 
