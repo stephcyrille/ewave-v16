@@ -18,22 +18,25 @@ class NextewaveCrmSaleOrder(models.Model):
         crm_products = context.get('crm_products', False)
         opportunity_id = context.get('default_opportunity_id', False)
         order_line = []
-        if opportunity_id:
-            for product in crm_products:
-                curr_product = self.env['product.product'].sudo().search([('id', '=', product['id'])])
-                line = (
-                    0, 0, {
-                        'name': curr_product.name,
-                        'product_id': curr_product.id,
-                        'product_uom_qty': product['qty'],
-                        'product_uom': curr_product.uom_id.id,
-                        'price_unit': product['price']
-                    }
-                )
-                order_line.append(line)
-            res.update({
-                'order_line': order_line,
-            })
+        try:
+            if opportunity_id:
+                for product in crm_products:
+                    curr_product = self.env['product.product'].sudo().search([('id', '=', product['id'])])
+                    line = (
+                        0, 0, {
+                            'name': curr_product.name,
+                            'product_id': curr_product.id,
+                            'product_uom_qty': product['qty'],
+                            'product_uom': curr_product.uom_id.id,
+                            'price_unit': product['price']
+                        }
+                    )
+                    order_line.append(line)
+                res.update({
+                    'order_line': order_line,
+                })
+        except Exception as e:
+            print(f'\n\n\n{e.__str__()}\n\n\n')
         return res
 
     @api.model
