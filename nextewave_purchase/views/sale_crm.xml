@@ -10,11 +10,11 @@
           <attribute name="attrs">
             {'invisible':
               [
-                '&amp;',
+                '|',
                 ('vendor_order_count', '&lt;', 1),
                 ('state',
                     'in',
-                  ['draft', 'new' , 'qualified', 'not_qualified', 'processing', 'customer_so_created' ,
+                  ['draft', 'new' , 'qualified', 'not_qualified', 'customer_so_created' ,
                   'client_accepted', 'lost', 'won', 'canceled', 'close']
                 )
               ]

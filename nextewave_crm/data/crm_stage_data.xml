@@ -5,19 +5,15 @@
         <field name="sequence">3</field>
     </record>
     <record model="crm.stage" id="stage_lead7">
-        <field name="name">PO created</field>
+        <field name="name">SO created</field>
         <field name="sequence">5</field>
     </record>
     <record model="crm.stage" id="stage_lead9">
-        <field name="name">Customer SO created</field>
+        <field name="name">PO created</field>
         <field name="sequence">6</field>
     </record>
     <record model="crm.stage" id="stage_lead10">
         <field name="name">Client accepted</field>
         <field name="sequence">7</field>
     </record>
-<!--    <record model="crm.stage" id="stage_lead11">-->
-<!--        <field name="name">Order paid</field>-->
-<!--        <field name="sequence">8</field>-->
-<!--    </record>-->
 </odoo>
