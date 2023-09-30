@@ -9,7 +9,7 @@
         <!--    Customs Action    -->
         <button name="action_set_won_rainbowman" position="before">
           <button
-              string="Create PO"
+              string="Request for quotation"
               name="action_goto_purchase_order_form"
               type="object"
               class="oe_highlight"
@@ -30,8 +30,8 @@
 
         <button name="action_schedule_meeting" position="before">
             <button class="oe_stat_button" type="object"
-                name="action_view_purchase_order" icon="fa-credit-card" attrs="{'invisible': [('vendor_order_count', '=', 0)]}">
-                <field name="vendor_order_count" widget="statinfo" string="Purchases quotation"/>
+                name="action_view_purchase_order" icon="fa-align-justify" attrs="{'invisible': [('vendor_order_count', '=', 0)]}">
+                <field name="vendor_order_count" widget="statinfo" string="RFQ"/>
             </button>
         </button>
       </field>

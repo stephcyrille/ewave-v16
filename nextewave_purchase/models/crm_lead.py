@@ -17,21 +17,21 @@ class NextewaveLeadCrmPurchase(models.Model):
 
     def action_goto_purchase_order_form(self):
         for rec in self:
-            if not rec.vendor_id:
-                raise ValidationError("Vendor is missing: You must add a vendor for processing")
-            else:
-                action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_rfq")
-                action['context'] = {
-                    'search_default_draft': 1,
-                    'search_default_partner_id': rec.vendor_id.id,
-                    'default_partner_id': rec.vendor_id.id,
-                    'default_partner_ref': rec.name,
-                    'default_opportunity_id': rec.id,
-                    'crm_products': [{'id': x.product_id.id, 'name': x.product_id.name, 'uom': x.product_id.uom_id.id, 'qty': x.product_qty, 'price': x.price_unit} for x in rec.crm_product_ids]
-                }
+            # if not rec.vendor_id:
+            #     raise ValidationError("Vendor is missing: You must add a vendor for processing")
+            # else:
+            action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_rfq")
+            action['context'] = {
+                'search_default_draft': 1,
+                # 'search_default_partner_id': rec.vendor_id.id,
+                # 'default_partner_id': rec.vendor_id.id,
+                'default_partner_ref': rec.name,
+                'default_opportunity_id': rec.id,
+                'crm_products': [{'id': x.product_id.id, 'name': x.product_id.name, 'uom': x.product_id.uom_id.id, 'qty': x.product_qty, 'price': x.price_unit} for x in rec.crm_product_ids]
+            }
 
-                action['views'] = [(self.env.ref('purchase.purchase_order_form').id, 'form')]
-                return action
+            action['views'] = [(self.env.ref('purchase.purchase_order_form').id, 'form')]
+            return action
 
     def action_view_purchase_order(self):
         self.ensure_one()

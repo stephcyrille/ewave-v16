@@ -37,7 +37,6 @@ class NextewaveCrmPurchase(models.Model):
                         'product_id': curr_product.id,
                         'product_qty': product['qty'],
                         'product_uom': curr_product.uom_id.id,
-                        'price_unit': product['price']
                     }
                 )
                 order_line.append(line)
@@ -54,8 +53,8 @@ class NextewaveCrmPurchase(models.Model):
             stage = crm_stage_obj.sudo().search([('sequence', '=', 5)])
             res.opportunity_id.write({
                 'vendor_order_count': res.opportunity_id.vendor_order_count + 1,
-                'state': 'po_created',
-                'stage_id': stage.id
+                # 'state': 'po_created',
+                # 'stage_id': stage.id
             })
         return res
 
