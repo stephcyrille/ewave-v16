@@ -37,8 +37,7 @@ class NextewaveLeadCrmPurchase(models.Model):
         self.ensure_one()
         action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_rfq")
         action['context'] = {
-            'search_default_partner_id': self.partner_id.id,
-            'default_partner_id': self.partner_id.id,
+            'search_default_opportunity_id': self.id,
             'default_opportunity_id': self.id,
         }
 
