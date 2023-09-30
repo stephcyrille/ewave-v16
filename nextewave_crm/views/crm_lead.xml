@@ -75,7 +75,7 @@
           <field
             name="state"
             widget="statusbar"
-            statusbar_visible="new,qualified,processing,po_created,customer_so_created,client_accepted,won"
+            statusbar_visible="new,qualified,processing,won"
           />
         </field>
 

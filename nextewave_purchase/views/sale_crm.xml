@@ -9,12 +9,19 @@
         <xpath expr="//button[@name='action_sale_quotations_new']" position="attributes">
           <attribute name="attrs">
             {'invisible':
-                [('state',
+              [
+                '&amp;',
+                ('vendor_order_count', '&lt;', 1),
+                ('state',
                     'in',
                   ['draft', 'new' , 'qualified', 'not_qualified', 'processing', 'customer_so_created' ,
                   'client_accepted', 'lost', 'won', 'canceled', 'close']
-                )]
+                )
+              ]
             }
+          </attribute>
+          <attribute name="string">
+            Create customer SO
           </attribute>
         </xpath>
 
@@ -27,6 +34,9 @@
                   'lost', 'canceled', 'close']
                 )]
             }
+          </attribute>
+          <attribute name="string">
+            SO
           </attribute>
         </xpath>
 
