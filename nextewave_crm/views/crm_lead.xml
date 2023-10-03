@@ -22,20 +22,20 @@
           </attribute>
         </xpath>
 
-        <xpath expr="//button[2]" position="attributes">
-          <attribute name="attrs">
-            {'invisible':
-                [('state',
-                    'in',
-                   ['draft', 'new', 'qualified', 'not_qualified', 'processing', 'customer_so_created',
-                    'po_created', 'client_accepted', 'lost', 'canceled', 'close', 'won']
-                )]
-            }
-          </attribute>
-          <attribute name="groups">
-            sales_team.group_sale_manager
-          </attribute>
-        </xpath>
+<!--        <xpath expr="//button[2]" position="attributes">-->
+<!--          <attribute name="attrs">-->
+<!--            {'invisible':-->
+<!--                [('state',-->
+<!--                    'in',-->
+<!--                   ['draft', 'new', 'qualified', 'not_qualified', 'processing', 'customer_so_created',-->
+<!--                    'po_created', 'client_accepted', 'lost', 'canceled', 'close', 'won']-->
+<!--                )]-->
+<!--            }-->
+<!--          </attribute>-->
+<!--          <attribute name="groups">-->
+<!--            sales_team.group_sale_manager-->
+<!--          </attribute>-->
+<!--        </xpath>-->
         <!--    End Apply new filters for win and lost action    -->
 
         <!--    Customs Action    -->
