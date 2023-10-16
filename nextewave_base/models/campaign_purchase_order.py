@@ -46,9 +46,6 @@ class NextewavePurchaseCampaign(models.Model):
     _description = 'NEXTeWave purchase campaign'
 
     purchases_count = fields.Integer(string="Purchase count", compute='_compute_purchase_qty')
-    partner_id = fields.Many2one('res.partner', string='Vendor', change_default=True, tracking=True,
-                                domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]",
-                                help="You can find a vendor by its Name, TIN, Email or Internal Reference.")
 
     def _compute_purchase_qty(self):
         self.ensure_one()
@@ -80,8 +77,6 @@ class NextewavePurchaseCampaign(models.Model):
         self.ensure_one()
         action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_rfq")
         action['context'] = {
-            # 'search_default_partner_id': self.partner_id.id,
-            # 'default_partner_id': self.partner_id.id,
             'default_buy_campaign_id': self.id,
         }
 
