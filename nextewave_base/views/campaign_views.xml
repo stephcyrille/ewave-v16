@@ -79,11 +79,11 @@
                   <group>
                     <field name="start_date"/>
                     <field name="end_date"/>
+                    <field name="expected_revenue" />
                   </group>
 
                   <group>
                     <field name="user_id" />
-                    <field name="expected_revenue" />
                     <field name="product_count" />
                   </group>
                 </group>
