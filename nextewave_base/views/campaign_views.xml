@@ -79,11 +79,12 @@
                   <group>
                     <field name="start_date"/>
                     <field name="end_date"/>
-                    <field name="expected_revenue" />
+                    <field name="user_id" />
                   </group>
 
                   <group>
-                    <field name="user_id" />
+                    <field name="expected_revenue" />
+                    <field name="current_revenue" />
                     <field name="product_count" />
                   </group>
                 </group>
@@ -96,6 +97,7 @@
                         <field name="description"/>
                         <field name="product_qty"/>
                         <field name="price_unit" />
+                        <field name="vendor_unit_price" />
                         <field name="total_price" readonly="1" />
                       </tree>
                     </field>
