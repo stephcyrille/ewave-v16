@@ -65,7 +65,6 @@ class NextewavePurchaseCampaign(models.Model):
         action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_rfq")
         action['context'] = {
             'search_default_draft': 1,
-            'default_partner_id': self.partner_id.id,
             'default_buy_campaign_id': self.id,
             'default_origin': self.name,
             'default_company_id': self.company_id.id or self.env.company.id,
@@ -81,8 +80,8 @@ class NextewavePurchaseCampaign(models.Model):
         self.ensure_one()
         action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_rfq")
         action['context'] = {
-            'search_default_partner_id': self.partner_id.id,
-            'default_partner_id': self.partner_id.id,
+            # 'search_default_partner_id': self.partner_id.id,
+            # 'default_partner_id': self.partner_id.id,
             'default_buy_campaign_id': self.id,
         }
 

@@ -21,14 +21,14 @@
               />
           </button>
 
-          <field name="end_date" position="after">
-              <field name="partner_id"  attrs="{'required': [('state','in', ['confirmed', 'published'])]}"/>
-          </field>
+<!--          <field name="end_date" position="after">-->
+<!--              <field name="partner_id"  attrs="{'required': [('state','in', ['confirmed', 'published'])]}"/>-->
+<!--          </field>-->
 
           <button name="action_view_buying_requests" position="before">
             <button class="oe_stat_button" type="object"
                 name="action_view_purchase_order" icon="fa-credit-card" attrs="{'invisible': [('purchases_count', '=', 0)]}">
-                <field name="purchases_count" widget="statinfo" string="PO"/>
+                <field name="purchases_count" widget="statinfo" string="RFQ"/>
             </button>
           </button>
       </field>
