@@ -77,6 +77,7 @@ class NextewavePurchaseCampaign(models.Model):
         self.ensure_one()
         action = self.env["ir.actions.actions"]._for_xml_id("purchase.purchase_rfq")
         action['context'] = {
+            'search_default_buy_campaign_id': self.id,
             'default_buy_campaign_id': self.id,
         }
 

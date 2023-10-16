@@ -1,0 +1,14 @@
+<odoo>
+    <data>
+        <record id="buying_campaign_purchase_search_view" model="ir.ui.view">
+          <field name="name">purchase.order.search.view</field>
+          <field name="model">purchase.order</field>
+          <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+          <field name="arch" type="xml">
+            <field name="origin" position="after">
+              <field name="buy_campaign_id" />
+            </field>
+          </field>
+        </record>
+    </data>
+</odoo>
