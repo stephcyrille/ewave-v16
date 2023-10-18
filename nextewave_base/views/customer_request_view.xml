@@ -89,6 +89,7 @@
                   <group>
                     <field name="request_date" />
                     <field name="delivery_expected_date" />
+                    <field name="payment_amount" />
                   </group>
                 </group>
 

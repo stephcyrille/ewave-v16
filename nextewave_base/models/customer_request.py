@@ -32,7 +32,8 @@ class BuyingRequest(models.Model):
         ('canceled', 'Canceled')], required=True, default='new', readonly=True, tracking=True)
     sale_order_count = fields.Integer(string="Number of Quotations", default=0)
     payments_count = fields.Integer(string="Number of payment", default=0)
-    payment_amount = fields.Float("Payment amount", default=0, tracking=True, readonly=True)
+    payment_amount = fields.Float("Payment amount", default=0, readonly=True,
+                                  compute='_compute_payment_amount')
 
     @api.model
     def create(self, vals):
@@ -51,6 +52,14 @@ class BuyingRequest(models.Model):
                     p.product_qty = 1
             else:
                 rec.products_ids = False
+
+    def _compute_payment_amount(self):
+        self.ensure_one()
+        self.payment_amount = 0
+        payments = self.env['account.payment'].sudo().search([('customer_request_id', '=', self.id)])
+        if len(payments) > 0:
+            for pay in payments:
+                self.payment_amount += pay.amount
 
     def action_confirm(self):
         self.ensure_one()
