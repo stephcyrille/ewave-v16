@@ -63,6 +63,11 @@ class BuyingCampaign(models.Model):
     def _compute_current_revenue(self):
         for rec in self:
             rec.current_revenue = 0
+            customer_buying_request = self.env['buying.campaign.request'].sudo().\
+                search([('campaign_id', '=', self.id)])
+            if len(customer_buying_request) > 0:
+                for line in customer_buying_request:
+                    rec.current_revenue += line.payment_amount
 
     @api.depends('company_id')
     def _compute_user_company_ids(self):
