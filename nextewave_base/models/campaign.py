@@ -97,11 +97,11 @@ class BuyingCampaign(models.Model):
 
     def action_publish(self):
         self.ensure_one()
-        all_campaign = self.env['buying.campaign'].search(['state', '=', 'published'])
+        all_campaign = self.env['buying.campaign'].sudo().search([('state', '=', 'published')])
         if len(all_campaign) > 0:
             for campaign in all_campaign:
-                for product in campaign.products_ids:
-                    product.write({
+                for campaign_line in campaign.products_ids:
+                    campaign_line.product_id.write({
                         'in_campaign': False
                     })
                 campaign.write({

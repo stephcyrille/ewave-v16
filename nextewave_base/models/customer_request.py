@@ -62,7 +62,7 @@ class BuyingRequest(models.Model):
     def _compute_payment_amount(self):
         for rec in self:
             rec.payment_amount = 0
-            payments = rec.env['account.payment'].sudo().search([('customer_request_id', '=', rec.id)])
+            payments = self.env['account.payment'].sudo().search([('customer_request_id', '=', rec.id)])
             if len(payments) > 0:
                 for pay in payments:
                     rec.payment_amount += pay.amount
