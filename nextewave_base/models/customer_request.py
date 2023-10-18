@@ -32,7 +32,8 @@ class BuyingRequest(models.Model):
         ('paid', 'Paid'),
         ('canceled', 'Canceled')], required=True, default='new', readonly=True, tracking=True)
     sale_order_count = fields.Integer(string="Number of Quotations", default=0)
-    payments_count = fields.Integer(string="Number of payment", default=0)
+    payments_count = fields.Integer(string="Number of payment", default=0, readonly=True,
+                                  compute='_compute_count_payment')
     payment_amount = fields.Float("Payment amount", default=0, readonly=True,
                                   compute='_compute_payment_amount')
     payment_time = fields.Selection([
@@ -58,6 +59,13 @@ class BuyingRequest(models.Model):
                     p.product_qty = 1
             else:
                 rec.products_ids = False
+
+    def _compute_count_payment(self):
+        for rec in self:
+            rec.payments_count = 0
+            payments = self.env['account.payment'].sudo().search([('customer_request_id', '=', rec.id)])
+            if len(payments) > 0:
+                rec.payments_count = len(payments) > 0
 
     def _compute_payment_amount(self):
         for rec in self:

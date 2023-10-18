@@ -21,14 +21,8 @@ class NextewaveCrmPayment(models.Model):
             customer_request_payments = self.env['account.payment'].sudo().search(
                 [('customer_request_id', '=', res.customer_request_id.id)])
             # If we already have paid an opportunity, we don't need to edit his state
-            if len(customer_request_payments) <= 1:
+            if len(customer_request_payments) < 1:
                 res.customer_request_id.write({
-                    'payments_count': res.customer_request_id.payments_count + 1,
                     'state': 'paid'
                 })
-            else:
-                res.customer_request_id.write({
-                    'payments_count': res.customer_request_id.payments_count + 1
-                })
-
         return res
