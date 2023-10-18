@@ -18,7 +18,8 @@ class BuyingRequest(models.Model):
                                   required=True, domain="[('state', '=', 'published')]")
     # Compute from the so
     request_date = fields.Date("Request date", tracking=True, default=fields.Date.today(), readonly=True)
-    request_amount = fields.Float("Request amount", default=0, tracking=True, readonly=True)
+    request_amount = fields.Float("Request amount", default=0, tracking=True, readonly=True,
+                                  compute="_compute_request_amount")
     description = fields.Html('Notes')
     delivery_expected_date = fields.Date("Delivery expected", tracking=True, required=True)
     products_ids = fields.One2many('campaign.product.line', 'buying_request_id', string='Products',
@@ -54,12 +55,19 @@ class BuyingRequest(models.Model):
                 rec.products_ids = False
 
     def _compute_payment_amount(self):
-        self.ensure_one()
-        self.payment_amount = 0
-        payments = self.env['account.payment'].sudo().search([('customer_request_id', '=', self.id)])
-        if len(payments) > 0:
-            for pay in payments:
-                self.payment_amount += pay.amount
+        for rec in self:
+            rec.payment_amount = 0
+            payments = rec.env['account.payment'].sudo().search([('customer_request_id', '=', rec.id)])
+            if len(payments) > 0:
+                for pay in payments:
+                    rec.payment_amount += pay.amount
+
+    def _compute_request_amount(self):
+        for rec in self:
+            rec.request_amount = 0
+            if len(rec.products_ids) > 0:
+                for product in rec.products_ids:
+                    rec.request_amount += product.total_price
 
     def action_confirm(self):
         self.ensure_one()
