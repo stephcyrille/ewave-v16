@@ -35,6 +35,11 @@ class BuyingRequest(models.Model):
     payments_count = fields.Integer(string="Number of payment", default=0)
     payment_amount = fields.Float("Payment amount", default=0, readonly=True,
                                   compute='_compute_payment_amount')
+    payment_time = fields.Selection([
+        ('default', 'Default'),
+        ('before', 'Before'),
+        ('a_moth_before', 'A month before'),
+        ('two_weeks_before', '2 weeks before')], default='default', string="Payment time")
 
     @api.model
     def create(self, vals):

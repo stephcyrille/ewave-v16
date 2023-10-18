@@ -83,6 +83,7 @@
                   <group>
                     <field name="customer_id"/>
                     <field name="campaign_id"/>
+                    <field name="payment_time"/>
                     <field name="request_amount"/>
                   </group>
 
