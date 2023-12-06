@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap'); */
+
+@layer base {
+    @font-face {
+        font-family: Dosis;
+        font-weight: 300;
+        src: url(../assets/fonts/Dosis/Dosis-Light.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: Dosis;
+        font-weight: 400;
+        src: url(../assets/fonts/Dosis/Dosis-Regular.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: Dosis;
+        font-weight: 500;
+        src: url(../assets/fonts/Dosis/Dosis-Medium.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: Dosis;
+        font-weight: 600;
+        src: url(../assets/fonts/Dosis/Dosis-SemiBold.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: Dosis;
+        font-weight: 700;
+        src: url(../assets/fonts/Dosis/Dosis-Bold.ttf) format('ttf');
+    }
+}
+
+@layer base {
+    @font-face {
+        font-family: OpenSans;
+        font-weight: 300;
+        src: url(../assets/fonts/Open_Sans/OpenSans-Light.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: OpenSans;
+        font-weight: 400;
+        src: url(../assets/fonts/Open_Sans/OpenSans-Regular.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: OpenSans;
+        font-weight: 500;
+        src: url(../assets/fonts/Open_Sans/OpenSans-Medium.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: OpenSans;
+        font-weight: 600;
+        src: url(../assets/fonts/Open_Sans/OpenSans-SemiBold.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: OpenSans;
+        font-weight: 700;
+        src: url(../assets/fonts/Open_Sans/OpenSans-Bold.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: OpenSans;
+        font-style: italic;
+        src: url(../assets/fonts/Open_Sans/OpenSans-Italic.ttf) format('ttf');
+    }
+}
+
+@layer base {
+    @font-face {
+        font-family: Ubuntu;
+        font-weight: 300;
+        src: url(../assets/fonts/Ubuntu/Ubuntu-Light.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: Ubuntu;
+        font-weight: 400;
+        src: url(../assets/fonts/Ubuntu/Ubuntu-Regular.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: Ubuntu;
+        font-weight: 500;
+        src: url(../assets/fonts/Ubuntu/Ubuntu-Medium.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: Ubuntu;
+        font-weight: 700;
+        src: url(../assets/fonts/Ubuntu/Ubuntu-Bold.ttf) format('ttf');
+    }
+
+    @font-face {
+        font-family: Ubuntu;
+        font-style: italic;
+        src: url(../assets/fonts/Ubuntu/Ubuntu-Italic.ttf) format('ttf');
+    }
+}

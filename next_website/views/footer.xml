@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <data>
+    <template id="theme_boec_footer" inherit_id="website.layout" name="Boec Footer">
+      <xpath expr="//div[@id='footer']" position="replace">
+        <footer class="w-full border-t border-t-slate-300 bg-white flex flex-col items-center">
+          <section class="footer w-100">
+            <div class="wrapper w-100">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="w-full max-w-[90rem] p-8 pb-3 text-neutral-600 font-open-sans text-sm">
+                        <!-- Link for contact us -->
+                        <div class="flex flex-wrap justify-between gap-10">
+                          <div>
+                            <p
+                              class="font-dosis text-lg font-medium text-neutral-700 leading-none pb-2 ">
+                              NexteWave Sarl
+                            </p>
+                            <hr class="border-b-2 w-[3rem] mb-3  border-b-blue-green" />
+                            <div class="flex flex-col gap-2">
+                              <h3 class="">
+                                <i class="fa-solid fa-house pr-2" />Nouvelle route cité CICAM
+                              </h3>
+                              <h3 class="pl-5">P.B: Douala Cameroun</h3>
+                            </div>
+                          </div>
+
+                          <div>
+                            <p
+                              class="font-dosis text-lg font-medium text-neutral-700 leading-none pb-2">
+                              Call us
+                            </p>
+                            <hr class="border-b-2 w-[3rem] mb-3  border-b-blue-green" />
+                            <div class="flex flex-col gap-2">
+                              <a href="tel:+1650-555-0111" target="_blank"
+                                class="hover:text-blue-green transition ease-in-out duration-200"><i class="ri-phone-fill pr-2"></i>+1
+                                (650) 555-0111</a>
+                              <a href="https://wa.me/+1650-555-0111" target="_blank"
+                                class="hover:text-blue-green transition ease-in-out duration-200"><i class="ri-whatsapp-fill pr-2"></i>+1
+                                (650) 555-0111</a>
+                            </div>
+                          </div>
+
+                          <div>
+                            <p
+                              class="font-dosis text-lg font-medium text-neutral-700 leading-none pb-2">
+                              Write us
+                            </p>
+                            <hr class="border-b-2 w-[3rem] mb-3  border-b-blue-green" />
+                            <a href="mailto:hello@mycompany.com" target="_blank"
+                              class="hover:text-blue-green transition ease-in-out duration-200"><i class="fa-solid fa-envelope pr-2"></i>
+                              hello@mycompany.com</a>
+                          </div>
+
+                          <div>
+                            <p
+                              class="font-dosis text-lg font-medium text-neutral-700 leading-none pb-2 ">
+                              Follow us
+                            </p>
+                            <hr class="border-b-2 w-[3rem] mb-3  border-b-blue-green" />
+                            <div class="flex items-center leading-none gap-3 text-2xl">
+                              <a href="https://facebook.com" target="_blank" class="hover:text-blue-green transition"><i
+                                  class="ri-facebook-box-fill" /></a>
+                              <a href="https://linkedin.com" target="_blank" class="hover:text-blue-green transition"><i
+                                  class="ri-linkedin-box-fill" /></a>
+                              <a href="https://twitter.com" target="_blank" class="hover:text-blue-green transition"><i
+                                  class="ri-twitter-x-fill" /></a>
+                            </div>
+                          </div>
+                        </div>
+
+                        <hr class="my-6 border-slate-300" />
+
+                        <!-- Link into the website -->
+                        <div class="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 text-center md:justify-between">
+                          <img src="/next_website/static/src/img/logo.png" alt="logo-ct" class="h-12" />
+                          <ul class="flex flex-wrap items-center gap-y-2 gap-x-8">
+                            <li>
+                              <a href="./index.html"
+                                class="block font-open-sans text-sm font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:hover:text-blue-green focus:hover:text-blue-green">
+                                Home
+                              </a>
+                            </li>
+                            <li>
+                              <a href="./services.html"
+                                class="block font-open-sans text-sm font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:hover:text-blue-green focus:hover:text-blue-green">
+                                Services
+                              </a>
+                            </li>
+                            <li>
+                              <a href="./about-us.html"
+                                class="block font-open-sans text-sm font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:hover:text-blue-green focus:hover:text-blue-green">
+                                About Us
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#"
+                                class="block font-open-sans text-sm font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:hover:text-blue-green focus:hover:text-blue-green">
+                                Terms of Services
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#"
+                                class="block font-open-sans text-sm font-normal leading-relaxed text-blue-gray-900 antialiased transition-colors hover:hover:text-blue-green focus:hover:text-blue-green">
+                                Privacy Policy
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+
+                      <!-- Copyrigth -->
+                      <div class="w-full bg-neutral-800 text-white py-2 mt-4">
+                        <p class="block text-center font-open-sans text-base font-normal leading-relaxed text-blue-gray-900 antialiased">
+                          Copyright 2023 NexteWave ©
+                        </p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </section>
+        </footer>
+      </xpath>
+    </template>
+
+    <template id="next_custom_copyright" inherit_id="website.layout" name="Next Copyright">
+      <xpath expr="//div[hasclass('o_footer_copyright')]" position="replace">
+        <span />
+      </xpath>
+    </template>
+  </data>
+</odoo>

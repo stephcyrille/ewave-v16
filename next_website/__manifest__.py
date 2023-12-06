@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     'name': "NEXTeWave Website",
 
@@ -22,26 +21,21 @@ NEXTeWave module for the web front office that contain:
     'version': '16.1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['website',
-                'nextewave_base',
-                'nextewave_crm',
-                'nextewave_grouping'],
+    'depends': ['website'],
 
     # always loaded
     'data': [
-        'views/source_for_you_view.xml',
-        'views/home_page.xml',
-        'views/we_pack_and_ship_template.xml',
-        'views/test.xml',
+        'views/layout.xml',
+        'views/header.xml',
+        'views/footer.xml',
+        'views/index.xml',
     ],
     'assets': {
-        'web._assets_primary_variables': [
-            ('prepend', 'nextewave_web_template/static/src/scss/primary_variables.scss'),
-        ],
-        'web._assets_frontend_helpers': [
-            ('prepend', 'nextewave_web_template/static/src/scss/bootstrap_overridden.scss'),
-        ],
          'web.assets_frontend': [
+             "https://kit.fontawesome.com/b2b52c5522.js",
+             "next_website/static/src/js/carousel.js",
+             "next_website/static/src/js/index.js",
+             'next_website/static/src/js/timer.js',
              # 'nextewave_web_template/static/src/scss/theme.scss',
              # 'nextewave_web_template/static/src/js/theme.js',
             # 'nextewave_web_template/static/css/global.css',
@@ -53,6 +47,8 @@ NEXTeWave module for the web front office that contain:
             # 'nextewave_web_template/static/js/carousel.js',
             # 'nextewave_web_template/static/js/timer.js',
             # 'nextewave_web_template/static/js/fontawesome.js'
+            # "https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,500&amp;family=Montserrat&amp;display=swap"
          ]
     },
 }
+# -*- coding: utf-8 -*-

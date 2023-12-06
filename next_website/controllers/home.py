@@ -32,4 +32,4 @@ class CustomWebHomepage(Home):
         context = {
             "form_alert": values
         }
-        return request.render('nextewave_web_template.homepage', context)
+        return request.render('next_website.home', context)
