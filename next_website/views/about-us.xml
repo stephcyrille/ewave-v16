@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="about-us" model="website.page">
+     <field name="name">About us</field>
+     <field name="website_published">True</field>
+     <field name="url">/about-us</field>
+     <field name="type">qweb</field>
+     <field name="key">next.about_us</field>
+     <field name="arch" type="xml">
+       <t t-call="website.layout">
+         <xpath expr="//script[@id='web.layout.odooscript']" position="after">
+           <link rel="stylesheet" href="/next_website/static/src/css/flowchart.css" />
+         </xpath>
+
+         <xpath expr="//div[@id='wrap']" position="inside">
+          <div class="bg-slate-50">
+            <!-- Section header -->
+            <div class="bg-cover bg-center bg-no-repeat head" style="background-image: url(next_website/static/src/img/contact.jpg);">
+              <div
+                class=" w-full h-full bg-black/50 backdrop-blur-sm p-8 flex flex-col gap-4 justify-center items-center">
+                <h2
+                  class="block my-2 font-dosis text-4xl text-center lg:text-5xl leading-[1.3] tracking-normal text-white antialiased">
+                  About Us
+                </h2>
+
+                <div
+                  class="block font-open-sans text-base font-medium md:max-w-2xl text-center leading-relaxed text-gray-300 antialiased">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium eum laboriosam explicabo!
+                  Exercitationem, nam consequatur!
+                </div>
+              </div>
+            </div>
+
+            <!-- section presentation -->
+            <div class="w-full flex flex-col gap-16 py-10 items-center">
+              <div
+                class="w-full max-w-[90rem] px-8 flex items-center gap-x-24 gap-y-8 my-8 justify-between max-lg:flex-wrap">
+                <div class="w-full flex flex-col gap-8">
+                  <h1 class="text-3xl font-dosis font-semibold text-blue-green">
+                    The Essence of NexteWave
+                  </h1>
+
+                  <p class="font-open-sans text-sm leading-loose text-neutral-700 text-justify">
+                    Welcome to the world of NexteWave, where the impossible becomes reality. We are a mosaic of
+                    talents, innovators,
+                    and creators, united by a common vision. Our passion for excellence drives us to constantly push
+                    the boundaries of what
+                    is possible, and our mission is simple: to transform dreams into success.
+                  </p>
+                </div>
+
+                  <div class="w-full flex justify-center">
+                    <div class="animate-liquid-one bg-fixed bg-no-repeat"
+                       style="background-image: url(/next_website/static/src/img/supply-chain.jpg);" />
+                  </div>
+              </div>
+            </div>
+
+            <!-- section History -->
+            <div class="w-full flex flex-col gap-16 py-10 items-center bg-slate-300">
+              <div
+                class="w-full max-w-[90rem] px-8 flex items-center gap-x-24 gap-y-8 my-8 justify-between max-lg:flex-wrap">
+                <div class="lg:order-last w-full flex flex-col gap-8">
+                  <h1 class="text-3xl font-dosis font-semibold text-green-steel">
+                    Our Epic Journey
+                  </h1>
+
+                  <p class="font-open-sans text-sm leading-loose text-neutral-700 text-justify" />
+                    Our journey began 02 years ago, with a bold idea and the belief that we could change the world.
+                    Since
+                    then, we've written an epic of success, one page at a time. Explore the chapters that have
+                    shaped our story and will
+                    continue to write our future.
+                </div>
+
+                <div class="lg:order-first w-full flex justify-center">
+                  <div class="animate-liquid-two bg-fixed bg-center bg-cover bg-no-repeat"
+                      style="background-image: url(/next_website/static/src/img/contener-01.jpg);" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Section partners -->
+            <div class="w-full h-max bg-cover bg-fixed bg-center bg-no-repeat"
+              style="background-image: url(/next_website/static/src/img/about.partner.jpg);">
+              <div class="w-full flex justify-center bg-black/40 backdrop-blur">
+                <div
+                  class="w-full overflow-hidden max-w-[90rem] px-8 py-10 flex flex-col gap-4 items-center justify-center">
+                  <h1
+                    class="block my-6 text-3xl max-w-xl font-dosis text-center font-bold leading-[1.3] tracking-normal text-white antialiased">
+                    The Teams Behind Our Success
+                  </h1>
+
+                  <div class="scroller" data-speed="fast">
+                    <ul class="tag-list scroller-inner">
+                      <li class="partner-logo"><img src="next_website/static/src/img/logo_01.png" alt="logo 1" class="h-24" /></li>
+                      <li class="partner-logo"><img src="next_website/static/src/img/logo_02.png" alt="logo 2" class="h-24" /></li>
+                      <li class="partner-logo"><img src="next_website/static/src/img/logo_03.png" alt="logo 3" class="h-24" /></li>
+                      <li class="partner-logo"><img src="next_website/static/src/img/logo_04.png" alt="logo 4" class="h-24" /></li>
+                      <li class="partner-logo"><img src="next_website/static/src/img/logo_05.png" alt="logo 5" class="h-24" /></li>
+                      <li class="partner-logo"><img src="next_website/static/src/img/logo_06.png" alt="logo 6" class="h-24" /></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- section Description -->
+            <div id="approach" class="w-full flex flex-col gap-16 my-14 items-center">
+              <div
+                class="w-full max-w-[90rem] px-8 flex max-md:flex-col justify-between gap-y-8 gap-x-10 xl:gap-x-16 font-open-sans text-neutral-600">
+                <div class="w-full md:w-1/3 rounded py-4">
+                  <div>
+                    <img src="/next_website/static/src/img/about.mission.jpg" alt="mission" class="rounded" style="width: 100%;" />
+                  </div>
+
+                  <div class="">
+                    <h3 class="font-dosis text-2xl text-blue-green my-4">Our mission</h3>
+                    <p class="text-sm leading-[1.75]">We're here to turn ideas
+                      into reality, challenges into
+                      opportunities, and clients
+                      into long-term partners. Our mission is to create a positive impact, innovate relentlessly,
+                      and exceed expectations.</p>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-1/3 rounded py-4">
+                  <div>
+                    <img src="/next_website/static/src/img/about.value.jpg" alt="value" class="rounded" style="width: 100%;" />
+                  </div>
+
+                  <div>
+                    <h3 class="font-dosis text-2xl text-blue-green my-4">Our values</h3>
+                    <p class="text-sm leading-[1.75]">Integrity, boldness, responsibility to our clients are
+                      ingrained in
+                      our DNA. Our philosophy is
+                      built on a commitment to excellence, open-mindedness, and an insatiable quest for
+                      innovation.</p>
+                  </div>
+                </div>
+
+                <div class="w-full md:w-1/3 rounded py-4">
+                  <div>
+                    <img src="/next_website/static/src/img/about.team.jpg" alt="team" class="rounded" style="width: 100%;" />
+                  </div>
+
+                  <div>
+                    <h3 class="font-dosis text-2xl text-blue-green my-4">Our team</h3>
+                    <p class="text-sm leading-[1.75]">Our company is not just an entity; it's a community of
+                      visionaries. Our team is the driving
+                      force behind every
+                      innovation, every solution, and every satisfied smile from our clients.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section feedback -->
+            <div data-speed="5000" class="carousel-serv bg-cover bg-fixed bg-center"
+              style="background-image: url(/next_website/static/src/img/services.supplychain.webp);">
+              <div class="bg-black/50 backdrop-blur-sm h-full w-full group">
+                <div class="slides-serv">
+                  <div class="slide-serv flex justify-center items-center h-full w-full px-8">
+                    <div class="bubble">
+                      <div class="testimonial">
+                        <div class="quote-l">
+                          <i class="ri-double-quotes-l" />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis et architecto nam vero sapiente
+                          exercitationem est.</p>
+                        <div class="quote-r">
+                          <i class="ri-double-quotes-r" />
+                        </div>
+                      </div>
+                      <div class="owner">
+                        <h3>Wisteria Ravenclaw</h3>
+                        <h4>Google Inc.</h4>
+                      </div>
+
+                      <div class="bubble-arrow" />
+                    </div>
+                  </div>
+
+                  <div class="slide-serv flex justify-center items-center h-full w-full px-8">
+                    <div class="bubble">
+                      <div class="testimonial">
+                        <div class="quote-l">
+                          <i class="ri-double-quotes-l" />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis et architecto nam vero sapiente
+                          exercitationem est.</p>
+                        <div class="quote-r">
+                          <i class="ri-double-quotes-r" />
+                        </div>
+                      </div>
+                      <div class="owner">
+                        <h3>Wisteria Ravenclaw</h3>
+                        <h4>Linkedin Inc.</h4>
+                      </div>
+
+                      <div class="bubble-arrow" />
+                    </div>
+                  </div>
+
+                  <div class="slide-serv flex justify-center items-center h-full w-full px-8">
+                    <div class="bubble">
+                      <div class="testimonial">
+                        <div class="quote-l">
+                          <i class="ri-double-quotes-l" />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis et architecto nam vero sapiente
+                          exercitationem est.</p>
+                        <div class="quote-r">
+                          <i class="ri-double-quotes-r" />
+                        </div>
+                      </div>
+                      <div class="owner">
+                        <h3>Wisteria Ravenclaw</h3>
+                        <h4>Twitter Inc.</h4>
+                      </div>
+
+                      <div class="bubble-arrow" />
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="prev-slide-serv absolute inset-0 left-6 top-[50%] h-max -translate-y-1/2 text-5xl leading-none text-gray-300 opacity-0 cursor-pointer group-hover:opacity-100 transition-all ease-in-out duration-300 origin-left">
+                  <i class="ri-arrow-left-s-line " />
+                </div>
+                <div
+                  class="next-slide-serv absolute right-6 top-[50%] h-max -translate-y-1/2 text-5xl leading-none text-gray-300 opacity-0 cursor-pointer group-hover:opacity-100 transition-all ease-in-out duration-300 origin-right">
+                  <i class="ri-arrow-right-s-line" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Newsletters contact -->
+            <div class="w-full pt-10 flex justify-center">
+              <div class="w-full max-w-[90rem]">
+                <div class="mx-8 bg-cover bg-center bg-fixed bg-no-repeat rounded-md"
+                  style="background-image: url(/next_website/static/src/img/logistic_service.jpg)">
+                  <div
+                    class="flex justify-between text-white min-h-[15rem] py-4 px-8 2xl:px-12 rounded-md flex-wrap gap-8 items-center bg-gradient-newletter">
+                    <div class="flex flex-col gap-3 max-w-2xl">
+                      <h2 class="text-2xl font-dosis font-medium">
+                        Ready to Redefine Your Purchasing and Logistics Experience?
+                      </h2>
+
+                      <p class="font-open-sans text-sm">
+                        Join us for an exceptional collaboration and become one of our business partners.
+                      </p>
+                    </div>
+
+                    <a href="/contact-us">
+                      <button
+                        class="rounded-md h-max border border-white py-3 px-8 font-light text-white text-base shadow-md transition-all hover:bg-white hover:text-neutral-700 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
+                        type="button">
+                        <span>Contact Us</span>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <script src="/next_website/static/src/js/services.js" />
+          <script src="/next_website/static/src/js/about.js" />
+
+         </xpath>
+       </t>
+     </field>
+    </record>
+  </data>
+</odoo>

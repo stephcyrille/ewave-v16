@@ -36,6 +36,7 @@ NEXTeWave module for the web front office that contain:
         'views/campaign.xml',
         'views/pack-and-ship-for-you.xml',
         'views/success-stories.xml',
+        'views/about-us.xml',
     ],
     'assets': {
          'web.assets_frontend': [
