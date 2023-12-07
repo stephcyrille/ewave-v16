@@ -2,54 +2,62 @@
  * Carousel for header home page
  */
 
-// Variable global
 let index = 0; // Slide index
-let timer, slides, elements, slideWidth, speed;
+let timer, slides, elements, speed;
+const carousel = document.querySelector(".carousel");
 
 window.onload = () => {
-  const carousel = document.querySelector(".carousel");
-  elements = document.querySelector(".slides");
+  let firstSlide;
 
-  // Duplicate fisrt element of the carousel and add to the end of slides list
-  let firstSlide = elements.firstElementChild.cloneNode(true);
-  elements.appendChild(firstSlide);
+  if (carousel) {
+    // Duplicate fisrt element of the carousel and add to the end of slides list
+    elements = document.querySelector(".slides");
+    firstSlide = elements.firstElementChild.cloneNode(true);
+    elements.appendChild(firstSlide);
 
-  slides = Array.from(elements.children);
+    slides = Array.from(elements.children);
+    speed = carousel.dataset.speed;
 
-  // Arrow direction
-  let next = document.querySelector(".next-slide");
-  let preview = document.querySelector(".prev-slide");
-
-  // Get size on current slide
-  slideWidth = carousel.getBoundingClientRect().width;
-
-  // Active function on event click
-  next.addEventListener("click", slideNext);
-  preview.addEventListener("click", slidePrev);
-
-  speed = carousel.dataset.speed;
-  // Auto-play of slide
-  timer = setInterval(slideNext, speed);
-
-  // Stop play with mouse moves
-  carousel.addEventListener("mouseover", stopTimer);
-  carousel.addEventListener("mouseout", startTimer);
+    // Auto-play of slide
+    activeDot();
+    timer = setInterval(slideNext, speed);
+  }
 };
 
 /**
- * Function for next slide
+ * activeDot - this funtion change the animation of active dot
+ */
+function activeDot() {
+  let dotList = document.querySelectorAll(".slide-dot");
+
+  for (let id = 0; id < dotList.length; id++) {
+    if (id == index || id == index % dotList.length) {
+      dotList[id].style.background = "#2362AC";
+      dotList[id].style.width = "2rem";
+    } else {
+      dotList[id].style.background = "#a0a0a0";
+      dotList[id].style.width = "1rem";
+    }
+  }
+}
+
+/**
+ * slideNext - this function run to next slide
  */
 function slideNext() {
   index++;
+  let slideWidth = carousel.getBoundingClientRect().width;
   let translateSize = -slideWidth * index;
 
   elements.style.transition = "1s linear";
   elements.style.transform = `translateX(${translateSize}px)`;
+  activeDot();
 
   // Reboot carousel after the end of animation
   setTimeout(() => {
     if (index >= slides.length - 1) {
       index = 0;
+
       elements.style.transition = "unset";
       elements.style.transform = "translateX(0)";
     }
@@ -57,34 +65,43 @@ function slideNext() {
 }
 
 /**
- * Function for previous slide
+ * slidePrev - this function run to previous slide
  */
 function slidePrev() {
   index--;
+  let translateSize;
+  let slideWidth = carousel.getBoundingClientRect().width;
 
+  activeDot();
   if (index < 0) {
     index = slides.length - 1;
-    let translateSize = -slideWidth * index;
+    translateSize = -slideWidth * index;
 
     elements.style.transition = "unset";
     elements.style.transform = `translateX(${translateSize}px)`;
+
     setTimeout(slidePrev, 1);
   } else {
-    let translateSize = -slideWidth * index;
+    translateSize = -slideWidth * index;
+
     elements.style.transition = "1s linear";
     elements.style.transform = `translateX(${translateSize}px)`;
   }
 }
 
+/**
+ * stopTimer - this function stop carousel
+ */
 function stopTimer() {
   clearInterval(timer);
 }
 
+/**
+ * startTimer - this function restart carousel
+ */
 function startTimer() {
   timer = setInterval(slideNext, speed);
 }
-
-//===============================================================================
 
 /**
  * infinite scroll list for the  section campaign
