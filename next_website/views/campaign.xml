@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="campaign-service" model="website.page">
+     <field name="name">Campaign</field>
+     <field name="website_published">True</field>
+     <field name="url">/campaign</field>
+     <field name="type">qweb</field>
+     <field name="key">next.campaign_service</field>
+     <field name="arch" type="xml">
+       <t t-call="website.layout">
+         <xpath expr="//div[@id='wrap']" position="inside">
+          <div class="bg-slate-50">
+          </div>
+         </xpath>
+       </t>
+     </field>
+    </record>
+  </data>
+</odoo>
