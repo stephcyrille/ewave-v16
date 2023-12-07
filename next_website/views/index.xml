@@ -98,7 +98,7 @@
                         you to focus on growing your business.
                       </p>
 
-                      <a href="./services.html#service-chain-supply">
+                      <a href="/services#service-chain-supply">
                         <button
                           class="rounded-md h-max border border-blue-green py-2 px-8 font-light text-sm leading-normal text-blue-green shadow-md transition-all hover:bg-blue-green hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
                           type="button">
@@ -126,7 +126,7 @@
                         costs, enhance quality, and boost your business's profitability.
                       </p>
 
-                      <a href="./services.html#service-ecommerce">
+                      <a href="/services#service-ecommerce">
                         <button
                           class="rounded-md h-max border border-green-steel py-2 px-8 font-light text-sm leading-normal text-green-steel shadow-md transition-all hover:bg-green-steel hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
                           type="button">
@@ -282,7 +282,7 @@
                             driving force behind our approach.
                           </p>
 
-                          <a href="./about-us.html#approach">
+                          <a href="/about-us#approach">
                             <button
                               class="rounded-md h-max border bg-slate-100 border-blue-green py-2 px-8 font-light text-sm leading-normal text-blue-green shadow-md transition-all hover:bg-blue-green hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
                               type="button">
@@ -356,7 +356,7 @@
                           you as a part of this adventure.
                         </p>
 
-                        <a href="./about-us.html">
+                        <a href="/about-us">
                           <button
                             class="rounded-md h-max border border-blue-green py-2 px-8 font-light text-sm leading-normal text-blue-green shadow-md transition-all hover:bg-blue-green hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
                             type="button">
@@ -389,7 +389,7 @@
                             </p>
                           </div>
 
-                          <a href="./contact-us.html">
+                          <a href="/contact-us">
                             <button
                               class="rounded-md h-max border border-white py-3 px-8 font-light text-white text-base shadow-md transition-all hover:bg-white hover:text-neutral-700 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
                               type="button">
