@@ -32,6 +32,7 @@ NEXTeWave module for the web front office that contain:
         'views/services.xml',
         'views/sourcing.xml',
         'views/sourcing-for-you.xml',
+        'views/pack-and-ship.xml',
     ],
     'assets': {
          'web.assets_frontend': [
