@@ -39,7 +39,7 @@
               </li>
               <li
                 class="block p-1 antialiased hover:font-normal hover:text-blue-green transition-colors ease-in-out duration-200">
-                <a class="flex items-center" href="/pack-ship-for-you"> We Pack &amp; Ship For You </a>
+                <a class="flex items-center" href="/pack-and-ship-for-you"> We Pack &amp; Ship For You </a>
               </li>
               <li class="block p-1 antialiased hover:font-normal hover:text-blue-green transition ease-in-out duration-200">
                 <a class="flex items-center" href="/success-stories"> Success Stories </a>
@@ -114,9 +114,6 @@
                   </li>
                 </ul>
               </li>
-              <!-- <li class="hover:text-blue-green focus:text-blue-green">
-                      <a href="#">Pricing</a>
-                    </li> -->
               <li class="block w-full border-b border-slate-300 pb-1 hover:text-blue-green focus:text-blue-green">
                 <a href="/sourcing-for-you">We Sourcing For You</a>
               </li>

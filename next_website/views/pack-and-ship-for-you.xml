@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="pack-and-ship-for-you" model="website.page">
+     <field name="name">Pack &amp; ship for you</field>
+     <field name="website_published">True</field>
+     <field name="url">/pack-and-ship-for-you</field>
+     <field name="type">qweb</field>
+     <field name="key">next.pack_and_ship_for_you</field>
+     <field name="arch" type="xml">
+       <t t-call="website.layout">
+         <xpath expr="//div[@id='wrap']" position="inside">
+          <div class="bg-slate-50">
+            <div class="bg-cover bg-center bg-no-repeat head" style="background-image: url(next_website/static/src/img/header.jpg);">
+              <div
+                class=" w-full h-full bg-black/50 backdrop-blur-sm p-8 flex flex-col gap-4 justify-center items-center">
+                <h1
+                  class="block my-2 font-dosis text-4xl lg:text-5xl leading-[1.3] tracking-normal text-white antialiased">
+                  We Pack &amp; Ship For You
+                </h1>
+
+                <div
+                  class="block font-open-sans text-base font-medium md:max-w-2xl text-center leading-relaxed text-gray-300 antialiased">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, quam molestiae nemo voluptate
+                  error et quibusdam praesentium eum.
+                </div>
+              </div>
+            </div>
+
+            <div class="w-full flex justify-center">
+              <form action="" class="w-full max-w-[70rem] p-8 font-open-sans">
+                <p class="text-sm lg:text-base my-6 italic text-neutral-500">All the field with with symbol <i
+                  class="text-red-600">*</i> after the field label are required.</p>
+
+                  <!-- Section personals information -->
+                  <h2 class="font-dosis text-xl lg:text-2xl text-blue-green font-medium pt-4">
+                    Shipping informations</h2>
+                  <hr class="mb-8 mt-4 border-slate-300" />
+
+                  <div>
+                    <div class="flex flex-wrap -mx-3 mb-4">
+                      <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                          for="origin">
+                          Origin <i class="text-red-600">*</i>
+                        </label>
+                        <input
+                          class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                          id="origin" name="origin" type="text" placeholder="From place" required="True" />
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                          for="destination">
+                          Destination <i class="text-red-600">*</i>
+                        </label>
+                        <input
+                          class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                          id="destination" name="destination" type="text" placeholder="To placee" required="True" />
+                      </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-4">
+                      <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                          for="company">
+                          Company <i class="text-red-600">*</i>
+                        </label>
+                        <input
+                          class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                          id="company" name="company" type="text" placeholder="Company name" required="True" />
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                          for="full-name">
+                          Full name <i class="text-red-600">*</i>
+                        </label>
+                        <input
+                          class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                          id="full-name" name="full-name" type="text" placeholder="Name and surname"
+                          required="True" />
+                      </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-4">
+                      <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                          for="phone">
+                          Phone number <i class="text-red-600">*</i>
+                        </label>
+                        <input
+                          class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                          id="phone" name="phone" type="tel" placeholder="Phone number" required="True" />
+                      </div>
+                        <div class="w-full md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="email">
+                            Email <i class="text-red-600">*</i>
+                          </label>
+                          <input
+                            class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                            id="email" name="email" type="email" placeholder="Email" required="True" />
+                        </div>
+                      </div>
+
+                      <div class="flex flex-wrap -mx-3 mb-4">
+                        <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="departure">
+                            Departure <i class="text-red-600">*</i>
+                          </label>
+                          <input
+                            class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                            id="departure" name="departure" type="date" placeholder="" required="True" />
+                        </div>
+                        <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="arrival">
+                            Arrival <i class="text-red-600">*</i>
+                          </label>
+                          <input
+                            class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                            id="arrival" name="arrival" type="date" placeholder="" required="True" />
+                        </div>
+                      </div>
+                  </div>
+
+                  <hr class="my-6 mb-8 border-slate-100" />
+
+                  <div class="flex justify-between items-center">
+                    <h2 class="font-dosis text-xl lg:text-2xl text-blue-green font-medium">Products informations</h2>
+                    <button id="add-pack"
+                      class="rounded-md h-max font-dosis border py-2 px-8 font-light text-sm leading-normal text-white shadow-md transition-all bg-blue-green hover:bg-blue-green/90 border-slate-200 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
+                      type="button">
+                      <span><i class="ri-add-fill" /> Add Product</span>
+                    </button>
+                  </div>
+
+                  <hr class="mt-4 border-slate-300" />
+
+                  <div id="pack-list">
+                    <div id="pack-1" class="pack-form pt-8 border-b">
+                      <div class="flex justify-between w-full gap-8">
+                        <h3 class="pack-title font-dosis text-neutral-800 text-xl pb-6">Product 1
+                        </h3>
+                        <div class="remove-pack"/>
+                      </div>
+
+                      <div class="pack-infos flex flex-wrap -mx-3 mb-4">
+                        <div class="pack-name w-full md:w-1/2 px-3 mb-4 md:mb-0">
+                          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="pack-1-name">
+                            Name <i class="text-red-600">*</i>
+                          </label>
+                          <input
+                            class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                            id="pack-1-name" name="pack-1-name" type="text" placeholder="pack name" required="True" />
+                        </div>
+                        <div class="pack-material w-full md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="pack-1-material">
+                            Material <i class="text-red-600">*</i>
+                          </label>
+                          <input
+                            class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                            id="pack-1-material" name="pack-1-material" type="text" placeholder="Other"
+                            required="True" />
+                        </div>
+                      </div>
+
+                      <div class="pack-infos flex flex-wrap -mx-3 mb-4">
+                        <div class="pack-quantity w-1/2 md:w-1/4 px-3 mb-4 md:mb-0">
+                          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="pack-1-quantity">
+                            Quantity <i class="text-red-600">*</i>
+                          </label>
+                          <input
+                            class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                            id="pack-1-quantity" name="pack-1-quantity" value="1" step="1" type="number" min="1"
+                            placeholder="" required="True" />
+                        </div>
+                        <div class="pack-weight w-1/2 md:w-1/4 px-3">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                              for="pack-1-weight">
+                              Weight (Kg) <i class="text-red-600">*</i>
+                            </label>
+                            <input
+                              class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                              id="pack-1-weight" name="pack-1-weight" value="1.00" step="0.01" type="number"
+                              min="0.01" placeholder="" required="True" />
+                        </div>
+                        <div class="pack-capacity w-1/2 md:w-1/4 px-3">
+                          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="pack-1-capacity">
+                            Capicity (m3) <i class="text-red-600">*</i>
+                          </label>
+                          <input
+                            class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                            id="pack-1-capacity" name="pack-1-capacity" value="1.00" step="0.01" type="number"
+                            min="0.01" placeholder="" required="True" />
+                        </div>
+                        <div class="pack-price w-1/2 md:w-1/4 px-3">
+                          <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                            for="pack-1-price">
+                            Estimated price <i class="text-red-600">*</i>
+                          </label>
+                          <input
+                            class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                            id="pack-1-price" name="pack-1-price" value="1.00" step="0.01" type="number"
+                            min="0.01" placeholder="" required="True" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <button
+                    class="rounded-md h-max font-dosis border mt-8 py-2 px-8 font-light text-sm leading-normal text-white shadow-md transition-all bg-blue-green hover:bg-green-600 border-slate-200 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
+                    type="submit">
+                    <span>Submit</span>
+                  </button>
+              </form>
+            </div>
+          </div>
+
+          <script src="/next_website/static/src/js/ship-for-you.js" />
+         </xpath>
+       </t>
+     </field>
+    </record>
+  </data>
+</odoo>
