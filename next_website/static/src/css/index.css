@@ -11,6 +11,20 @@ main {
   /* margin-bottom: 1rem; */
 }
 
+.hover\:text-blue-green:hover {
+    --tw-text-opacity: 1 !important;
+    color: rgb(35 98 172 / var(--tw-text-opacity)) !important;
+}
+
+.o_footer a:not(.btn) {
+    color: #525252 !important;
+}
+
+a:hover {
+    color: #133739;
+    text-decoration: none !important;
+}
+
 .head {
   height: 25vh;
   /* background-attachment: fixed; */
