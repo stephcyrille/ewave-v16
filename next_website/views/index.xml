@@ -81,24 +81,282 @@
                 </a>
                </div>
 
-               
+
               <!-- Section 2  -->
                <div class="w-full flex flex-col gap-16 py-6 items-center">
-                    <div class="w-full max-w-[90rem] px-8 flex items-center gap-x-24 gap-y-8 justify-between max-lg:flex-wrap">
+                  <div class="w-full max-w-[90rem] px-8 flex items-center gap-x-24 gap-y-8 justify-between max-lg:flex-wrap">
+                    <div class="w-full flex flex-col gap-8">
+                      <h1 class="text-3xl font-dosis font-semibold text-blue-green">
+                        Global Reach, Seamless Logistics
+                      </h1>
+
+                      <p class="font-open-sans text-sm leading-loose text-neutral-700 text-justify">
+                        We bridge the gap between borders to connect your business with
+                        the world. Our top-tier international logistics ensures your
+                        products reach global destinations safely and on time. From
+                        inventory management to delivery, we handle every detail, allowing
+                        you to focus on growing your business.
+                      </p>
+
+                      <a href="./services.html#service-chain-supply">
+                        <button
+                          class="rounded-md h-max border border-blue-green py-2 px-8 font-light text-sm leading-normal text-blue-green shadow-md transition-all hover:bg-blue-green hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
+                          type="button">
+                          <span>Learn more</span>
+                        </button>
+                      </a>
+                    </div>
+
+                    <div class="w-full flex justify-center bg-fixed bg-no-repeat">
+                      <div class="animate-liquid-one" style="background-image: url(/next_website/static/src/img/supply-support.jpg);" />
+                    </div>
+                  </div>
+
+                  <!-- Section service -->
+                  <div class="w-full max-w-[90rem] px-8 flex items-center gap-x-24 gap-y-8 justify-between max-lg:flex-wrap">
+                    <div class="w-full flex flex-col gap-8">
+                      <h1 class="text-3xl font-dosis font-semibold text-green-steel">
+                        Empowering Procurement Excellence
+                      </h1>
+
+                      <p class="font-open-sans text-sm leading-loose text-neutral-700 text-justify">
+                        The power of procurement at your service. As a procurement hub, we
+                        negotiate the best deals, maintain strong supplier relationships,
+                        and optimize your supply chain. Our mission is simple: reduce your
+                        costs, enhance quality, and boost your business's profitability.
+                      </p>
+
+                      <a href="./services.html#service-ecommerce">
+                        <button
+                          class="rounded-md h-max border border-green-steel py-2 px-8 font-light text-sm leading-normal text-green-steel shadow-md transition-all hover:bg-green-steel hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
+                          type="button">
+                          <span>Learn more</span>
+                        </button>
+                      </a>
+                    </div>
+
+                    <div class="lg:order-first w-full flex justify-center">
+                      <div class="animate-liquid-two bg-fixed bg-no-repeat"
+                        style="background-image: url(next_website/static/src/img/market-place.jpg);" />
+                    </div>
+                  </div>
+                  <!-- Fin Section service-->
+
+                  <!-- Section Product Campaign -->
+                  <div class="h-[90%] w-[100%] relative my-6 lg:my-10">
+                    <div
+                      class="absolute z-10 inset-x-0 top-0 -mt-[1px] w-full h-0 border-t-[3rem] lg:border-t-[5rem] border-r-[99vw] border-r-transparent border-t-slate-50">
+                    </div>
+
+                    <div style="background-image: url(next_website/static/src/img/logistic_car.jpg)"
+                      class="bg-cover bg-center bg-fixed bg-no-repeat h-full">
+                      <div class="h-full w-full bg-black/40 backdrop-blur flex justify-center">
+                        <div
+                          class="w-full overflow-hidden max-w-[90rem] px-8 py-24 flex flex-col gap-4 lg:gap-8 items-center justify-around md:justify-center">
+                          <div class="w-full flex justify-center">
+                            <h1
+                              class="mb-2 block text-3xl max-w-xl font-dosis text-center font-bold leading-[1.3] tracking-normal text-white antialiased">
+                              Take advantage of our campaign products
+                            </h1>
+                          </div>
+
+                          <div
+                            class="font-dosis text-white font-medium flex flex-col sm:flex-row justify-center rounded-full gap-6 md:gap-10 w-max px-4 py-4">
+                            <div class="flex gap-10">
+                              <div
+                                class="px-2 flex flex-col items-center justify-center border-4 border-slate-300 h-20 w-20 md:h-28 md:w-28 rounded-full">
+                                <h3 id="timer-days" class="text-xl md:text-2xl">00</h3>
+                                <p class="text-sm font-open-sans">Days</p>
+                              </div>
+                              <div
+                                class="px-2 flex flex-col items-center justify-center border-4 border-slate-300 h-20 w-20 md:h-28 md:w-28 rounded-full">
+                                <h3 id="timer-hours" class="text-xl md:text-2xl">00</h3>
+                                <p class="text-sm font-open-sans">Hours</p>
+                              </div>
+                            </div>
+
+                            <div class="flex gap-10">
+                              <div
+                                class="px-2 flex flex-col items-center justify-center border-4 border-slate-300 h-20 w-20 md:h-28 md:w-28 rounded-full">
+                                <h3 id="timer-minutes" class="text-xl md:text-2xl">00</h3>
+                                <p class="text-sm font-open-sans">Minutes</p>
+                              </div>
+                              <div
+                                class="px-2 flex flex-col items-center justify-center border-4 border-slate-300 h-20 w-20 md:h-28 md:w-28 rounded-full">
+                                <h3 id="timer-seconds" class="text-xl md:text-2xl">00</h3>
+                                <p class="text-sm font-open-sans">Seconds</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="scroller">
+                            <ul class="tag-list scroller-inner">
+                              <li class="campaign-product">Product 1</li>
+                              <li class="campaign-product">Product 2</li>
+                              <li class="campaign-product">Product 3</li>
+                              <li class="campaign-product">Product 4</li>
+                              <li class="campaign-product">Product 5</li>
+                              <li class="campaign-product">Product 6</li>
+                              <li class="campaign-product">Product 7</li>
+                              <li class="campaign-product">Product 8</li>
+                              <li class="campaign-product">Product 9</li>
+                              <li class="campaign-product">Product 10</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      class="absolute z-1 -mb-[1px] bottom-0 w-full h-0 border-b-[3rem] lg:border-b-[5rem] border-l-[99vw] border-l-transparent border-b-slate-50">
+                    </div>
+                  </div>
+                  <!-- Fin section campaign -->
+
+                  <!-- Section why we choice ? -->
+                  <div class="w-full flex justify-center">
+                    <div class="w-full max-w-[90rem] px-8 flex max-[850px]:flex-col justify-center gap-6 lg:gap-10">
+                      <div class="flex flex-col gap-2 text-center items-center p-4 lg:py-10">
+                        <div
+                          class="w-24 h-24 m-2 text-white text-5xl leading-none flex justify-center items-center bg-green-steel rounded-lg">
+                          <i class="ri-shield-flash-fill" />
+                        </div>
+                        <h2 class="text-3xl font-dosis font-medium text-green-steel">
+                          Secured
+                        </h2>
+                        <p class="font-open-sans text-sm text-neutral-700 max-w-[20rem]">
+                          Tell what's the value for the customer for this feature.
+                        </p>
+                      </div>
+
+                      <div class="flex flex-col gap-2 text-center items-center p-4 lg:py-10">
+                        <div
+                          class="w-24 h-24 m-2 text-white text-5xl leading-none flex justify-center items-center bg-blue-green rounded-lg">
+                          <i class="ri-truck-fill" />
+                        </div>
+                        <h2 class="text-3xl font-dosis font-medium text-blue-green">
+                          Fast delivery
+                        </h2>
+                        <p class="font-open-sans text-sm text-neutral-700 max-w-[20rem]">
+                          Write what the customer would like to know, not what you want to
+                          show.
+                        </p>
+                      </div>
+
+                      <div class="flex flex-col gap-2 text-center items-center p-4 lg:py-10">
+                        <div
+                          class="w-24 h-24 m-2 text-white text-5xl leading-none flex justify-center items-center bg-green-steel rounded-lg">
+                          <i class="ri-star-smile-fill" />
+                        </div>
+                        <h2 class="text-3xl font-dosis font-medium text-green-steel">
+                          Easy to use
+                        </h2>
+                        <p class="font-open-sans text-sm text-neutral-700 max-w-[20rem]">
+                          A small explanation of this great feature, in clear words.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Fin section Why we choice-->
+
+                  <!-- Section Process -->
+                  <div class="w-full mt-6 lg:mt-10 bg-slate-300">
+                    <div class="w-full py-20 flex justify-center">
+                      <div class="w-full lg:h-full max-w-[90rem] px-8 flex items-center gap-10 justify-between max-lg:flex-wrap">
+                        <div class="w-full flex flex-col gap-8">
+                          <div class="sm:w-max">
+                            <h1 class="text-3xl font-dosis font-semibold text-blue-green">
+                              An Approach Focused on Your Success
+                            </h1>
+
+                            <hr class="border-2 rounded-lg mt-4 border-blue-green w-[5rem]" />
+                          </div>
+
+                          <p class="font-open-sans leading-loose text-sm text-neutral-700 text-justify">
+                            Our approach is based on the belief that your success is ours.
+                            We are committed to guiding you at every step of your business
+                            journey, providing tailor-made solutions and unmatched
+                            expertise. By combining innovation, sustainability, and
+                            dedication, we forge strong partnerships that go beyond mere
+                            service delivery. Your success is our priority, and it's the
+                            driving force behind our approach.
+                          </p>
+
+                          <a href="./about-us.html#approach">
+                            <button
+                              class="rounded-md h-max border bg-slate-100 border-blue-green py-2 px-8 font-light text-sm leading-normal text-blue-green shadow-md transition-all hover:bg-blue-green hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
+                              type="button">
+                              <span>Learn more</span>
+                            </button>
+                          </a>
+                        </div>
+
+                        <div class="w-full flex justify-center">
+                          <img src="next_website/static/src/img/process.jpeg" alt="process" class="lg:w-full h-auto max-h-[35rem] rounded-md" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Section Value -->
+                  <div class="h-[20rem] mb-10 bg-cover bg-center bg-fixed bg-no-repeat w-100"
+                    style="background-image: url(next_website/static/src/img/background.jpg)">
+                    <div class="w-full h-full flex items-center justify-center bg-black/50">
+                      <div class="w-full max-w-[90rem] px-8 flex max-[850px]:flex-col justify-around gap-y-8 lg:gap-20">
+                        <div class="flex flex-col gap-2 text-center items-center px-4 py-10 text-white">
+                          <h2 class="text-5xl font-dosis font-medium">2000</h2>
+                          <p class="font-open-sans text-sm max-w-[20rem]">
+                            Satisfied clients
+                          </p>
+                        </div>
+
+                        <div class="flex flex-col gap-2 text-center items-center px-4 py-10 text-white">
+                          <h2 class="text-5xl font-dosis font-medium">45</h2>
+                          <p class="font-open-sans text-sm max-w-[20rem]">Collaborators</p>
+                        </div>
+
+                        <div class="flex flex-col gap-2 text-center items-center px-4 py-10 text-white">
+                          <h2 class="text-5xl font-dosis font-medium">2</h2>
+                          <p class="font-open-sans text-sm max-w-[20rem]">
+                            Years of experience
+                          </p>
+                        </div>
+
+                        <div class="flex flex-col gap-2 text-center items-center px-4 py-10 text-white">
+                          <h2 class="text-5xl font-dosis font-medium">8</h2>
+                          <p class="font-open-sans text-sm max-w-[20rem]">
+                            Country deployment
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- About us -->
+                  <div class="w-full py-10 flex justify-center backdrop-blur-sm">
+                    <div class="w-full max-w-[90rem] px-8 flex items-center gap-10 justify-between max-lg:flex-wrap">
                       <div class="w-full flex flex-col gap-8">
-                        <h1 class="text-3xl font-dosis font-semibold text-blue-green">
-                          Global Reach, Seamless Logistics
-                        </h1>
+                        <div class="sm:w-max">
+                          <h1 class="text-3xl font-dosis font-semibold text-blue-green">
+                            Our History, Your Future
+                          </h1>
+
+                          <hr class="border-2 rounded-lg mt-4 border-blue-green w-[5rem]" />
+                        </div>
 
                         <p class="font-open-sans text-sm leading-loose text-neutral-700 text-justify">
-                          We bridge the gap between borders to connect your business with
-                          the world. Our top-tier international logistics ensures your
-                          products reach global destinations safely and on time. From
-                          inventory management to delivery, we handle every detail, allowing
-                          you to focus on growing your business.
+                          At NexteWave, we have a rich history of 02 years years of passion
+                          and dedication to excellence. Our team comprises seasoned experts
+                          in the fields of international logistics and procurement. Our
+                          journey has been marked by successes, fruitful partnerships, and
+                          continuous growth. But our focus is always on the future. We
+                          constantly strive to innovate, push boundaries, and provide
+                          solutions that meet the evolving needs of our clients. At
+                          NexteWave, the story is just beginning, and we're excited to have
+                          you as a part of this adventure.
                         </p>
 
-                        <a href="./services.html#service-chain-supply">
+                        <a href="./about-us.html">
                           <button
                             class="rounded-md h-max border border-blue-green py-2 px-8 font-light text-sm leading-normal text-blue-green shadow-md transition-all hover:bg-blue-green hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
                             type="button">
@@ -107,302 +365,47 @@
                         </a>
                       </div>
 
-                      <div class="w-full flex justify-center bg-fixed bg-no-repeat">
-                        <div class="animate-liquid-one" style="background-image: url(/next_website/static/src/img/supply-support.jpg);" />
-                      </div>
-                    </div>
-
-                    <!-- Section service -->
-                    <div class="w-full max-w-[90rem] px-8 flex items-center gap-x-24 gap-y-8 justify-between max-lg:flex-wrap">
-                      <div class="w-full flex flex-col gap-8">
-                        <h1 class="text-3xl font-dosis font-semibold text-green-steel">
-                          Empowering Procurement Excellence
-                        </h1>
-
-                        <p class="font-open-sans text-sm leading-loose text-neutral-700 text-justify">
-                          The power of procurement at your service. As a procurement hub, we
-                          negotiate the best deals, maintain strong supplier relationships,
-                          and optimize your supply chain. Our mission is simple: reduce your
-                          costs, enhance quality, and boost your business's profitability.
-                        </p>
-
-                        <a href="./services.html#service-ecommerce">
-                          <button
-                            class="rounded-md h-max border border-green-steel py-2 px-8 font-light text-sm leading-normal text-green-steel shadow-md transition-all hover:bg-green-steel hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
-                            type="button">
-                            <span>Learn more</span>
-                          </button>
-                        </a>
-                      </div>
-
                       <div class="lg:order-first w-full flex justify-center">
-                        <div class="animate-liquid-two bg-fixed bg-no-repeat"
-                          style="background-image: url(next_website/static/src/img/market-place.jpg);" />
+                        <img src="next_website/static/src/img/about.jpg" alt="about" class="lg:w-full h-auto max-h-[35rem] rounded-md" />
                       </div>
                     </div>
-                    <!-- Fin Section service-->
+                  </div>
 
-                    <!-- Section Product Campaign -->
-                    <div class="h-[90%] w-[100%] relative my-6 lg:my-10">
-                      <div
-                        class="absolute z-10 inset-x-0 top-0 -mt-[1px] w-full h-0 border-t-[3rem] lg:border-t-[5rem] border-r-[99vw] border-r-transparent border-t-slate-50">
-                      </div>
+                  <!-- Newsletters contact -->
+                  <div class="w-full pt-10 flex justify-center">
+                    <div class="w-full max-w-[90rem]">
+                      <div class="mx-8 bg-cover bg-center bg-fixed bg-no-repeat rounded-md"
+                        style="background-image: url(next_website/static/src/img/logistic_service.jpg)">
+                        <div
+                          class="flex justify-between text-white min-h-[15rem] py-4 px-8 2xl:px-12 rounded-md flex-wrap gap-8 items-center bg-gradient-newletter">
+                          <div class="flex flex-col gap-3 max-w-2xl">
+                            <h2 class="text-2xl font-dosis font-medium">
+                              Need more information ?
+                            </h2>
 
-                      <div style="background-image: url(next_website/static/src/img/logistic_car.jpg)"
-                        class="bg-cover bg-center bg-fixed bg-no-repeat h-full">
-                        <div class="h-full w-full bg-black/40 backdrop-blur flex justify-center">
-                          <div
-                            class="w-full overflow-hidden max-w-[90rem] px-8 py-24 flex flex-col gap-4 lg:gap-8 items-center justify-around md:justify-center">
-                            <div class="w-full flex justify-center">
-                              <h1
-                                class="mb-2 block text-3xl max-w-xl font-dosis text-center font-bold leading-[1.3] tracking-normal text-white antialiased">
-                                Take advantage of our campaign products
-                              </h1>
-                            </div>
-
-                            <div
-                              class="font-dosis text-white font-medium flex flex-col sm:flex-row justify-center rounded-full gap-6 md:gap-10 w-max px-4 py-4">
-                              <div class="flex gap-10">
-                                <div
-                                  class="px-2 flex flex-col items-center justify-center border-4 border-slate-300 h-20 w-20 md:h-28 md:w-28 rounded-full">
-                                  <h3 id="timer-days" class="text-xl md:text-2xl">00</h3>
-                                  <p class="text-sm font-open-sans">Days</p>
-                                </div>
-                                <div
-                                  class="px-2 flex flex-col items-center justify-center border-4 border-slate-300 h-20 w-20 md:h-28 md:w-28 rounded-full">
-                                  <h3 id="timer-hours" class="text-xl md:text-2xl">00</h3>
-                                  <p class="text-sm font-open-sans">Hours</p>
-                                </div>
-                              </div>
-
-                              <div class="flex gap-10">
-                                <div
-                                  class="px-2 flex flex-col items-center justify-center border-4 border-slate-300 h-20 w-20 md:h-28 md:w-28 rounded-full">
-                                  <h3 id="timer-minutes" class="text-xl md:text-2xl">00</h3>
-                                  <p class="text-sm font-open-sans">Minutes</p>
-                                </div>
-                                <div
-                                  class="px-2 flex flex-col items-center justify-center border-4 border-slate-300 h-20 w-20 md:h-28 md:w-28 rounded-full">
-                                  <h3 id="timer-seconds" class="text-xl md:text-2xl">00</h3>
-                                  <p class="text-sm font-open-sans">Seconds</p>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="scroller">
-                              <ul class="tag-list scroller-inner">
-                                <li class="campaign-product">Product 1</li>
-                                <li class="campaign-product">Product 2</li>
-                                <li class="campaign-product">Product 3</li>
-                                <li class="campaign-product">Product 4</li>
-                                <li class="campaign-product">Product 5</li>
-                                <li class="campaign-product">Product 6</li>
-                                <li class="campaign-product">Product 7</li>
-                                <li class="campaign-product">Product 8</li>
-                                <li class="campaign-product">Product 9</li>
-                                <li class="campaign-product">Product 10</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div
-                        class="absolute z-1 -mb-[1px] bottom-0 w-full h-0 border-b-[3rem] lg:border-b-[5rem] border-l-[99vw] border-l-transparent border-b-slate-50">
-                      </div>
-                    </div>
-                    <!-- Fin section campaign -->
-
-                    <!-- Section why we choice ? -->
-                    <div class="w-full flex justify-center">
-                      <div class="w-full max-w-[90rem] px-8 flex max-[850px]:flex-col justify-center gap-6 lg:gap-10">
-                        <div class="flex flex-col gap-2 text-center items-center p-4 lg:py-10">
-                          <div
-                            class="w-24 h-24 m-2 text-white text-5xl leading-none flex justify-center items-center bg-green-steel rounded-lg">
-                            <i class="ri-shield-flash-fill" />
-                          </div>
-                          <h2 class="text-3xl font-dosis font-medium text-green-steel">
-                            Secured
-                          </h2>
-                          <p class="font-open-sans text-sm text-neutral-700 max-w-[20rem]">
-                            Tell what's the value for the customer for this feature.
-                          </p>
-                        </div>
-
-                        <div class="flex flex-col gap-2 text-center items-center p-4 lg:py-10">
-                          <div
-                            class="w-24 h-24 m-2 text-white text-5xl leading-none flex justify-center items-center bg-blue-green rounded-lg">
-                            <i class="ri-truck-fill" />
-                          </div>
-                          <h2 class="text-3xl font-dosis font-medium text-blue-green">
-                            Fast delivery
-                          </h2>
-                          <p class="font-open-sans text-sm text-neutral-700 max-w-[20rem]">
-                            Write what the customer would like to know, not what you want to
-                            show.
-                          </p>
-                        </div>
-
-                        <div class="flex flex-col gap-2 text-center items-center p-4 lg:py-10">
-                          <div
-                            class="w-24 h-24 m-2 text-white text-5xl leading-none flex justify-center items-center bg-green-steel rounded-lg">
-                            <i class="ri-star-smile-fill" />
-                          </div>
-                          <h2 class="text-3xl font-dosis font-medium text-green-steel">
-                            Easy to use
-                          </h2>
-                          <p class="font-open-sans text-sm text-neutral-700 max-w-[20rem]">
-                            A small explanation of this great feature, in clear words.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Fin section Why we choice-->
-
-                    <!-- Section Process -->
-                    <div class="w-full mt-6 lg:mt-10 bg-slate-300">
-                      <div class="w-full py-20 flex justify-center">
-                        <div class="w-full lg:h-full max-w-[90rem] px-8 flex items-center gap-10 justify-between max-lg:flex-wrap">
-                          <div class="w-full flex flex-col gap-8">
-                            <div class="sm:w-max">
-                              <h1 class="text-3xl font-dosis font-semibold text-blue-green">
-                                An Approach Focused on Your Success
-                              </h1>
-
-                              <hr class="border-2 rounded-lg mt-4 border-blue-green w-[5rem]" />
-                            </div>
-
-                            <p class="font-open-sans leading-loose text-sm text-neutral-700 text-justify">
-                              Our approach is based on the belief that your success is ours.
-                              We are committed to guiding you at every step of your business
-                              journey, providing tailor-made solutions and unmatched
-                              expertise. By combining innovation, sustainability, and
-                              dedication, we forge strong partnerships that go beyond mere
-                              service delivery. Your success is our priority, and it's the
-                              driving force behind our approach.
-                            </p>
-
-                            <a href="./about-us.html#approach">
-                              <button
-                                class="rounded-md h-max border bg-slate-100 border-blue-green py-2 px-8 font-light text-sm leading-normal text-blue-green shadow-md transition-all hover:bg-blue-green hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
-                                type="button">
-                                <span>Learn more</span>
-                              </button>
-                            </a>
-                          </div>
-
-                          <div class="w-full flex justify-center">
-                            <img src="next_website/static/src/img/process.jpeg" alt="process" class="lg:w-full h-auto max-h-[35rem] rounded-md" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Section Value -->
-                    <div class="h-[20rem] mb-10 bg-cover bg-center bg-fixed bg-no-repeat w-100"
-                      style="background-image: url(next_website/static/src/img/background.jpg)">
-                      <div class="w-full h-full flex items-center justify-center bg-black/50">
-                        <div class="w-full max-w-[90rem] px-8 flex max-[850px]:flex-col justify-around gap-y-8 lg:gap-20">
-                          <div class="flex flex-col gap-2 text-center items-center px-4 py-10 text-white">
-                            <h2 class="text-5xl font-dosis font-medium">2000</h2>
-                            <p class="font-open-sans text-sm max-w-[20rem]">
-                              Satisfied clients
+                            <p class="font-open-sans text-sm">
+                              We're here to listen. Click below to get in touch and discover
+                              how we can assist you in achieving your business goals.
                             </p>
                           </div>
 
-                          <div class="flex flex-col gap-2 text-center items-center px-4 py-10 text-white">
-                            <h2 class="text-5xl font-dosis font-medium">45</h2>
-                            <p class="font-open-sans text-sm max-w-[20rem]">Collaborators</p>
-                          </div>
-
-                          <div class="flex flex-col gap-2 text-center items-center px-4 py-10 text-white">
-                            <h2 class="text-5xl font-dosis font-medium">2</h2>
-                            <p class="font-open-sans text-sm max-w-[20rem]">
-                              Years of experience
-                            </p>
-                          </div>
-
-                          <div class="flex flex-col gap-2 text-center items-center px-4 py-10 text-white">
-                            <h2 class="text-5xl font-dosis font-medium">8</h2>
-                            <p class="font-open-sans text-sm max-w-[20rem]">
-                              Country deployment
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- About us -->
-                    <div class="w-full py-10 flex justify-center backdrop-blur-sm">
-                      <div class="w-full max-w-[90rem] px-8 flex items-center gap-10 justify-between max-lg:flex-wrap">
-                        <div class="w-full flex flex-col gap-8">
-                          <div class="sm:w-max">
-                            <h1 class="text-3xl font-dosis font-semibold text-blue-green">
-                              Our History, Your Future
-                            </h1>
-
-                            <hr class="border-2 rounded-lg mt-4 border-blue-green w-[5rem]" />
-                          </div>
-
-                          <p class="font-open-sans text-sm leading-loose text-neutral-700 text-justify">
-                            At NexteWave, we have a rich history of 02 years years of passion
-                            and dedication to excellence. Our team comprises seasoned experts
-                            in the fields of international logistics and procurement. Our
-                            journey has been marked by successes, fruitful partnerships, and
-                            continuous growth. But our focus is always on the future. We
-                            constantly strive to innovate, push boundaries, and provide
-                            solutions that meet the evolving needs of our clients. At
-                            NexteWave, the story is just beginning, and we're excited to have
-                            you as a part of this adventure.
-                          </p>
-
-                          <a href="./about-us.html">
+                          <a href="./contact-us.html">
                             <button
-                              class="rounded-md h-max border border-blue-green py-2 px-8 font-light text-sm leading-normal text-blue-green shadow-md transition-all hover:bg-blue-green hover:text-white  ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
+                              class="rounded-md h-max border border-white py-3 px-8 font-light text-white text-base shadow-md transition-all hover:bg-white hover:text-neutral-700 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
                               type="button">
-                              <span>Learn more</span>
+                              <span>Contact Us</span>
                             </button>
                           </a>
                         </div>
-
-                        <div class="lg:order-first w-full flex justify-center">
-                          <img src="next_website/static/src/img/about.jpg" alt="about" class="lg:w-full h-auto max-h-[35rem] rounded-md" />
-                        </div>
                       </div>
                     </div>
-
-                    <!-- Newsletters contact -->
-                    <div class="w-full pt-10 flex justify-center">
-                      <div class="w-full max-w-[90rem]">
-                        <div class="mx-8 bg-cover bg-center bg-fixed bg-no-repeat rounded-md"
-                          style="background-image: url(next_website/static/src/img/logistic_service.jpg)">
-                          <div
-                            class="flex justify-between text-white min-h-[15rem] py-4 px-8 2xl:px-12 rounded-md flex-wrap gap-8 items-center bg-gradient-newletter">
-                            <div class="flex flex-col gap-3 max-w-2xl">
-                              <h2 class="text-2xl font-dosis font-medium">
-                                Need more information ?
-                              </h2>
-
-                              <p class="font-open-sans text-sm">
-                                We're here to listen. Click below to get in touch and discover
-                                how we can assist you in achieving your business goals.
-                              </p>
-                            </div>
-
-                            <a href="./contact-us.html">
-                              <button
-                                class="rounded-md h-max border border-white py-3 px-8 font-light text-white text-base shadow-md transition-all hover:bg-white hover:text-neutral-700 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
-                                type="button">
-                                <span>Contact Us</span>
-                              </button>
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
                   </div>
+
+                </div>
               </main>
+
+             <script src="next_website/static/src/js/carousel.js" />
+             <script src="next_website/static/src/js/timer.js" />
            </xpath>
        </data>
    </template>

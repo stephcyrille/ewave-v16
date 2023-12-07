@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+       <record id="test_page" model="website.page">
+           <field name="name">Services page</field>
+           <field name="website_published">True</field>
+           <field name="url">/services</field>
+           <field name="type">qweb</field>
+           <field name="key">theme_name.services_page</field>
+           <field name="arch" type="xml">
+               <t t-name="theme_name.services_page_template">
+                 <t t-call="website.layout">
+                   <div id="wrap">
+                     <!-- Section header -->
+                    <div class="bg-cover bg-center bg-no-repeat head"
+                        style="background-image: url(next_website/static/src/img/services.supplychain.webp);">
+                      <div
+                        class=" w-full h-full bg-black/50 backdrop-blur-sm p-8 flex flex-col gap-4 justify-center items-center">
+                        <h2
+                          class="block my-2 font-dosis text-4xl text-center lg:text-5xl leading-[1.3] tracking-normal text-white antialiased">
+                          Our Services
+                        </h2>
+
+                        <div
+                          class="block font-open-sans text-base font-medium md:max-w-2xl text-center leading-relaxed text-gray-300 antialiased">
+                          Where innovation meets excellence! Discover our exceptional quality services, tailor-made for your
+                          needs.
+                        </div>
+                      </div>
+                    </div>
+
+                     <!-- Section service ecommerce-->
+                    <div id="service-ecommerce" class="w-full flex flex-col gap-8 my-6 py-6 items-center">
+                      <div
+                        class="w-full max-w-[90rem] min-h-[25rem] px-8 flex items-center gap-x-24 gap-y-8 justify-between max-lg:flex-wrap">
+                        <div class="w-full flex flex-col gap-8">
+                          <h1 class="text-3xl font-dosis font-semibold text-blue-green">
+                              Procurement Hub Service
+                          </h1>
+
+                          <p class="font-open-sans text-sm leading-loose text-neutral-700 text-justify">
+                              Discover a New Dimension in Purchasing. Our Central Buying Office is much more than a place to
+                              transact business. It's a
+                              gateway to an infinite range of opportunities. At NexteWave, every purchase is a
+                              meticulously orchestrated
+                              experience, where quality meets accessibility. Explore our buying center, where every product is
+                              carefully selected, and
+                              every purchase tells a unique story.
+                          </p>
+                        </div>
+
+                        <div class="w-full flex justify-center">
+                            <div class="animate-liquid-two bg-fixed bg-no-repeat !translate-x-0 !translate-y-0"
+                                style="background-image: url(next_website/static/src/img/market-place.jpg);" />
+                        </div>
+                      </div>
+
+                      <div class="h-[25rem] xl:h-[30rem] bg-slate-300 w-full flex justify-center">
+                        <div class="w-full max-w-[90rem] px-8 flex items-center gap-x-14 justify-between">
+                          <div class="w-full lg:w-1/2  ">
+                            <div class="flex flex-col gap-4">
+                              <h3 class="font-dosis font-medium text-green-steel text-2xl">Available for
+                                companies and
+                                individuals
+                              </h3>
+                              <hr class="w-[5rem] border-2 border-green-steel rounded" />
+                              <p class="text-neutral-600 text-sm font-open-sans max-w-3xl pt-2">Expert Sourcing and
+                                Stunning
+                                Campaigns: We Find, You Love. Explore our tailor-made
+                                sourcing
+                                services and dive into
+                                exceptional campaigns.</p>
+                            </div>
+
+                            <div class="flex flex-col gap-10 w-full mt-8">
+                              <a href="/services/sourcing">
+                                <button
+                                  class="block w-full md:w-2/3 lg:w-4/5 text-left rounded h-max border border-blue-green bg-white text-blue-green py-4 px-8 text-base leading-normal shadow-md transition-all ease-in-out duration-200 disabled:pointer-events-none disabled:shadow-none"
+                                  type="button">
+                                  <span><i class="ri-arrow-right-line pr-2 text-lg leading-none" />Discover
+                                      Sourcing</span>
+                                </button>
+                              </a>
+
+                              <a href="/campaign">
+                                <button
+                                  class="block w-full md:w-2/3 lg:w-4/5 text-left rounded h-max border border-blue-green bg-white text-blue-green py-4 px-8 text-base leading-normal shadow-md transition-all ease-in-out duration-200 disabled:pointer-events-none disabled:shadow-none"
+                                  type="button">
+                                  <span><i class="ri-arrow-right-line pr-2 text-lg leading-none"/>Explore the
+                                      Campaigns</span>
+                                </button>
+                              </a>
+                            </div>
+                          </div>
+
+                          <div class="order-first lg:block hidden w-1/2 h-full bg-cover bg-no-repeat bg-center"
+                            style="background-image: url(next_website/static/src/img/services.purchase.jpg);">
+                            <!-- <img src="./assets/img/services.purchase.jpg" alt="purchase" class="rounded"> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Section service chain supply-->
+                    <div id="service-chain-supply" class="w-full flex flex-col gap-8 mb-6 py-6 items-center">
+                      <div
+                        class="w-full max-w-[90rem] min-h-[25rem] px-8 flex items-center gap-x-24 gap-y-8 justify-between max-lg:flex-wrap">
+                        <div class="w-full flex flex-col gap-8">
+                          <h1 class="text-3xl font-dosis font-semibold text-blue-green">
+                            International Logistics Service
+                          </h1>
+
+                          <p class="font-open-sans text-sm leading-loose text-neutral-700 text-justify">
+                            Connect to the world with our International Logistics. Welcome to a world where borders are
+                            opportunities, and every
+                            parcel becomes an ambassador of quality. Our international logistics at NexteWave transcends
+                            simple shipping. It's
+                            a promise of reliability, speed and global presence. Immerse yourself in our world, where every
+                            shipment is a global
+                            connection, and every destination is within reach.
+                          </p>
+
+                        </div>
+
+                        <div class="w-full flex justify-center">
+                          <div class="animate-liquid-one bg-fixed bg-no-repeat !translate-x-0 !translate-y-0"
+                            style="background-image: url(next_website/static/src/img/supply-support.jpg);">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="h-[25rem] xl:h-[30rem] bg-slate-300 w-full flex justify-center">
+                        <div class="w-full max-w-[90rem] px-8 flex items-center gap-x-14 justify-between">
+                          <div class="w-full lg:w-1/2 ">
+                            <div class="flex flex-col gap-4">
+                              <h3 class="font-dosis font-medium text-green-steel text-2xl">Available for companies and
+                                individuals
+                              </h3>
+                              <hr class="w-[5rem] border-2 border-green-steel rounded" />
+                              <p class="text-neutral-600 text-sm font-open-sans max-w-3xl pt-2">From Seamless Pack &amp;
+                                Ship to Advanced Storage: Go Anywhere. Our logistics push the boundaries.</p>
+                            </div>
+
+                            <div class="flex flex-col gap-10 w-full mt-8">
+                              <a href="/services/pack-and-ship">
+                                <button
+                                  class="block w-full md:w-2/3 lg:w-4/5 text-left rounded h-max border border-blue-green bg-white text-blue-green py-4 px-8 text-base leading-normal shadow-md transition-all ease-in-out duration-200 disabled:pointer-events-none disabled:shadow-none"
+                                  type="button">
+                                  <span><i class="ri-arrow-right-line pr-2 text-lg leading-none" />Tailor-made
+                                    shipping</span>
+                                </button>
+                              </a>
+
+                              <a href="/services/warehouse-storage">
+                                <button
+                                  class="block w-full md:w-2/3 lg:w-4/5 text-left rounded h-max border border-blue-green bg-white text-blue-green py-4 px-8 text-base leading-normal shadow-md transition-all ease-in-out duration-200 disabled:pointer-events-none disabled:shadow-none"
+                                  type="button">
+                                  <span><i class="ri-arrow-right-line pr-2 text-lg leading-none" />More about
+                                      Storage</span>
+                                </button>
+                              </a>
+                            </div>
+                          </div>
+
+                          <div class="order-first lg:block hidden w-1/2 h-full bg-cover bg-no-repeat bg-center"
+                            style="background-image: url(next_website/static/src/img/pack_ecommerce.jpg);">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Section partner -->
+                    <div class="w-full h-max py-6">
+                      <div class="w-full flex justify-center">
+                        <div class="w-full overflow-hidden max-w-[90rem] px-8 flex flex-col gap-4 items-center justify-center">
+                          <div class="w-full sm:w-max my-6 mt-4">
+                            <h1 class="text-3xl font-dosis font-semibold text-green-steel">
+                              Our Partners Give Us Their Trust
+                            </h1>
+
+                            <hr class="border-2 rounded-lg mt-4 border-green-steel w-[20%]" />
+                          </div>
+
+
+                          <div class="scroller" data-speed="fast">
+                            <ul class="tag-list scroller-inner">
+                              <li class="partner-logo"><img src="next_website/static/src/img/logo_01.png" alt="logo" class="h-24" /></li>
+                              <li class="partner-logo"><img src="next_website/static/src/img/logo_02.png" alt="logo" class="h-24" /></li>
+                              <li class="partner-logo"><img src="next_website/static/src/img/logo_03.png" alt="logo" class="h-24" /></li>
+                              <li class="partner-logo"><img src="next_website/static/src/img/logo_04.png" alt="logo" class="h-24" /></li>
+                              <li class="partner-logo"><img src="next_website/static/src/img/logo_05.png" alt="logo" class="h-24" /></li>
+                              <li class="partner-logo"><img src="next_website/static/src/img/logo_06.png" alt="logo" class="h-24" /></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Newsletters contact -->
+                    <div class="w-full pt-10 flex justify-center">
+                      <div class="w-full max-w-[90rem]">
+                        <div class="mx-8 bg-cover bg-center bg-fixed bg-no-repeat rounded-md"
+                          style="background-image: url(next_website/static/src/img/logistic_service.jpg)">
+                          <div
+                            class="flex justify-between text-white min-h-[15rem] py-4 px-8 2xl:px-12 rounded-md flex-wrap gap-8 items-center bg-gradient-newletter">
+                            <div class="flex flex-col gap-3 max-w-2xl">
+                              <h2 class="text-2xl font-dosis font-medium">
+                                Ready to Redefine Your Purchasing and Logistics Experience?
+                              </h2>
+
+                              <p class="font-open-sans text-sm">
+                                Join us for an exceptional collaboration and become one of our business partners.
+                              </p>
+                            </div>
+
+                            <a href="/contact-us">
+                              <button
+                                class="rounded-md h-max border border-white py-3 px-8 font-light text-white text-base shadow-md transition-all hover:bg-white hover:text-neutral-700 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
+                                type="button">
+                                <span>Contact Us</span>
+                              </button>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                   </div>
+
+                   <script src="next_website/static/src/js/carousel.js" />
+                 </t>
+               </t>
+           </field>
+       </record>
+   </data>
+</odoo>

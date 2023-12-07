@@ -29,14 +29,12 @@ NEXTeWave module for the web front office that contain:
         'views/header.xml',
         'views/footer.xml',
         'views/index.xml',
+        'views/services.xml',
     ],
     'assets': {
          'web.assets_frontend': [
              "https://kit.fontawesome.com/b2b52c5522.js",
-             "next_website/static/src/js/carousel.js",
              "next_website/static/src/js/index.js",
-             'next_website/static/src/js/timer.js',
-             'next_website/static/src/css/output.css',
              # 'nextewave_web_template/static/src/scss/theme.scss',
              # 'nextewave_web_template/static/src/js/theme.js',
             # 'nextewave_web_template/static/css/global.css',
