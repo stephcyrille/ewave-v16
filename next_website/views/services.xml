@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
    <data>
-       <record id="test_page" model="website.page">
+       <record id="service_page" model="website.page">
            <field name="name">Services page</field>
            <field name="website_published">True</field>
            <field name="url">/services</field>
            <field name="type">qweb</field>
-           <field name="key">theme_name.services_page</field>
+           <field name="key">next.services_page</field>
            <field name="arch" type="xml">
                <t t-name="theme_name.services_page_template">
                  <t t-call="website.layout">

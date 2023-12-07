@@ -3,10 +3,10 @@
   <data>
     <template id="theme_boec_footer" inherit_id="website.layout" name="Boec Footer">
       <xpath expr="//div[@id='footer']" position="replace">
-        <footer class="w-full border-t border-t-slate-300 bg-white flex flex-col items-center">
+        <footer class="w-full border-t border-t-slate-300 bg-white flex flex-col">
           <section class="footer w-100">
             <div class="wrapper w-100">
-                <div class="container-fluid">
+                <div class="container">
                   <div class="row">
                     <div class="w-full max-w-[90rem] p-8 pb-3 text-neutral-600 font-open-sans text-sm">
                         <!-- Link for contact us -->
