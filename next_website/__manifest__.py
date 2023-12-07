@@ -30,12 +30,13 @@ NEXTeWave module for the web front office that contain:
         'views/footer.xml',
         'views/index.xml',
         'views/services.xml',
+        'views/sourcing.xml',
         'views/sourcing-for-you.xml',
     ],
     'assets': {
          'web.assets_frontend': [
              "https://kit.fontawesome.com/b2b52c5522.js",
-             "next_website/static/src/js/index.js",
+             "/next_website/static/src/js/index.js",
              # 'nextewave_web_template/static/src/scss/theme.scss',
              # 'nextewave_web_template/static/src/js/theme.js',
             # 'nextewave_web_template/static/css/global.css',

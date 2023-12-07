@@ -8,7 +8,7 @@
           class="sticky inset-0 z-30 flex h-max w-full max-w-full justify-center border-b rounded-none bg-white py-1.5 transition-all duration-200 ease-in-out">
           <div class="flex xl:gap-x-4 items-center w-full max-w-[90rem] px-8">
             <a href="/" class="block cursor-pointer py-1.5 antialiased">
-              <img id="logo" src="next_website/static/src/img/logo.png" alt="logo_nextewave"
+              <img id="logo" src="/next_website/static/src/img/logo.png" alt="logo_nextewave"
                 class="transition-all duration-200 ease-in-out h-9 md:h-14 pr-6" />
             </a>
 
@@ -92,7 +92,7 @@
             </div>
 
             <a href="/" class="order-last block cursor-pointer">
-              <img id="logo" src="next_website/static/src/img/logo.png" alt="logo_nextewave" class="h-14" />
+              <img id="logo" src="/next_website/static/src/img/logo.png" alt="logo_nextewave" class="h-14" />
             </a>
 
             <ul

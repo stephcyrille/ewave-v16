@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="sourcing-service" model="website.page">
+     <field name="name">Sourcing</field>
+     <field name="website_published">True</field>
+     <field name="url">/services/sourcing</field>
+     <field name="type">qweb</field>
+     <field name="key">next.sourcing_service</field>
+     <field name="arch" type="xml">
+       <t t-call="website.layout">
+         <xpath expr="//script[@id='web.layout.odooscript']" position="after">
+           <link rel="stylesheet" href="/next_website/static/src/css/flowchart.css" />
+         </xpath>
+
+         <xpath expr="//div[@id='wrap']" position="inside">
+          <div class="bg-slate-50">
+            <!-- Section header -->
+            <div class="bg-cover bg-center bg-no-repeat head"
+              style="background-image: url(/next_website/static/src/img/services.supplychain.webp);">
+              <div class=" w-full h-full bg-black/50 backdrop-blur-sm p-8 flex flex-col gap-4 justify-center items-center">
+                <h2
+                  class="block my-2 font-dosis text-4xl text-center lg:text-5xl leading-[1.3] tracking-normal text-white antialiased">
+                  Sourcing Service
+                </h2>
+
+                <div
+                  class="block font-open-sans text-base font-medium md:max-w-2xl text-center leading-relaxed text-gray-300 antialiased">
+                  You ask, we find, you love. Because your needs are important to us, and your success is our success.
+                </div>
+              </div>
+            </div>
+
+            <!-- Section service ecommerce-->
+            <div class="w-full flex flex-col gap-8 my-6 items-center">
+              <div
+                class="w-full max-w-[90rem] min-h-[25rem] px-8 flex items-center gap-x-24 gap-y-8 justify-between max-lg:flex-wrap">
+                <div class="w-full flex flex-col">
+                  <div class="">
+                    <h1 class="text-3xl font-dosis font-semibold text-blue-green">
+                      Where Innovation Meets the World
+                    </h1>
+
+                    <hr class="border-2 rounded-lg mt-4 mb-8 border-blue-green w-[5rem]" />
+                  </div>
+
+                  <p class="font-open-sans text-sm leading-loose text-neutral-700 text-justify">
+                    Our sourcing approach is based on vision, collaboration and expertise. Explore how we turn every search into
+                    a unique
+                    opportunity, drawing on our global network and commitment to excellence.
+                  </p>
+
+                  <a href="/sourcing-for-you" class="mt-8">
+                    <button
+                      class="rounded-md h-max border bg-blue-green py-3 px-8 text-sm leading-normal text-white shadow-md transition-all hover:bg-white hover:text-blue-green hover:border-blue-green ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
+                      type="button">
+                      <span>Get started now</span>
+                    </button>
+                  </a>
+
+                </div>
+
+                <div class="w-full flex justify-center">
+                  <div class="animate-liquid-two bg-fixed bg-no-repeat !translate-x-0 !translate-y-0"
+                    style="background-image: url(/next_website/static/src/img/services.procurement.jpg);"/>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Section statistics -->
+            <div class="w-full flex justify-center my-14 lg:-mt-4">
+              <div
+                class="w-full max-w-[90rem] px-8 flex flex-wrap justify-center md:justify-around xl:justify-between gap-y-10 text-neutral-600">
+                <div
+                  class="flex gap-8 w-full max-w-md md:w-[47%] xl:w-[23%] items-center justify-between shadow-md shadow-slate-500 p-6 rounded bg-white border hover:scale-110 transition duration-300 ease-in-out">
+                  <div class="flex flex-col gap-2 text-right justify-center ">
+                    <h2 class="text-3xl leading-none font-dosis font-medium text-green-steel">+90%</h2>
+                    <p class="font-open-sans text-sm max-w-[20rem] text-neutral-700 truncate">
+                      Customer satisfaction
+                    </p>
+                  </div>
+                  <div class="text-4xl leading-none order-first text-green-steel">
+                    <i class="fa-solid fa-users" />
+                  </div>
+                </div>
+
+                <div
+                  class="flex gap-8 w-full max-w-md md:w-[47%] xl:w-[23%] items-center justify-between shadow-md shadow-slate-500 p-6 rounded bg-white border  hover:scale-110 transition duration-300 ease-in-out">
+                  <div class="flex flex-col gap-2 text-right justify-center ">
+                    <h2 class="text-3xl leading-none font-dosis font-medium text-green-steel">+50</h2>
+                    <p class="font-open-sans text-sm max-w-[20rem] text-neutral-700">
+                      Products discovered / Month
+                    </p>
+                  </div>
+                  <div class="text-4xl leading-none order-first text-green-steel">
+                    <i class="fa-solid fa-cart-flatbed" />
+                  </div>
+                </div>
+
+                <div
+                  class="flex gap-8 w-full max-w-md md:w-[47%] xl:w-[23%] items-center justify-between shadow-md shadow-slate-500 p-6 rounded bg-white border  hover:scale-110 transition duration-300 ease-in-out">
+                  <div class="flex flex-col gap-2 text-right justify-center ">
+                    <h2 class="text-3xl leading-none font-dosis font-medium text-green-steel">+2</h2>
+                    <p class="font-open-sans text-sm max-w-[20rem] text-neutral-700 truncate">
+                      Years of experience
+                    </p>
+                  </div>
+                  <div class="text-4xl leading-none order-first text-green-steel">
+                    <i class="fa-regular fa-hourglass-half" />
+                  </div>
+                </div>
+
+                <div
+                  class="flex gap-8 w-full max-w-md md:w-[47%] xl:w-[23%] items-center justify-between shadow-md shadow-slate-500 p-6 rounded bg-white border  hover:scale-110 transition duration-300 ease-in-out">
+                  <div class="flex flex-col gap-2 text-right justify-center ">
+                    <h2 class="text-3xl leading-none font-dosis font-medium text-green-steel">+5</h2>
+                    <p class="font-open-sans text-sm max-w-[20rem] text-neutral-700 truncate">
+                      Countries reached
+                    </p>
+                  </div>
+                  <div class="text-4xl leading-none order-first text-green-steel">
+                    <i class="fa-solid fa-earth-americas"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Section process -->
+            <div>
+              <div
+                class="w-full h-0 -mb-[1px] border-b-[3rem] lg:border-b-[5rem] border-r-[99vw] border-r-transparent border-b-[#153c7e]">
+              </div>
+
+              <div class="bg-gradient_solid flex justify-center w-full">
+                <div class="w-full max-w-[90rem] px-8 flex flex-col items-center justify-center">
+                  <div class="section-header">
+                    <h2>Our Process of Sourcing Guides you</h2>
+                    <hr class="border-2 rounded-lg mt-4 mb-8 border-white w-[5rem]" />
+                  </div>
+                  <div class="steps">
+                    <div class="steps-container">
+                      <div class="content">
+                        <h2>Needs Identification</h2>
+                        <p>The journey begins with a thorough understanding of your needs. We sit down with you
+                          to
+                          explore your
+                          specific
+                          requirements, establish clear goals, and define the path to success.
+                        </p>
+                      </div>
+                      <i class="step-line" />
+                      <div class="number font-dosis">1</div>
+                    </div>
+                    <div class="steps-container">
+                      <div class="content">
+                        <h2>Global Research</h2>
+                        <p>Our global team of researchers embarks on an exciting quest across international
+                          markets.
+                          We explore
+                          every corner of the
+                          globe to unearth unique products that perfectly match your vision.
+                        </p>
+                      </div>
+                      <i class="step-line" />
+                      <div class="number font-dosis">2</div>
+                    </div>
+
+                    <div class="steps-container">
+                      <div class="content">
+                        <h2>Expert Negotiation</h2>
+                        <p>Once the pearls are found, our expert negotiators step in. We work tirelessly to
+                          secure
+                          the best
+                          terms for you, whether
+                          in terms of costs, deadlines, or contractual conditions.
+                        </p>
+                      </div>
+                      <i class="step-line" />
+                      <div class="number font-dosis">3</div>
+                    </div>
+                    <div class="steps-container">
+                      <div class="content">
+                        <h2>Rigorous quality control</h2>
+                        <p>Quality is our watchword. Every product we select goes through our rigorous quality
+                          control process.
+                          From careful inspection to final validation, we ensure that every item meets our
+                          high
+                          standards and
+                          your expectations.
+                        </p>
+                      </div>
+                      <i class="step-line" />
+                      <div class="number font-dosis">4</div>
+                    </div>
+                    <div class="steps-container">
+                      <div class="content">
+                        <h2>Made-to-measure delivery</h2>
+                        <p>Our commitment doesn't stop with product selection. With our customized delivery
+                          service,
+                          we ensure
+                          smooth and secure
+                          shipping. From the choice of carriers to the management of delivery times, your
+                          satisfaction is our
+                          priority.
+                        </p>
+                      </div>
+                      <i class="step-line" />
+                      <div class="number font-dosis">5</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class=" w-full h-0 -mt-[1px] border-t-[3rem] lg:border-t-[5rem] border-l-[99vw] border-l-transparent border-t-[#37a9e1]">
+              </div>
+            </div>
+
+
+            <!-- Section why we choice ? -->
+            <div class="w-full flex flex-col items-center my-10">
+              <div class="sm:w-max max-w-[90rem] px-8">
+                <h1 class="text-3xl font-dosis font-semibold text-gray-800">
+                  Why choose our Sourcing Service?
+                </h1>
+
+                <hr class="border-2 rounded-lg my-4 border-blue-green w-[5rem]" />
+              </div>
+              <div class="w-full max-w-[90rem] px-8 flex flex-wrap justify-center md:justify-around xl:justify-between gap-y-1">
+                <div
+                  class="flex flex-col justify-center gap-4 w-full max-w-md md:w-[48%] xl:w-1/4 min-h-[14rem] xl:-ml-4 p-4 hover:border rounded-md hover:shadow-lg shadow-slate-500 transition-all duration-300 ease-in-out">
+                  <div class="text-blue-green text-4xl leading-none">
+                    <i class="fa-solid fa-truck-fast" />
+                  </div>
+                  <h2 class="text-xl font-dosis -mb-2 font-medium text-blue-green">
+                    Speed and efficiency
+                  </h2>
+                  <p class="font-open-sans leading-relaxed text-sm text-neutral-700">
+                    Fast, efficient sourcing to meet your needs in record time. We understand the importance of speed in
+                    business.
+                  </p>
+                </div>
+
+                <div
+                  class="flex flex-col justify-center gap-4 w-full max-w-md md:w-[48%] xl:w-1/4 min-h-[14rem] p-4 hover:border rounded-md hover:shadow-lg shadow-slate-500 transition-all duration-300 ease-in-out">
+                  <div class="text-green-steel text-4xl leading-none">
+                    <i class="fa-solid fa-cubes-stacked" />
+                  </div>
+                  <h2 class="text-xl font-dosis -mb-2 font-medium text-green-steel">
+                    Product diversity
+                  </h2>
+                  <p class="font-open-sans text-sm leading-relaxed text-neutral-700">
+                    Explore an endless variety of products from around the world. Our global network offers unparalleled
+                    diversity.
+                  </p>
+                </div>
+
+                <div
+                  class="flex flex-col justify-center gap-4 w-full max-w-md md:w-[48%] xl:w-1/4 min-h-[14rem] xl:-mr-4 p-4 hover:border rounded-md hover:shadow-lg shadow-slate-500 transition-all duration-300 ease-in-out">
+                  <div class="text-blue-green text-4xl leading-none">
+                    <i class="fa-solid fa-headset" />
+                  </div>
+                  <h2 class="text-xl font-dosis -mb-2 font-medium text-blue-green">
+                    Customer Support
+                  </h2>
+                  <p class="font-open-sans leading-relaxed text-sm text-neutral-700">
+                    Our customer support team is always on hand to answer questions, solve your problems, and
+                    provide you
+                    with the best
+                    experience.
+                  </p>
+                </div>
+
+                <div
+                  class="flex flex-col justify-center gap-4 w-full max-w-md md:w-[48%] xl:w-1/4 min-h-[14rem] xl:-mr-4 p-4 hover:border rounded-md hover:shadow-lg shadow-slate-500 transition-all duration-300 ease-in-out">
+                  <div class="text-green-steel text-4xl leading-none">
+                    <i class="fa-solid fa-shield-halved" />
+                  </div>
+                  <h2 class="text-xl font-dosis -mb-2 font-medium text-green-steel">
+                    Rigorous Quality Control
+                  </h2>
+                  <p class="font-open-sans text-sm leading-relaxed text-neutral-700">
+                    We guarantee quality with a rigorous control process. Every product is subject to strict standards.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section feedback -->
+            <div data-speed="5000" class="carousel-serv bg-cover bg-fixed bg-center"
+              style="background-image: url(/next_website/static/src/img/services.supplychain.webp);">
+              <div class="bg-black/50 backdrop-blur-sm h-full w-full group">
+                <div class="slides-serv">
+                  <div class="slide-serv flex justify-center items-center h-full w-full px-8">
+                    <div class="bubble">
+                      <div class="testimonial">
+                        <div class="quote-l">
+                          <i class="ri-double-quotes-l" />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis et architecto nam vero sapiente
+                          exercitationem est.</p>
+                        <div class="quote-r">
+                          <i class="ri-double-quotes-r" />
+                        </div>
+                      </div>
+                      <div class="owner">
+                        <h3>Wisteria Ravenclaw</h3>
+                        <h4>Google Inc.</h4>
+                      </div>
+
+                      <div class="bubble-arrow" />
+                    </div>
+                  </div>
+
+                  <div class="slide-serv flex justify-center items-center h-full w-full px-8">
+                    <div class="bubble">
+                      <div class="testimonial">
+                        <div class="quote-l">
+                          <i class="ri-double-quotes-l" />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis et architecto nam vero sapiente
+                          exercitationem est.</p>
+                        <div class="quote-r">
+                          <i class="ri-double-quotes-r" />
+                        </div>
+                      </div>
+                      <div class="owner">
+                        <h3>Wisteria Ravenclaw</h3>
+                        <h4>Linkedin Inc.</h4>
+                      </div>
+
+                      <div class="bubble-arrow" />
+                    </div>
+                  </div>
+
+                  <div class="slide-serv flex justify-center items-center h-full w-full px-8">
+                    <div class="bubble">
+                      <div class="testimonial">
+                        <div class="quote-l">
+                          <i class="ri-double-quotes-l" />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis et architecto nam vero sapiente
+                          exercitationem est.</p>
+                        <div class="quote-r">
+                          <i class="ri-double-quotes-r" />
+                        </div>
+                      </div>
+                      <div class="owner">
+                        <h3>Wisteria Ravenclaw</h3>
+                        <h4>Twitter Inc.</h4>
+                      </div>
+
+                      <div class="bubble-arrow" />
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  class="prev-slide-serv absolute inset-0 left-6 top-[50%] h-max -translate-y-1/2 text-5xl leading-none text-gray-300 opacity-0 cursor-pointer group-hover:opacity-100 transition-all ease-in-out duration-300 origin-left">
+                  <i class="ri-arrow-left-s-line " />
+                </div>
+                <div
+                  class="next-slide-serv absolute right-6 top-[50%] h-max -translate-y-1/2 text-5xl leading-none text-gray-300 opacity-0 cursor-pointer group-hover:opacity-100 transition-all ease-in-out duration-300 origin-right">
+                  <i class="ri-arrow-right-s-line" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Newsletters contact -->
+            <div class="w-full pt-10 flex justify-center">
+              <div class="w-full max-w-[90rem]">
+                <div class="mx-8 bg-cover bg-center bg-fixed bg-no-repeat rounded-md"
+                  style="background-image: url(/next_website/static/src/img/logistic_service.jpg)">
+                  <div
+                    class="flex justify-between text-white min-h-[15rem] py-4 px-8 2xl:px-12 rounded-md flex-wrap gap-8 items-center bg-gradient-newletter">
+                    <div class="flex flex-col gap-3 max-w-2xl">
+                      <h2 class="text-2xl font-dosis font-medium">
+                        Ready to Redefine Your Purchasing and Logistics Experience?
+                      </h2>
+
+                      <p class="font-open-sans text-sm">
+                        Join us for an exceptional collaboration and become one of our business partners.
+                      </p>
+                    </div>
+
+                    <a href="/contact-us">
+                      <button
+                        class="rounded-md h-max border border-white py-3 px-8 font-light text-white text-base shadow-md transition-all hover:bg-white hover:text-neutral-700 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
+                        type="button">
+                        <span>Contact Us</span>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+         <script src="/next_website/static/src/js/index.js" />
+         <script src="/next_website/static/src/js/services.js" />
+
+         </xpath>
+       </t>
+     </field>
+    </record>
+  </data>
+</odoo>

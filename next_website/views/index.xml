@@ -404,8 +404,8 @@
                 </div>
               </main>
 
-             <script src="next_website/static/src/js/carousel.js" />
-             <script src="next_website/static/src/js/timer.js" />
+             <script src="/next_website/static/src/js/carousel.js" />
+             <script src="/next_website/static/src/js/timer.js" />
            </xpath>
        </data>
    </template>

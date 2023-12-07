@@ -11,7 +11,7 @@
        <t t-call="website.layout">
          <xpath expr="//div[@id='wrap']" position="inside">
           <div class="bg-slate-50">
-             <div class="bg-cover bg-center bg-no-repeat head" style="background-image: url(next_website/static/src/img/header.jpg);">
+             <div class="bg-cover bg-center bg-no-repeat head" style="background-image: url(/next_website/static/src/img/header.jpg);">
               <div
                 class=" w-full h-full bg-black/50 backdrop-blur-sm p-8 flex flex-col gap-4 justify-center items-center">
                 <h1
@@ -290,7 +290,7 @@
 
           </div>
 
-           <script src="next_website/static/src/js/sourcing-for-you.js" />
+           <script src="/next_website/static/src/js/services.js" />
 
          </xpath>
        </t>
