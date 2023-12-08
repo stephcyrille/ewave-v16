@@ -46,32 +46,32 @@
                       <div class=" product-infos flex flex-wrap -mx-3 mb-4">
                         <div class="product-name w-full md:w-2/3 px-3 mb-4 md:mb-0">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="product-1-name">
+                            for="product_name_1">
                             Product <i class="text-red-600">*</i>
                           </label>
                             <input
                               class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                              id="product-1-name" name="product-1-name" type="text" placeholder="Product name"
+                              id="product_name_1" name="product_name_1" type="text" placeholder="Product name"
                               required="True" />
                         </div>
                         <div class="product-quantity w-1/2 md:w-1/3 px-3">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="product-1-quantity">
+                            for="quantity_1">
                             Quantity <i class="text-red-600">*</i>
                           </label>
                           <input
                             class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                            id="product-1-quantity" name="product-1-quantity" value="1" type="number" min="1"
+                            id="quantity_1" name="quantity_1" value="1" type="number" min="1"
                             placeholder="" required="True" />
                         </div>
                       </div>
 
                       <div class="product-describe w-full pb-4">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="product-1-description">
+                          for="product_description_1">
                           Description <i class="text-red-600">*</i>
                         </label>
-                        <textarea id="product-1-description" name="product-1-description" rows="3"
+                        <textarea id="product_description_1" name="product_description_1" rows="3"
                           placeholder="Additional information of product here" required="True"
                           class="block w-full rounded border border-gray-300 text-gray-700 text-sm placeholder:text-gray-400 leading-normal py-3 px-4 mb-4 focus:bg-white focus:border-blue-green" />
                       </div>
@@ -83,20 +83,32 @@
                         <div class="product-images flex flex-wrap -mx-3 mb-4">
                           <div class="w-full md:w-1/2 px-3 mb-6">
                             <!-- Use the classe sr-only if you want to custom style input file -->
-                            <input id="product-1-file-1" name="product-1-file-1" type="file"
-                              class="text-gray-700 text-sm cursor-pointer appearance-none outline-none" />
+                            <input id="product_picture_1" name="product_picture_1" type="file"
+                              accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                              data-show-caption="true" lass="file" data-show-preview="true"
+                              class="text-gray-700 text-sm cursor-pointer appearance-none outline-none"
+                              onchange="onAddPic(this)"/>
                           </div>
                           <div class="w-full md:w-1/2 px-3 mb-6">
-                            <input id="product-1-file-2" name="product-1-file-2" type="file"
-                              class="text-gray-700 text-sm cursor-pointer appearance-none outline-none" />
+                            <input id="product_picture_1_2" name="product_picture_1_2" type="file"
+                              accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                              data-show-caption="true" lass="file" data-show-preview="true"
+                              class="text-gray-700 text-sm cursor-pointer appearance-none outline-none"
+                              onchange="onAddPic(this)"/>
                           </div>
                           <div class="w-full md:w-1/2 px-3 mb-6">
-                            <input id="product-1-file-3" name="product-1-file-3" type="file"
-                              class="text-gray-700 text-sm cursor-pointer appearance-none outline-none" />
+                            <input id="product_picture_1_3" name="product_picture_1_3" type="file"
+                              accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                              data-show-caption="true" lass="file" data-show-preview="true"
+                              class="text-gray-700 text-sm cursor-pointer appearance-none outline-none"
+                              onchange="onAddPic(this)"/>
                           </div>
                           <div class="w-full md:w-1/2 px-3 mb-2 md:mb-0">
-                            <input id="product-1-file-4" name="product-1-file-4" type="file"
-                              class="text-gray-700 text-sm cursor-pointer appearance-none outline-none" />
+                            <input id="product_picture_1_4" name="product_picture_1_4" type="file"
+                              accept="image/jpeg,image/gif,image/png" data-show-upload="true"
+                              data-show-caption="true" lass="file" data-show-preview="true"
+                              class="text-gray-700 text-sm cursor-pointer appearance-none outline-none"
+                              onchange="onAddPic(this)"/>
                           </div>
                         </div>
                       </div>
@@ -279,6 +291,7 @@
                   </div>
 
                   <hr class="my-6 mb-8 border-slate-200" />
+                  <input type="hidden" name="product_counter" id="product_counter" value="1"/>
 
                   <button
                     class="rounded-md h-max font-dosis border py-2 px-8 font-light text-sm leading-normal text-white shadow-md transition-all bg-blue-green hover:bg-green-600 border-slate-200 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
