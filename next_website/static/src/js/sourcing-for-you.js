@@ -23,7 +23,7 @@ var tab_counter = 1;
 
 function removeProduct(index) {
   var product_number = index.split('-')[1];
-  
+
   if(product_number < tab_counter){
     console.log("You must select first the last product");
   } else {

@@ -4,6 +4,16 @@
              inherit_id="website.homepage" name="Nextewave | Home" active="True">
        <data inherit_id="website.homepage">
            <xpath expr="//div[@id='wrap']" position="inside">
+             <t t-if="form_alert">
+               <div style="z-index: 1000">
+                  <div t-attf-class="alert alert-dismissible alert-#{form_alert['color']} text-center fade show mb-0" style="z-index: 10;">
+                    <strong><span t-esc="form_alert['title']" /></strong>
+                    <span t-esc="form_alert['message_header']" /> <br/>
+                    <span t-esc="form_alert['message_body']" />
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"/>
+                  </div>
+                </div>
+             </t>
              <main>
                <!-- Carousel -->
                <div class="carousel" data-speed="5000">
