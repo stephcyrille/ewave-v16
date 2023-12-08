@@ -1,3 +1,0 @@
-<record id="website.template_header_default_align_center" model="ir.ui.view">
-   <field name="active" eval="True"/>
-</record>
