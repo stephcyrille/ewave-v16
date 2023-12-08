@@ -132,7 +132,7 @@
                       <div class="form-group row mt-3">
                         <label for="product_material_1" class="col-sm-3 col-form-label" >Material <sup>*</sup></label>
                         <div class="col-sm-9">
-                          <select class="form-control" id="product_material_1" name="product_material_1"
+                          <select class="form-control" id="product_material_1" name="product_name_1"
                                   placeholder="Product material">
                             <option value="other">Other</option>
                             <option value="electronic">Electronic</option>

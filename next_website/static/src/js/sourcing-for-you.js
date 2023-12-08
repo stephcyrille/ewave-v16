@@ -12,7 +12,6 @@ addProductButton.addEventListener("click", addProduct);
 */
 
  // Product increment
-var i = 1;
 var size = 1;
 var tab_counter = 1;
 
@@ -44,9 +43,9 @@ function removeProduct(index) {
 
 function addProduct() {
   size++;
-  tab_counter ++
+  tab_counter ++;
 
-  document.getElementsByName("product_counter")[0].value = tab_counter
+  document.getElementsByName("product_counter")[0].value = tab_counter;
 
   let element = productForm.cloneNode(true);
   let index = size;

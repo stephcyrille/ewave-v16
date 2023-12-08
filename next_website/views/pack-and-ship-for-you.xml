@@ -27,56 +27,67 @@
               </div>
             </div>
 
+            <t t-if="form_alert">
+              <div>
+                <div t-attf-class="alert alert-dismissible alert-#{form_alert['color']} text-center fade show mb-0" style="z-index: 10;">
+                  <strong><span t-esc="form_alert['title']" /></strong>
+                  <span t-esc="form_alert['message_header']" /> <br/>
+                  <span t-esc="form_alert['message_body']" />
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"/>
+                </div>
+              </div>
+            </t>
+
             <div class="w-full flex justify-center">
-              <form action="" class="w-full max-w-[70rem] p-8 font-open-sans">
+              <form action="/pack-and-ship-4-you/submit" class="w-full max-w-[70rem] p-8 font-open-sans" method="post">
                 <p class="text-sm lg:text-base my-6 italic text-neutral-500">All the field with with symbol <i
                   class="text-red-600">*</i> after the field label are required.</p>
 
                   <!-- Section personals information -->
                   <h2 class="font-dosis text-xl lg:text-2xl text-blue-green font-medium pt-4">
-                    Shipping informations</h2>
+                    Shipping information</h2>
                   <hr class="mb-8 mt-4 border-slate-300" />
 
                   <div>
                     <div class="flex flex-wrap -mx-3 mb-4">
                       <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="origin">
+                          for="from_place">
                           Origin <i class="text-red-600">*</i>
                         </label>
                         <input
                           class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                          id="origin" name="origin" type="text" placeholder="From place" required="True" />
+                          id="from_place" name="from_place" type="text" placeholder="From place" required="True" />
                       </div>
                       <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="destination">
+                          for="to_place">
                           Destination <i class="text-red-600">*</i>
                         </label>
                         <input
                           class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                          id="destination" name="destination" type="text" placeholder="To placee" required="True" />
+                          id="to_place" name="to_place" type="text" placeholder="To placee" required="True" />
                       </div>
                     </div>
 
                     <div class="flex flex-wrap -mx-3 mb-4">
                       <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="company">
+                          for="company_name">
                           Company <i class="text-red-600">*</i>
                         </label>
                         <input
                           class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                          id="company" name="company" type="text" placeholder="Company name" required="True" />
+                          id="company_name" name="company_name" type="text" placeholder="Company name" required="True" />
                       </div>
                       <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="full-name">
+                          for="name">
                           Full name <i class="text-red-600">*</i>
                         </label>
                         <input
                           class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                          id="full-name" name="full-name" type="text" placeholder="Name and surname"
+                          id="name" name="name" type="text" placeholder="Name and surname"
                           required="True" />
                       </div>
                     </div>
@@ -84,12 +95,12 @@
                     <div class="flex flex-wrap -mx-3 mb-4">
                       <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                          for="phone">
+                          for="phone_number">
                           Phone number <i class="text-red-600">*</i>
                         </label>
                         <input
                           class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                          id="phone" name="phone" type="tel" placeholder="Phone number" required="True" />
+                          id="phone_number" name="phone_number" type="tel" placeholder="Phone number" required="True" />
                       </div>
                         <div class="w-full md:w-1/2 px-3">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -105,21 +116,21 @@
                       <div class="flex flex-wrap -mx-3 mb-4">
                         <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="departure">
+                            for="start_date">
                             Departure <i class="text-red-600">*</i>
                           </label>
                           <input
                             class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                            id="departure" name="departure" type="date" placeholder="" required="True" />
+                            id="start_date" name="start_date" type="date" placeholder="" required="True" />
                         </div>
                         <div class="w-full md:w-1/2 px-3 mb-4 md:mb-0">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="arrival">
+                            for="end_date">
                             Arrival <i class="text-red-600">*</i>
                           </label>
                           <input
                             class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                            id="arrival" name="arrival" type="date" placeholder="" required="True" />
+                            id="end_date" name="end_date" type="date" placeholder="" required="True" />
                         </div>
                       </div>
                   </div>
@@ -127,7 +138,7 @@
                   <hr class="my-6 mb-8 border-slate-100" />
 
                   <div class="flex justify-between items-center">
-                    <h2 class="font-dosis text-xl lg:text-2xl text-blue-green font-medium">Products informations</h2>
+                    <h2 class="font-dosis text-xl lg:text-2xl text-blue-green font-medium">Products information</h2>
                     <button id="add-pack"
                       class="rounded-md h-max font-dosis border py-2 px-8 font-light text-sm leading-normal text-white shadow-md transition-all bg-blue-green hover:bg-blue-green/90 border-slate-200 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
                       type="button">
@@ -148,70 +159,83 @@
                       <div class="pack-infos flex flex-wrap -mx-3 mb-4">
                         <div class="pack-name w-full md:w-1/2 px-3 mb-4 md:mb-0">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="pack-1-name">
+                            for="product_name_1">
                             Name <i class="text-red-600">*</i>
                           </label>
                           <input
                             class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                            id="pack-1-name" name="pack-1-name" type="text" placeholder="pack name" required="True" />
+                            id="product_name_1" name="product_name_1" type="text" placeholder="pack name" required="True" />
                         </div>
                         <div class="pack-material w-full md:w-1/2 px-3">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="pack-1-material">
+                            for="product_material_1">
                             Material <i class="text-red-600">*</i>
                           </label>
-                          <input
-                            class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                            id="pack-1-material" name="pack-1-material" type="text" placeholder="Other"
-                            required="True" />
+                          <div class="relative">
+                            <select
+                              class="block appearance-none  w-full bg-white border border-gray-300 text-gray-700 text-sm py-3 px-4 pr-8 mb-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
+                              id="product_material_1" name="product_material_1">
+
+                              <option value="cosmetic">Cosmetic</option>
+                              <option value="electronic">Electronic</option>
+                              <option value="shoes">Shoes</option>
+                              <option value="textile">Textile</option>
+                              <option value="other">Other</option>
+                            </select>
+                            <div
+                              class="pointer-events-none text-2xl absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                              <i class="ri-arrow-down-s-fill" />
+                            </div>
+                          </div>
                         </div>
                       </div>
 
                       <div class="pack-infos flex flex-wrap -mx-3 mb-4">
                         <div class="pack-quantity w-1/2 md:w-1/4 px-3 mb-4 md:mb-0">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="pack-1-quantity">
+                            for="quantity_1">
                             Quantity <i class="text-red-600">*</i>
                           </label>
                           <input
                             class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                            id="pack-1-quantity" name="pack-1-quantity" value="1" step="1" type="number" min="1"
+                            id="quantity_1" name="quantity_1" value="1" step="1" type="number" min="1"
                             placeholder="" required="True" />
                         </div>
                         <div class="pack-weight w-1/2 md:w-1/4 px-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                              for="pack-1-weight">
+                              for="product_weight_1">
                               Weight (Kg) <i class="text-red-600">*</i>
                             </label>
                             <input
                               class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                              id="pack-1-weight" name="pack-1-weight" value="1.00" step="0.01" type="number"
+                              id="product_weight_1" name="product_weight_1" value="1.00" step="0.01" type="number"
                               min="0.01" placeholder="" required="True" />
                         </div>
                         <div class="pack-capacity w-1/2 md:w-1/4 px-3">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="pack-1-capacity">
+                            for="product_capacity_1">
                             Capicity (m3) <i class="text-red-600">*</i>
                           </label>
                           <input
                             class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                            id="pack-1-capacity" name="pack-1-capacity" value="1.00" step="0.01" type="number"
+                            id="product_capacity_1" name="product_capacity_1" value="1.00" step="0.01" type="number"
                             min="0.01" placeholder="" required="True" />
                         </div>
                         <div class="pack-price w-1/2 md:w-1/4 px-3">
                           <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                            for="pack-1-price">
+                            for="product_price_1">
                             Estimated price <i class="text-red-600">*</i>
                           </label>
                           <input
                             class="appearance-none block w-full bg-white text-gray-700 text-sm border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-blue-green"
-                            id="pack-1-price" name="pack-1-price" value="1.00" step="0.01" type="number"
+                            id="product_price_1" name="product_price_1" value="1.00" step="0.01" type="number"
                             min="0.01" placeholder="" required="True" />
                         </div>
                       </div>
                     </div>
                   </div>
 
+                  <input type="hidden" name="product_counter" id="product_counter" value="1"/>
 
                   <button
                     class="rounded-md h-max font-dosis border mt-8 py-2 px-8 font-light text-sm leading-normal text-white shadow-md transition-all bg-blue-green hover:bg-green-600 border-slate-200 ease-in-out duration-200 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-block"
