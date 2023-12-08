@@ -5,11 +5,8 @@ import base64
 
 
 class NextewaveSourcingForYou(http.Controller):
-    @http.route('/sourcing-4-you', type='http', auth='public', website=True)
-    def sourcing_for_you(self, **kwagrs):
-        return request.render('nextewave_web_template.source_for_you_form', {})
 
-    @http.route('/sourcing-4-you/submit', type='http', auth='public', website=True, csrf=False)
+    @http.route('/sourcing-4-you/submit', type='http', auth='public', website=True, csrf=False, methods=['POST'])
     def post_source_and_buy_for_you(self, **kwagrs):
         partner_obj = request.env['res.partner']
         crm_lead_obj = request.env['crm.lead']
@@ -52,22 +49,35 @@ class NextewaveSourcingForYou(http.Controller):
             products_more_info = ''
             products_line = []
 
+            print("\n\n\n\n")
+            print(kwagrs)
+            print("\n\n")
+
             for i in range(1, int(counter) + 1):
                 # Compose dict key for list product attributes
                 key_product_name = f'product_name_{i}'
                 key_quantity = f'quantity_{i}'
                 key_description = f'product_description_{i}'
 
-                key_picture_1 = f'product_picture_{i}'
+                key_picture_1 = f'product_picture_{i}_1'
                 key_picture_2 = f'product_picture_{i}_2'
                 key_picture_3 = f'product_picture_{i}_3'
                 key_picture_4 = f'product_picture_{i}_4'
 
+                print("\n\n\n\n")
+                print(kwagrs.get(key_picture_1))
+                print(kwagrs.get(key_picture_2))
+                print(kwagrs.get(key_picture_3))
+                print(kwagrs.get(key_picture_4))
+                print("\n")
+                print(i)
+                print("\n\n")
+
                 val = {
-                    "product_pic1": base64.encodebytes(kwagrs.get(key_picture_1).read()) if kwagrs.get(key_picture_1) else False,
-                    "product_pic2": base64.encodebytes(kwagrs.get(key_picture_2).read()) if kwagrs.get(key_picture_2) else False,
-                    "product_pic3": base64.encodebytes(kwagrs.get(key_picture_3).read()) if kwagrs.get(key_picture_3) else False,
-                    "product_pic4": base64.encodebytes(kwagrs.get(key_picture_4).read()) if kwagrs.get(key_picture_4) else False
+                    "product_pic1": base64.encodebytes(kwagrs.get(key_picture_1).read()) if kwagrs.get(key_picture_1) else None,
+                    "product_pic2": base64.encodebytes(kwagrs.get(key_picture_2).read()) if kwagrs.get(key_picture_2) else None,
+                    "product_pic3": base64.encodebytes(kwagrs.get(key_picture_3).read()) if kwagrs.get(key_picture_3) else None,
+                    "product_pic4": base64.encodebytes(kwagrs.get(key_picture_4).read()) if kwagrs.get(key_picture_4) else None
                 }
 
                 product_pic = crm_product_pic_obj.sudo().create(val)
@@ -117,6 +127,6 @@ class NextewaveSourcingForYou(http.Controller):
             context = {
                 "form_alert": values
             }
-            return request.render('nextewave_web_template.source_for_you_form', context)
+            return request.render('next.sourcing_for_you_page', context)
 
 

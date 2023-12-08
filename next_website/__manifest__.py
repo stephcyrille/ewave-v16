@@ -21,10 +21,13 @@ NEXTeWave module for the web front office that contain:
     'version': '16.1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['website'],
+    'depends': ['website',
+                'nextewave_base',
+                'nextewave_crm'],
 
     # always loaded
     'data': [
+        'views/snippets/head_meta.xml',
         'views/layout.xml',
         'views/header.xml',
         'views/footer.xml',

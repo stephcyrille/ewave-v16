@@ -30,6 +30,7 @@ function removeProduct(index) {
     let element = document.getElementById(index);
     element.remove();
     tab_counter--;
+    document.getElementsByName("product_counter")[0].value = tab_counter
     size--
   }
 
@@ -94,26 +95,26 @@ function addProduct() {
 
   images.innerHTML = `<div class="w-full md:w-1/2 px-3 mb-6">
                         <input type="file" class="r-only" name="product_picture_${index}_1"
-                               accept="image/jpeg,image/gif,image/png" data-show-upload="true"
-                               data-show-caption="true" lass="file" data-show-preview="true"
+                               accept="image/*" data-show-upload="true"
+                               data-show-caption="true" data-show-preview="true"
                                id="product_picture_${index}_1" onchange="onAddPic(this)">
                         </div>
                         <div class="w-full md:w-1/2 px-3 mb-6">
                             <input type="file" class="r-only" name="product_picture_${index}_2"
-                               accept="image/jpeg,image/gif,image/png" data-show-upload="true"
-                               data-show-caption="true" lass="file" data-show-preview="true"
+                               accept="image/*" data-show-upload="true"
+                               data-show-caption="true" data-show-preview="true"
                                id="product_picture_${index}_2" onchange="onAddPic(this)">
                         </div>
                         <div class="w-full md:w-1/2 px-3 mb-6">
                             <input type="file" class="r-only" name="product_picture_${index}_3"
-                               accept="image/jpeg,image/gif,image/png" data-show-upload="true"
-                               data-show-caption="true" lass="file" data-show-preview="true"
+                               accept="image/*" data-show-upload="true"
+                               data-show-caption="true" data-show-preview="true"
                                id="product_picture_${index}_3" onchange="onAddPic(this)">
                         </div>
                         <div class="w-full md:w-1/2 px-3 mb-2 md:mb-0">
                             <input type="file" class="r-only" name="product_picture_${index}_4"
-                               accept="image/jpeg,image/gif,image/png" data-show-upload="true"
-                               data-show-caption="true" lass="file" data-show-preview="true"
+                               accept="image/*" data-show-upload="true"
+                               data-show-caption="true" data-show-preview="true"
                                id="product_picture_${index}_4" onchange="onAddPic(this)">
                         </div>`;
 
