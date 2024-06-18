@@ -9,6 +9,11 @@ class CustomWebHomepage(Home):
     def index(self, **kw):
         super(CustomWebHomepage, self).index()
 
+        campaign_products = request.env["product.product"].sudo().search([('in_campaign', '=', True)])
+        print("\n\n\n")
+        print(f"The size is {len(campaign_products)}")
+        print("\n\n")
+
         values = ''
 
         # Check if we have a querystring first in the URL for avoiding crashing of the app
@@ -30,6 +35,7 @@ class CustomWebHomepage(Home):
                     }
 
         context = {
-            "form_alert": values
+            "form_alert": values,
+            'products': campaign_products
         }
         return request.render('next_website.home', context)

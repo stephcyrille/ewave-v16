@@ -119,11 +119,11 @@ function addAnimation() {
     const scrollerInner = scroller.querySelector(".scroller-inner");
     const scrollerContent = Array.from(scrollerInner.children);
 
-    scrollerContent.forEach((item) => {
-      const duplicateItem = item.cloneNode(true);
-      duplicateItem.setAttribute("aria-hidden", true);
-
-      scrollerInner.appendChild(duplicateItem);
-    });
+//    scrollerContent.forEach((item) => {
+//      const duplicateItem = item.cloneNode(true);
+//      duplicateItem.setAttribute("aria-hidden", true);
+//
+//      scrollerInner.appendChild(duplicateItem);
+//    });
   });
 }

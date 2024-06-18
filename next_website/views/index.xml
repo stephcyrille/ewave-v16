@@ -199,20 +199,16 @@
                             </div>
                           </div>
 
-                          <div class="scroller">
+                          <!-- CHECK IF THE PRODUCTS IS HERE -->
+                          <div class="scroller" t-if="products">
                             <ul class="tag-list scroller-inner">
-                              <li class="campaign-product">Product 1</li>
-                              <li class="campaign-product">Product 2</li>
-                              <li class="campaign-product">Product 3</li>
-                              <li class="campaign-product">Product 4</li>
-                              <li class="campaign-product">Product 5</li>
-                              <li class="campaign-product">Product 6</li>
-                              <li class="campaign-product">Product 7</li>
-                              <li class="campaign-product">Product 8</li>
-                              <li class="campaign-product">Product 9</li>
-                              <li class="campaign-product">Product 10</li>
+                              <li class="campaign-product" t-foreach="products" t-as="product">
+                                <t t-out="product.name" />
+                                <img t-if="product.image_1920" t-att-src="'data:image/jpg;base64,%s' % (product.image_1920,)" style="max-height:45pt;max-width:90%" t-att-alt="product.name" />
+                              </li>
                             </ul>
                           </div>
+
                         </div>
                       </div>
                     </div>
